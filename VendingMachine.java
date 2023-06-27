@@ -1,6 +1,7 @@
+import java.util.*;
 public class VendingMachine {
 
-    private Slot[] slots;
+    private ArrayList<Slot> slots;
     private CashInventory cashInventory;
     private ItemInventory itemInventory;
     private TransactionLog transactionLog;
