@@ -1,6 +1,8 @@
+import java.util.*;
+
 public class TransactionLog {
-    private Sale[] sales;
-    private int[] startingInventory;
+    private ArrayList<Sale> sales;
+    private ArrayList<Integer> startingInventory;
     private double totalSales;
 
     public TransactionLog() {

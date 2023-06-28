@@ -3,9 +3,9 @@ public class ItemInventory {
     private ArrayList<Item> items;
     private ArrayList<Slot> inventoryslots;
 
-    public ItemInventory() {
+    public ItemInventory(ArrayList<Slot> slots) {
         this.items = new ArrayList<>(8); // Assuming 8 slots in the vending machine
-        inventoryslots = this.VendingMachine.slots();
+        this.inventoryslots = slots;
     }
     /**
      * addItem adds an Item to the ItemInventory
@@ -52,15 +52,19 @@ public class ItemInventory {
     public boolean restockItems(Item item) {
        //need code hehe
        boolean value = false;
-       ArrayList<Slot> tempslotlist = VendingMachine c.getSlots();
+
        if (items.contains(item) == true)
        {
         value = true;
         
-        slot.get
        
        }
 
        return value;
+    }
+
+    public ArrayList<Item> getInventory()
+    {
+        return this.items;
     }
 }

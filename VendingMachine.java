@@ -12,7 +12,7 @@ public class VendingMachine {
         this.name = name;
         this.slots = new ArrayList<>(8);
         this.cashInventory = new CashInventory();
-        this.itemInventory = new ItemInventory();
+        this.itemInventory = new ItemInventory(this.slots);
         this.transactionLog = new TransactionLog();
     }
 
@@ -21,7 +21,7 @@ public class VendingMachine {
         this.name = "Stock Vending Machine";
         this.slots = new ArrayList<>(8);
         this.cashInventory = new CashInventory();
-        this.itemInventory = new ItemInventory();
+        this.itemInventory = new ItemInventory(this.slots);
         this.transactionLog = new TransactionLog();
     }
 
@@ -102,6 +102,11 @@ public class VendingMachine {
     public ArrayList<Slot> getSlots()
     {
         return this.slots;
+    }
+
+    public String getName()
+    {
+        return this.name;
     }
 
     
