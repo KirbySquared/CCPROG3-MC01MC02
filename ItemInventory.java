@@ -19,7 +19,7 @@ public class ItemInventory {
             items.add(slot, item);
             value = true;
         }
-
+        
         return value;
     }
 
@@ -56,7 +56,7 @@ public class ItemInventory {
        if (items.contains(item) == true)
        {
         value = true;
-        
+        //CODE HERE
        
        }
 

@@ -20,6 +20,11 @@ public class TransactionLog {
         //totalSales += sales.get(slot).getItem().getPrice() * quantity;
     }
 
+    public void addSale(Sale sale) 
+    {
+        sales.add(sale);
+    }
+
     public double getTotalSales() {
         return totalSales;
     }

@@ -28,7 +28,7 @@ public class Coin {
         this.quantity += newquantity;
         else
         value = false;
-
+        
         return value;
     }
 

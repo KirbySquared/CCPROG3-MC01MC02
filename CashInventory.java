@@ -10,27 +10,54 @@ public class CashInventory {
         this.coinsList = new ArrayList<>();
     }
 
-    /* public boolean addCoin (Coin coin)
+    public boolean addCoin (Coin coin)
     {
         boolean value = true;
 
         for (Coin tempcoin: coinsList)
         {
             if (tempcoin.getValue() == coin.getValue() )
-            value = false;
-            else
-            this.coinsList.add(coin);
+            {
+                value = false;
+                break;
+            }
         }
 
-        return value;
-    } */
+        if (value == true)
+        this.coinsList.add(coin);
 
-    /* public boolean deductCash(double amount)
+        return value;
+
+    } 
+
+    public boolean addCash (Cash cash)
     {
         boolean value = true;
 
+        for (Coin tempcash: cashList)
+        {
+            if (tempcash.getValue() == cash.getValue() )
+            {
+                value = false;
+                break;
+            }
+        }
+
+        if (value == true)
+        this.cashList.add(cash);
+
         return value;
-    } */
+    } 
+
+    public void sortCoinsbyValue()
+    {
+        coinsList.sort(Comparator.comparing(Coin::getValue));
+    }
+
+    public void sortCashbyValue()
+    {
+        cashList.sort(Comparator.comparing(Cash::getValue));
+    }
 
     public ArrayList<Cash> getAvailableCash()
     {
@@ -47,6 +74,18 @@ public class CashInventory {
         return templist;
     }
 
+    public double getTotalCash()
+    {
+        double total = 0.0;
+
+        for (Cash tempcash: cashList)
+        {   
+            total += tempcash.getValue() * tempcash.getQuantity();
+        }
+
+        return total;
+    }
+
     public boolean clearCash()
     {   
         boolean value;
@@ -58,5 +97,16 @@ public class CashInventory {
          
          return value;
     }
-    
+
+    public boolean clearCoins()
+    {
+        boolean value;
+
+         if (coinsList.removeAll(coinsList) == true)
+         value = true;
+         else 
+         value = false;
+         
+         return value;
+    }
 }

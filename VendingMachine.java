@@ -28,7 +28,7 @@ public class VendingMachine {
     public void restockItems()
     {
        this.itemInventory.restockItems();
-        this.transactionLog.setStartingInventory(itemInventory.getInventory()); //Revise natin to
+       this.transactionLog.setStartingInventory(itemInventory.getInventory()); //Revise natin to
     }
 
     public void setItemPrice(int slot, double price)
@@ -52,7 +52,7 @@ public class VendingMachine {
             double availableCash = cashInventory.getTotalCash();
 
             if (availableCash >= price) {
-                selectedSlot.decreaseQuantity();
+                selectedSlot.decreaseQuantity(1);
                 cashInventory.deductCash(price);
 
                 Sale sale = new Sale(slot, 1);
