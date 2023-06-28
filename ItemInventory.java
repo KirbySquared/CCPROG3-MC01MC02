@@ -2,6 +2,7 @@ import java.util.*;
 public class ItemInventory {
     private ArrayList<Item> items;
     private ArrayList<Slot> inventoryslots;
+    private ItemInventory startingInventory;
 
     public ItemInventory(ArrayList<Slot> slots) {
         this.items = new ArrayList<>(8); // Assuming 8 slots in the vending machine
@@ -50,7 +51,7 @@ public class ItemInventory {
     }
 
     public boolean restockItems(Item item) {
-       //need code hehe
+       //need code hehe``
        boolean value = false;
 
        if (items.contains(item) == true)
@@ -66,5 +67,15 @@ public class ItemInventory {
     public ArrayList<Item> getInventory()
     {
         return this.items;
+    }
+
+     public ItemInventory getStartingInventory() {
+        return startingInventory;
+    }
+
+    public ItemInventory getEndingInventory(ItemInventory runningInventory) {
+
+        ItemInventory endingInventory = runningInventory;
+        return endingInventory;
     }
 }

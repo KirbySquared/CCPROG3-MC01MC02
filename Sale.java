@@ -1,17 +1,29 @@
 public class Sale {
-    private int slot;
+    private Item item;
     private int quantity;
 
-    public Sale(int slot, int quantity) {
-        this.slot = slot;
-        this.quantity = quantity;
+    public Sale(Item item) {
+        this.item = item;
+        this.quantity = 1;
     }
 
-    public int getSlot() {
-        return slot;
+    public Item getItem() {
+        return item;
     }
 
     public int getQuantity() {
         return quantity;
+    }
+
+    public boolean addQuantity(int quantity) {
+
+        boolean value = true;
+
+        if (quantity > 0)
+        this.quantity += quantity;
+        else
+        value = false;
+
+        return value;
     }
 }

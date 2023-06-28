@@ -13,7 +13,7 @@ public class VendingMachine {
         this.slots = new ArrayList<>(8);
         this.cashInventory = new CashInventory();
         this.itemInventory = new ItemInventory(this.slots);
-        this.transactionLog = new TransactionLog();
+        this.transactionLog = new TransactionLog ();
     }
 
     public VendingMachine()
@@ -55,7 +55,7 @@ public class VendingMachine {
                 selectedSlot.decreaseQuantity(1);
                 cashInventory.deductCash(price);
 
-                Sale sale = new Sale(slot, 1);
+                Sale sale = new Sale(selecteditem);
                 transactionLog.addSale(sale);
             } else {
                 System.out.println("Insufficient funds. Please insert more coins.");
@@ -68,8 +68,10 @@ public class VendingMachine {
     public void produceChange()
     {
         double totalCash = cashInventory.getTotalCash();
-        double availableCash = cashInventory.getAvailableCash();
-        double change = totalCash - availableCash;
+        ArrayList<Cash> availableCash = cashInventory.getAvailableCash();
+        double availableCashTotal = cashInventory.getTotalCash();
+
+        double change = totalCash - availableCashTotal;
 
         if (change > 0) {
             // Dispense change to the user
