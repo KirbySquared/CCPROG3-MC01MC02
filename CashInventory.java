@@ -34,7 +34,7 @@ public class CashInventory {
     {
         boolean value = true;
 
-        for (Coin tempcash: cashList)
+        for (Cash tempcash: cashList)
         {
             if (tempcash.getValue() == cash.getValue() )
             {
@@ -48,6 +48,109 @@ public class CashInventory {
 
         return value;
     } 
+    public boolean addcoinQuantity(double coinvalue, int quantity)
+    {
+        boolean value = false;
+        int tempcoin = 0;
+
+        if (quantity > 0)
+        {
+            for (Coin temp: coinsList)
+            {
+                if (coinvalue == temp.getValue() )
+                {
+                    value = true;
+                    tempcoin = coinsList.indexOf(temp);
+                    break;
+                }
+            }
+
+        }
+        if (value == true)
+        {
+            coinsList.get(tempcoin).addQuantity(quantity);
+        }
+
+        return value;
+    }
+
+    public boolean addcashQuantity(double cashvalue, int quantity)
+    {
+        boolean value = false;
+        int tempcash = 0;
+
+        if (quantity > 0)
+        {
+            for (Cash temp: cashList)
+            {
+                if (cashvalue == temp.getValue() )
+                {
+                    value = true;
+                    tempcash = cashList.indexOf(temp);
+                    break;
+                }
+            }
+
+        }
+        if (value == true)
+        {
+            cashList.get(tempcash).addQuantity(quantity);
+        }
+
+        return value;
+    }
+
+      public boolean reducecoinQuantity(double coinvalue, int quantity)
+    {
+        boolean value = false;
+        int tempcoin = 0;
+
+        if (quantity > 0)
+        {
+            for (Coin temp: coinsList)
+            {
+                if (coinvalue == temp.getValue() )
+                {
+                    value = true;
+                    tempcoin = coinsList.indexOf(temp);
+                    break;
+                }
+            }
+
+        }
+        if (value == true)
+        {
+            coinsList.get(tempcoin).deductQuantity(quantity);
+        }
+        
+        return value;
+    }
+
+    public boolean reducecashQuantity(double cashvalue, int quantity)
+    {
+        boolean value = false;
+        int tempcash = 0;
+
+        if (quantity > 0)
+        {
+            for (Cash temp: cashList)
+            {
+                if (cashvalue == temp.getValue() )
+                {
+                    value = true;
+                    tempcash = cashList.indexOf(temp);
+                    break;
+                }
+            }
+
+        }
+        if (value == true)
+        {
+            cashList.get(tempcash).deductQuantity(quantity);
+        }
+        
+        return value;
+    }
 
     public void sortCoinsbyValue()
     {

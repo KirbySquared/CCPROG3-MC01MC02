@@ -27,8 +27,7 @@ public class VendingMachine {
 
     public void restockItems()
     {
-       this.itemInventory.restockItems();
-       this.transactionLog.setStartingInventory(itemInventory.getInventory()); //Revise natin to
+        
     }
 
     public void setItemPrice(int slot, double price)
