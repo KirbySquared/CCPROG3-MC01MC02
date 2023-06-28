@@ -7,28 +7,32 @@ public class TransactionLog {
 
     public TransactionLog() {
         this.sales = new ArrayList<>(8);
-        this.startingInventory = new int[8];
+        this.startingInventory = new ArrayList<>(8);
         totalSales = 0.0;
     }
 
     public void addSale(int slot, int quantity) {
-        sales.get(slot) = new Sale(slot, quantity);
-        startingInventory[slot] -= quantity;
-        totalSales += sales[slot].getItem().getPrice() * quantity;
+
+        Sale tempsale = new Sale(slot,quantity);
+
+        sales.add(tempsale);
+        //startingInventory[slot] -= quantity;
+        //totalSales += sales.get(slot).getItem().getPrice() * quantity;
     }
 
     public double getTotalSales() {
         return totalSales;
     }
 
-    public int[] getStartingInventory() {
+    public ArrayList<Integer> getStartingInventory() {
         return startingInventory;
     }
 
-    public int[] getEndingInventory() {
-        int[] endingInventory = new int[8];
+    public ArrayList<Integer> getEndingInventory() {
+        ArrayList<Integer> endingInventory = new ArrayList<>(8);
         for (int i = 0; i < 8; i++) {
-            endingInventory[i] = startingInventory[i] + sales[i].getQuantity();
+
+            endingInventory.add(i, startingInventory.get(i) + sales.get(i).getQuantity() );
         }
         return endingInventory;
     }
