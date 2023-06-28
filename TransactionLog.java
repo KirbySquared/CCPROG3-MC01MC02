@@ -6,13 +6,13 @@ public class TransactionLog {
     private double totalSales;
 
     public TransactionLog() {
-        sales = new Sale[8];
-        startingInventory = new int[8];
+        this.sales = new ArrayList<>(8);
+        this.startingInventory = new int[8];
         totalSales = 0.0;
     }
 
     public void addSale(int slot, int quantity) {
-        sales[slot] = new Sale(slot, quantity);
+        sales.get(slot) = new Sale(slot, quantity);
         startingInventory[slot] -= quantity;
         totalSales += sales[slot].getItem().getPrice() * quantity;
     }
