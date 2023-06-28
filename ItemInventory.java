@@ -1,20 +1,33 @@
+import java.util.*;
 public class ItemInventory {
-    private Item[] items;
+    private ArrayList<Item> items;
+    private ArrayList<Slot> inventoryslots;
 
     public ItemInventory() {
-        items = new Item[8]; // Assuming 8 slots in the vending machine
+        this.items = new ArrayList<>(8); // Assuming 8 slots in the vending machine
+        inventoryslots = this.VendingMachine.slots();
     }
+    /**
+     * addItem adds an Item to the ItemInventory
+     * @param item
+     * @param slot
+     */
+    public boolean addItem(Item item, int slot) {
+        boolean value = false;
 
-    public void addItem(Item item, int slot) {
-        if (slot >= 0 && slot < items.length) {
-            items[slot] = item;
+        if (slot >= 0 && slot < items.size() ) {
+            items.add(slot, item);
+            value = true;
         }
+
+        return value;
     }
 
     public Item getItem(int slot) {
-        if (slot >= 0 && slot < items.length) {
-            return items[slot];
+        if (slot >= 0 && slot < items.size()) {
+            return items.get(slot);
         }
+        
         return null;
     }
 
@@ -36,7 +49,18 @@ public class ItemInventory {
         return 0;
     }
 
-    public void restockItems() {
+    public boolean restockItems(Item item) {
        //need code hehe
+       boolean value = false;
+       ArrayList<Slot> tempslotlist = VendingMachine c.getSlots();
+       if (items.contains(item) == true)
+       {
+        value = true;
+        
+        slot.get
+       
+       }
+
+       return value;
     }
 }

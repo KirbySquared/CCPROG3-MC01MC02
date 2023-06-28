@@ -1,4 +1,5 @@
 import java.util.*;
+
 public class Slot {
 
     private Item item;
@@ -8,6 +9,12 @@ public class Slot {
     {
         this.item = item;
         this.quantity = quantity;
+    }
+
+    public Slot(Item item)
+    {
+        this.item = item;
+        this.quantity = 8;
     }
 
     public Item getItem()
@@ -26,6 +33,18 @@ public class Slot {
 
         if (this.quantity > quantity)
         this.quantity -= quantity;
+        else
+        value = false;
+
+        return value;
+    }
+
+    public boolean addQuantity(int quantity)
+    {   
+        boolean value = true;
+
+        if (quantity > 0)
+        this.quantity += quantity;
         else
         value = false;
 

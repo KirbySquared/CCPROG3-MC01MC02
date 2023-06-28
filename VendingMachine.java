@@ -1,38 +1,49 @@
 import java.util.*;
 public class VendingMachine {
 
+    private final String name;
     private ArrayList<Slot> slots;
     private CashInventory cashInventory;
     private ItemInventory itemInventory;
     private TransactionLog transactionLog;
 
-    public void VendingMachine()
+    public VendingMachine(String name)
     {
-        slots = new Slot[8];
-        cashInventory = new CashInventory();
-        itemInventory = new ItemInventory();
-        transactionLog = new TransactionLog();
+        this.name = name;
+        this.slots = new ArrayList<>(8);
+        this.cashInventory = new CashInventory();
+        this.itemInventory = new ItemInventory();
+        this.transactionLog = new TransactionLog();
+    }
+
+    public VendingMachine()
+    {
+        this.name = "Stock Vending Machine";
+        this.slots = new ArrayList<>(8);
+        this.cashInventory = new CashInventory();
+        this.itemInventory = new ItemInventory();
+        this.transactionLog = new TransactionLog();
     }
 
     public void restockItems()
     {
-        itemInventory.restockItems();
-        transactionLog.setStartingInventory(itemInventory.getInventory());
+       this.itemInventory.restockItems();
+        this.transactionLog.setStartingInventory(itemInventory.getInventory()); //Revise natin to
     }
 
     public void setItemPrice(int slot, double price)
     {
-        slots[slot].getItem().setPrice(price);
+        slots.get(slot).getItem().setPrice(price);
     }
 
     public void insertCoin(Coin coin)
     {
-        cashInventory.addCoin(coin);
+       this.cashInventory.addCoin(coin);
     }
 
     public void selectItems(int slot)
     {
-         Slot selectedSlot = slots[slot];
+        Slot selectedSlot = slots.get(slot);
         Item selecteditem = selectedSlot.getItem();
         int quantity = selectedSlot.getQuantity();
 
@@ -87,5 +98,11 @@ public class VendingMachine {
 
         return summary.toString();
     }
+
+    public ArrayList<Slot> getSlots()
+    {
+        return this.slots;
+    }
+
     
 }
