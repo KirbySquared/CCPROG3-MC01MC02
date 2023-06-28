@@ -52,7 +52,7 @@ public class VendingMachine {
 
             if (availableCash >= price) {
                 selectedSlot.decreaseQuantity(1);
-                cashInventory.deductCash(price);
+                cashInventory.deductCash(price); //INCOMPLETE PA TO NEED NATIN SEPARATE METHOD IF PRICE LANG IDEDEDUCT
 
                 Sale sale = new Sale(selecteditem);
                 transactionLog.addSale(sale);
@@ -89,8 +89,8 @@ public class VendingMachine {
         StringBuilder summary = new StringBuilder();
         summary.append("Transaction Summary:\n");
 
-        int[] startingInventory = transactionLog.getStartingInventory();
-        int[] endingInventory = transactionLog.getEndingInventory();
+        int[] startingInventory = transactionLog.getStartingInventory(); //need pa ayusin here
+        int[] endingInventory = transactionLog.getEndingInventory(); //need pa ayusin here
         double totalSales = transactionLog.getTotalSales();
 
         summary.append("Starting Inventory: ").append(Arrays.toString(startingInventory)).append("\n");
