@@ -110,6 +110,5 @@ public class VendingMachine {
     {
         return this.name;
     }
-
     
 }

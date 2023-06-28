@@ -15,12 +15,18 @@ public class ItemInventory {
      */
     public boolean addItem(Item item, int slot) {
         boolean value = false;
+        slot -=1;
 
         if (slot >= 0 && slot < items.size() ) {
-            items.add(slot, item);
+            items.set(slot, item);
             value = true;
         }
-        
+        else if (slot >= 0 && slot > items.size() )
+        {
+            items.add(slot,item);
+            value = true;
+        }
+       
         return value;
     }
 
@@ -48,20 +54,6 @@ public class ItemInventory {
             return item.getCalories();
         }
         return 0;
-    }
-
-    public boolean restockItems(Item item) {
-       //need code hehe``
-       boolean value = false;
-
-       if (items.contains(item) == true)
-       {
-        value = true;
-        //CODE HERE
-       
-       }
-
-       return value;
     }
 
     public ArrayList<Item> getInventory()
