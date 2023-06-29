@@ -40,7 +40,7 @@ public class VendingMachine {
 
     }
 
-    public void setItemPrice(int slot, double price)
+    public void setItemPrice(int slot, int price)
     {
         slots.get(slot).getItem().setPrice(price);
     }
@@ -55,14 +55,50 @@ public class VendingMachine {
         Slot selectedSlot = slots.get(slot);
         Item selecteditem = selectedSlot.getItem();
         int quantity = selectedSlot.getQuantity();
+        boolean valuechecker = true;
 
         if (quantity > 0) {
-            double price = selecteditem.getPrice() * quantity;
+            int price = selecteditem.getPrice() * quantity;
             double availableCash = cashInventory.getTotalCash();
 
-            if (availableCash >= price) {
+            for (Cash cash:  cashInventory.getcashList() )
+            {
+                if (cash.getQuantity() == 0)
+                {
+                    valuechecker = false;
+                    break;
+                }
+            }
+
+            for (Coin coin:  cashInventory.getcoinsList() )
+            {
+                if (coin.getQuantity() == 0)
+                {
+                    valuechecker = false;
+                    break;
+                }
+            }
+
+            if (availableCash >= price && valuechecker == true) {
                 selectedSlot.decreaseQuantity(1);
-                cashInventory.reducecashQuantity(availableCash, quantity); //Refers to the denominations
+                System.out.println("You purchased: " + selecteditem.getName() + "for Php " + selecteditem.getPrice() );
+                cashInventory.reducecashQuantity(1000, price/1000);
+                price %= 1000;
+                cashInventory.reducecashQuantity(500, price/500);
+                price %= 500;
+                cashInventory.reducecashQuantity(200, price/200);
+                price %= 200;
+                cashInventory.reducecashQuantity(100, price/100);
+                price %= 100;
+                cashInventory.reducecashQuantity(50, price/50);
+                price %= 50;
+                cashInventory.reducecashQuantity(20, price/20);
+                price %= 20;
+                cashInventory.reducecoinQuantity(10, price/10);
+                price %= 10;
+                cashInventory.reducecoinQuantity(5, price/5);
+                price %= 5;
+                cashInventory.reducecoinQuantity(1, price);
 
                 Sale sale = new Sale(selecteditem);
                 transactionLog.addSale(sale);

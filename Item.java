@@ -1,9 +1,9 @@
 public class Item {
     private String name;
-    private double price;
+    private int price;
     private int calories;
 
-    public Item(String name, double price, int calories) {
+    public Item(String name, int price, int calories) {
         this.name = name;
         this.price = price;
         this.calories = calories;
@@ -13,11 +13,11 @@ public class Item {
         return name;
     }
 
-    public double getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 

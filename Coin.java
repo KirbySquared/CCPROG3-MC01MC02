@@ -1,10 +1,10 @@
 public class Coin {
     
-    private final double value;
+    private final int value;
     private int quantity;
     //Coin values MUST BE PRE-DEFINED AND HAVE AT LEAST 50 QUANTITY FOR OUR CODE (Such as 1 piso, 5 peso, 10 peso coins, etc . . .)
 
-    public Coin (double value)
+    public Coin (int value)
     {
         this.value = value;
         this.quantity = 50;

@@ -48,7 +48,7 @@ public class CashInventory {
 
         return value;
     } 
-    public boolean addcoinQuantity(double coinvalue, int quantity)
+    public boolean addcoinQuantity(int coinvalue, int quantity)
     {
         boolean value = false;
         int tempcoin = 0;
@@ -74,7 +74,7 @@ public class CashInventory {
         return value;
     }
 
-    public boolean addcashQuantity(double cashvalue, int quantity)
+    public boolean addcashQuantity(int cashvalue, int quantity)
     {
         boolean value = false;
         int tempcash = 0;
@@ -100,7 +100,7 @@ public class CashInventory {
         return value;
     }
 
-      public boolean reducecoinQuantity(double coinvalue, int quantity)
+      public boolean reducecoinQuantity(int coinvalue, int quantity)
     {
         boolean value = false;
         int tempcoin = 0;
@@ -126,7 +126,7 @@ public class CashInventory {
         return value;
     }
 
-    public boolean reducecashQuantity(double cashvalue, int quantity)
+    public boolean reducecashQuantity(int cashvalue, int quantity)
     {
         boolean value = false;
         int tempcash = 0;
@@ -167,6 +167,10 @@ public class CashInventory {
         return this.cashList;
     }
 
+    public ArrayList<Coin> getcoinsList()
+    {
+        return this.coinsList;
+    }
     public double getTotalCash()
     {
         double total = 0.0;

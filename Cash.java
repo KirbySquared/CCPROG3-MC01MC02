@@ -1,6 +1,6 @@
 public class Cash extends Coin{
     
-    public Cash (double value)
+    public Cash (int value)
     {
         super(value);
     }
