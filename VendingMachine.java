@@ -12,7 +12,7 @@ public class VendingMachine {
         this.name = name;
         this.slots = new ArrayList<>(8);
         this.cashInventory = new CashInventory();
-        this.itemInventory = new ItemInventory(this.slots);
+        this.itemInventory = new ItemInventory();
         this.transactionLog = new TransactionLog ();
     }
 
@@ -21,13 +21,23 @@ public class VendingMachine {
         this.name = "Stock Vending Machine";
         this.slots = new ArrayList<>(8);
         this.cashInventory = new CashInventory();
-        this.itemInventory = new ItemInventory(this.slots);
+        this.itemInventory = new ItemInventory();
         this.transactionLog = new TransactionLog();
     }
 
-    public void restockItems()
+    public void restockItem(Item item)
     {
-        
+        int i = 0;
+        for (Slot temp: slots) //iterates over the slotsList in the vending machine
+        {
+            if ( temp.getItem().equals(item) ) //Checks if the slot in the vending machine has the item being looked for
+            {
+               i = slots.indexOf(temp);
+               slots.get(i).addQuantity(8);
+               break;
+            }
+        }
+
     }
 
     public void setItemPrice(int slot, double price)
@@ -47,12 +57,12 @@ public class VendingMachine {
         int quantity = selectedSlot.getQuantity();
 
         if (quantity > 0) {
-            double price = selecteditem.getPrice();
+            double price = selecteditem.getPrice() * quantity;
             double availableCash = cashInventory.getTotalCash();
 
             if (availableCash >= price) {
                 selectedSlot.decreaseQuantity(1);
-                cashInventory.deductCash(price); //INCOMPLETE PA TO NEED NATIN SEPARATE METHOD IF PRICE LANG IDEDEDUCT
+                cashInventory.reducecashQuantity(availableCash, quantity); //Refers to the denominations
 
                 Sale sale = new Sale(selecteditem);
                 transactionLog.addSale(sale);
@@ -67,10 +77,13 @@ public class VendingMachine {
     public void produceChange()
     {
         double totalCash = cashInventory.getTotalCash();
-        ArrayList<Cash> availableCash = cashInventory.getAvailableCash();
         double availableCashTotal = cashInventory.getTotalCash();
-
         double change = totalCash - availableCashTotal;
+
+        for (Cash cash : cashInventory.getcashList() )
+        {
+            System.out.println(cash.getValue() + ": IN STOCK = " + cash.getQuantity());
+        }
 
         if (change > 0) {
             // Dispense change to the user
@@ -84,17 +97,16 @@ public class VendingMachine {
          cashInventory.clearCash();
     }
 
-    String getTransactionSummary()
+    String getTransactionSummary() 
     {
         StringBuilder summary = new StringBuilder();
         summary.append("Transaction Summary:\n");
 
-        int[] startingInventory = transactionLog.getStartingInventory(); //need pa ayusin here
-        int[] endingInventory = transactionLog.getEndingInventory(); //need pa ayusin here
+ //need pa ayusin here //need pa ayusin here
         double totalSales = transactionLog.getTotalSales();
 
-        summary.append("Starting Inventory: ").append(Arrays.toString(startingInventory)).append("\n");
-        summary.append("Ending Inventory: ").append(Arrays.toString(endingInventory)).append("\n");
+        summary.append("Starting Inventory: ").append(itemInventory.toString() ).append("\n");
+        summary.append("Ending Inventory: ").append(itemInventory.toString() ).append("\n");
         summary.append("Total Sales: ").append(totalSales).append("\n");
 
         return summary.toString();

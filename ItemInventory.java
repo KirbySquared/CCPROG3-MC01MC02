@@ -1,16 +1,9 @@
 import java.util.*;
 public class ItemInventory {
     private ArrayList<Item> items;
-    private ArrayList<Slot> inventoryslots;
-    private ItemInventory startingInventory;
 
-    public ItemInventory(ArrayList<Slot> slots) {
-        this.items = new ArrayList<>(8); // Assuming 8 slots in the vending machine
-        this.inventoryslots = slots;
-    }
     public ItemInventory() {
         this.items = new ArrayList<>(8); // Assuming 8 slots in the vending machine
-        this.inventoryslots = new ArrayList<Slot>(8);
     }
     /**
      * addItem adds an Item to the ItemInventory
@@ -64,15 +57,4 @@ public class ItemInventory {
     {
         return this.items;
     }
-
-     public ItemInventory getStartingInventory() {
-        return startingInventory;
-    }
-
-    /* public ItemInventory getEndingInventory(ItemInventory runningInventory) {
-
-        ItemInventory endingInventory = runningInventory;
-        return endingInventory;
-        What if yung current inventory nalang ng VendingMachine gamitin since ending Inventory din naman
-    } */
 }

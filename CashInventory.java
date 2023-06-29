@@ -162,19 +162,9 @@ public class CashInventory {
         cashList.sort(Comparator.comparing(Cash::getValue));
     }
 
-    public ArrayList<Cash> getAvailableCash()
+    public ArrayList<Cash> getcashList()
     {
-        ArrayList<Cash> templist = new ArrayList<>();
-
-        for (Cash tempcash: cashList)
-        {
-            if (tempcash.getQuantity() > 0)
-            {
-                templist.add(tempcash);
-            }
-        }
-
-        return templist;
+        return this.cashList;
     }
 
     public double getTotalCash()
