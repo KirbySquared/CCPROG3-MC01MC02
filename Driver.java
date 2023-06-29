@@ -5,10 +5,42 @@ public class Driver {
  * Create 8 Item objects using Real life drinks (Coke, sprite, royal etc)
  * Add items to Slots using VendingMachine.addItemtoSlot
  * Create Actual Money using Coin / Cash constructors ( Cash(1000), Coin(5), Coin(10), etc . . .)
- * Add items to cashInv using addCashtocashInv(Cash cash) and addCointocashInv(Coin coin)
+ * Add Cash to cashInv using addCashtocashInv(Cash cash) and addCointocashInv(Coin coin)
  * Create method to PRINT ITEM INVENTORY OF VENDING MACHINE / CASH INVENTORY ALONG WITH TRANSACTION LOG
  * The methods to print inventories / transaction logs will not be used until called by the user.
+ * But the method to print the current items in the slots + their quantity and price should always be displayed as it is
+ * updated using the different methods.
  */
+
+ public void printItemInventory() {
+    System.out.println("Item Inventory:");
+    for (Slot slot : slots) {
+        Item item = slot.getItem();
+        int quantity = slot.getQuantity();
+        System.out.println(item.getName() + ": " + quantity);
+    }
+}
+
+public void printCashInventory() {
+    System.out.println("Cash Inventory:");
+    for (Cash cash : cashInventory.getcashList()) {
+        int quantity = cash.getQuantity();
+        System.out.println(cash.getValue() + "php: " + quantity);
+    }
+    for (Coin coin : cashInventory.getcoinsList()) {
+        int quantity = coin.getQuantity();
+        System.out.println(coin.getValue() + "php: " + quantity);
+    }
+}
+
+public void printTransactionLog() {
+    System.out.println("Transaction Log:");
+    for (Sale sale : transactionLog.getSales()) {
+        Item item = sale.getItem();
+        System.out.println("Item: " + item.getName() + ", Price: " + item.getPrice());
+    }
+}
+
 
     public void createVendingMachine(VendingMachine vendingMachine) {
         Scanner scanner = new Scanner(System.in);
@@ -27,16 +59,72 @@ public class Driver {
 
         // Rest of the vending machine setup
 
-        System.out.println("Vending machine created successfully!");
-        System.out.println(vendingMachine.getName());
+           // Add 8 Item objects to the vending machine
+           vendingMachine.addItemtoSlot(new Item("Coke", 10, 10));
+           vendingMachine.addItemtoSlot(new Item("Sprite",20, 20));
+           vendingMachine.addItemtoSlot(new Item("Royal",30,30));
+           vendingMachine.addItemtoSlot(new Item("Pepsi",40,40));
+           vendingMachine.addItemtoSlot(new Item("Mug",50,50));
+           vendingMachine.addItemtoSlot(new Item("7UP",60,60));
+           vendingMachine.addItemtoSlot(new Item("Water",70,70));
+           vendingMachine.addItemtoSlot(new Item("C2",80,80));
 
-        scanner.close();
+           vendingMachine.addCashtocashInv(new Cash(1000)); // Add 1000 PHP bill
+           vendingMachine.addCashtocashInv(new Cash(500));
+           vendingMachine.addCashtocashInv(new Cash(200));
+           vendingMachine.addCashtocashInv(new Cash(100));
+           vendingMachine.addCashtocashInv(new Cash(50));
+           vendingMachine.addCashtocashInv(new Cash(20));
+           vendingMachine.addCointocashInv(new Coin(10));
+           vendingMachine.addCointocashInv(new Coin(5));
+           vendingMachine.addCointocashInv(new Coin(1));
+
+
+           System.out.println("Vending machine created successfully!");
+           System.out.println(vendingMachine.getName());
+
+           scanner.close();
+    }
+
+    public void testVendingMachine(VendingMachine vendingMachine)
+    {
+        
+    }
+
+    public void VendingMachineFactory(VendingMachine vendingmachine)
+    {
+        int choice = 0;
+
+        while (choice != 3)
+        {
+            System.out.println("VENDING MACHINE FACTORY - MC01 EDITION");
+            System.out.println("1. Create Vending Machine");
+            System.out.println("2. Test Vending Machine");
+            System.out.println("3. Exit Program");
+
+            switch (choice)
+            {
+                case 1: createVendingMachine(vendingmachine); break;
+                case 2: if (vendingmachine = null)
+                {
+                    System.out.println("Please create a vending machine first.");
+                }
+                else
+                //call test vending machine function here
+                break;
+                case 3: System.out.println("\nThank you for using the Vending Machine Factory!");
+                break;
+            }
+        }
+        
     }
 
     public static void main(String[] args) {
         VendingMachine vendingMachine = null;
         Driver driver = new Driver();
         driver.createVendingMachine(vendingMachine);
+
+        VendingMachineFactory(vendingmachine);
         // Continue with the vending machine operations
     }
     

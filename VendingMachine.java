@@ -147,10 +147,11 @@ public class VendingMachine {
         StringBuilder summary = new StringBuilder();
         summary.append("Transaction Summary:\n");
 
- //need pa ayusin here //need pa ayusin here
+        //need pa ayusin here //need pa ayusin here
         double totalSales = transactionLog.getTotalSales();
 
         summary.append("Starting Inventory: ").append(itemInventory.toString() ).append("\n");
+        //NEED BAGUHIN YUNG INVENTORY PARA MAGKAIBA SA ENDING INVENTORY 
         summary.append("Ending Inventory: ").append(itemInventory.toString() ).append("\n");
         summary.append("Total Sales: ").append(totalSales).append("\n");
 
