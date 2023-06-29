@@ -157,6 +157,22 @@ public class VendingMachine {
         return summary.toString();
     }
 
+    public void addItemtoSlot(Item item)
+    {
+        Slot temp = new Slot(item);
+        slots.add(temp);
+    }
+
+    public void addCashtocashInv(Cash cash)
+    {
+        cashInventory.addCash(cash);
+    }
+
+    public void addCointocashInv(Coin coin)
+    {
+        cashInventory.addCoin(coin);
+    }
+
     public ArrayList<Slot> getSlots()
     {
         return this.slots;

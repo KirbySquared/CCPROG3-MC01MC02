@@ -10,7 +10,7 @@ public class Coin {
         this.quantity = 50;
     }
 
-    public double getValue()
+    public int getValue()
     {
         return this.value;
     }

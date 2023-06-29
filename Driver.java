@@ -1,55 +1,20 @@
 import java.util.*;
 
 public class Driver {
+/*
+ * Create 8 Item objects using Real life drinks (Coke, sprite, royal etc)
+ * Add items to Slots using VendingMachine.addItemtoSlot
+ * Create Actual Money using Coin / Cash constructors ( Cash(1000), Coin(5), Coin(10), etc . . .)
+ * Add items to cashInv using addCashtocashInv(Cash cash) and addCointocashInv(Coin coin)
+ * Create method to PRINT ITEM INVENTORY OF VENDING MACHINE / CASH INVENTORY ALONG WITH TRANSACTION LOG
+ * The methods to print inventories / transaction logs will not be used until called by the user.
+ */
 
-    public void testVendingMachine(VendingMachine vendingmachine) {
-        Scanner scanner = new Scanner(System.in);
-        int choice = 0;
-
-        do {
-            displayRestockMenu();
-            choice = scanner.nextInt();
-            scanner.nextLine(); // Consume newline character
-
-            switch (choice) {
-                case 1:
-                    System.out.print("Enter the item to restock: ");
-                    String itemToRestock = scanner.nextLine();
-                    Item item = new Item(itemToRestock, 0, 0); // Create a dummy item with zero price and calories
-                    vendingmachine.restockItem(item);
-                    break;
-                case 2:
-                    System.out.print("Enter the slot number: ");
-                    int slotNumber = scanner.nextInt();
-                    System.out.print("Enter the new price: ");
-                    int newPrice = scanner.nextInt();
-                    vendingmachine.setItemPrice(slotNumber, newPrice);
-                    break;
-                case 3:
-                    System.out.println("Returning to main menu...");
-                    break;
-                default:
-                    System.out.println("Invalid choice. Please try again.");
-            }
-
-        } while (choice != 3);
-
-        scanner.close();
+    public void createVendingMachine(VendingMachine vendingmachine)
+    {
+        
     }
-
-    public static void main(String[] args) {
-        VendingMachine vendingMachine = new VendingMachine("My Vending Machine");
-        Driver driver = new Driver();
-        driver.testVendingMachine(vendingMachine);
-    }
-
-    private static void displayRestockMenu() {
-        System.out.println("------ Restock Menu ------");
-        System.out.println("1. Restock Item");
-        System.out.println("2. Set Item Price");
-        System.out.println("3. Return to main menu");
-        System.out.print("Enter your choice: ");
-    }
+    
     
     /* public static void main(String[] args)
     {
