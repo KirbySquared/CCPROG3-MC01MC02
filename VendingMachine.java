@@ -109,22 +109,28 @@ public class VendingMachine {
 
         if (valuechecker == true) 
         {
-            for (Cash cash: cashInventory.getcashList() )
-        {
-            cashInventory.reducecashQuantity(cash.getValue(), change/cash.getValue());
-                System.out.println( "Cash: " + change/cash.getValue() + "x " + cash.getValue() + "php| ");
-                change -= cash.getValue() * (change/cash.getValue() );
+            System.out.println("Cash:\tQuantity\tValue");
+            for (Cash cash : cashInventory.getcashList()) {
+                int quantity = change / cash.getValue();
+                cashInventory.reducecashQuantity(cash.getValue(), quantity);
+                System.out.printf("Cash:\t%d\t\t%dphp%n", quantity, cash.getValue());
+                change -= cash.getValue() * quantity;
+            }
+
+            System.out.println("\nCoin:\tQuantity\tValue");
+            for (Coin coin : cashInventory.getcoinsList()) {
+                int quantity = change / coin.getValue();
+                cashInventory.reducecashQuantity(coin.getValue(), quantity);
+                System.out.printf("Coin:\t%d\t\t%dphp%n", quantity, coin.getValue());
+                change -= coin.getValue() * quantity;
+            }
+
+            System.out.println("\nYOU INSERTED: " + money + " php");
+            System.out.println("TOTAL COST: " + price + " php");
+            System.out.println("YOUR CHANGE IS: " + tempchange2 + " php");
+            System.out.println("Vending Machine Remaining Cash: " + cashInventory.getTotalCash() + " php.\n");
         }
-             for (Coin coin: cashInventory.getcoinsList() )
-        {
-            cashInventory.reducecashQuantity(coin.getValue(), change/coin.getValue());
-                System.out.println( "Coin: " + change/coin.getValue() + "x " + coin.getValue() + "php| ");
-                change -= coin.getValue() * (change/coin.getValue() );
-        }       System.out.println("YOU INSERTED: " + money + " php");
-                System.out.println("TOTAL COST: " + price + " php");
-                System.out.println("YOUR CHANGE IS: " + tempchange2 + " php");
-                System.out.println("Vending Machine Remaining Cash: " + cashInventory.getTotalCash() + " php.\n" );
-        } else 
+        else 
             {
                 System.out.println("No change available.");
             }
@@ -140,19 +146,25 @@ public class VendingMachine {
      */
     String getTransactionSummary() 
     {
-        StringBuilder summary = new StringBuilder();
-        summary.append("Transaction Summary:\n");
+        
+    TransactionLog transactionLog = gettransactionLog();
 
-        //need pa ayusin here //need pa ayusin here
-        double totalSales = transactionLog.getTotalSales();
+    StringBuilder summary = new StringBuilder();
+    ArrayList<Sale> salesList = transactionLog.getsalesList();
 
-        summary.append("Starting Inventory: ").append(itemInventory.toString() ).append("\n");
-        //Need ihiwalay yung pagdisplay ng ending inventory and starting inventory, this function must only be called
-        //when restocking
-        summary.append("Ending Inventory: ").append(itemInventory.toString() ).append("\n");
-        summary.append("Total Sales: ").append(totalSales).append("\n");
+    summary.append("Transaction Log:\n");
 
-        return summary.toString();
+    for (Sale sale : salesList) {
+        summary.append("Item: ").append(sale.getItem().getName()).append("\n");
+        summary.append("Price per item: ").append(sale.getItem().getPrice()).append("\n");
+        summary.append("Quantity: ").append(sale.getQuantity()).append("\n");
+        summary.append("Total price: ").append(sale.getItem().getPrice() * sale.getQuantity()).append("\n\n");
+    }
+
+    summary.append("Total Sales: ").append(transactionLog.getTotalSales());
+
+    return summary.toString();
+
     }
 
     public void addItemtoSlot(Item item)

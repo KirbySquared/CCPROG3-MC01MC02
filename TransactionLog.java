@@ -12,6 +12,7 @@ public class TransactionLog {
     public void addSale(Sale sale) 
     {
         sales.add(sale);
+        updateTotalSales();
     }
 
     public ArrayList<Sale> getsalesList()

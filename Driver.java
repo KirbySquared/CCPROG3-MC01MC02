@@ -22,11 +22,14 @@ public class Driver {
 
  public void printItemInventory(VendingMachine vendingmachine) {
     int i = 1;
-    System.out.println( vendingmachine.getName() + " Item Inventory:");
+    System.out.println("************************************");
+    System.out.println(vendingmachine.getName() + " Item Inventory:");
+    System.out.println("Slot #\t| Item\t\t  | In Stock\t | Price     | Calories");
     for (Slot slot : vendingmachine.getSlots()) {
         Item item = slot.getItem();
-        System.out.println("Slot #" + i + " " + item.getName() + ": " + slot.getQuantity() + " In stock| \t" + item.getPrice() + "php");
-        i++; 
+        System.out.printf("%-7d | %-15s | %-12d | %-6dphp | %-8d%n",
+                i, item.getName(), slot.getQuantity(), item.getPrice(), item.getCalories());
+        i++;
     }
 }
 
@@ -194,7 +197,8 @@ public VendingMachine createVendingMachine() {
                     //function here
                     break;
                 case 8:
-                    //function here
+                    String transactionSummary = vendingMachine.getTransactionSummary();
+                    System.out.println(transactionSummary);
                     break;
                 case 9:
                     //function here
