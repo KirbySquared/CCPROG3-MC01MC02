@@ -31,4 +31,16 @@ public class Sale {
 
         return value;
     }
+    public boolean decreaseQuantity(int quantity) {
+
+        boolean value = true;
+
+        if (quantity > 0 && this.quantity >= quantity)
+        this.quantity -= quantity;
+        else
+        value = false;
+
+        return value;
+    }
 }
+

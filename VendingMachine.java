@@ -25,18 +25,9 @@ public class VendingMachine {
         this.transactionLog = new TransactionLog();
     }
 
-    public void restockItem(Item item)
+   public void restockItem(int slot, int quantity)
     {
-        int i = 0;
-        for (Slot temp: slots) //iterates over the slotsList in the vending machine
-        {
-            if ( temp.getItem().equals(item) ) //Checks if the slot in the vending machine has the item being looked for
-            {
-               i = slots.indexOf(temp);
-               slots.get(i).addQuantity(8);
-               break;
-            }
-        }
+        slots.get(slot).addQuantity(quantity);
     }
 
     public void setItemPrice(int slot, int price)
@@ -136,14 +127,6 @@ public class VendingMachine {
             }
         }
 
-    /*
-     * EMMAN PAAYOS NITO PLS TY EMMAN PAAYOS NITO PLS TY EMMAN PAAYOS NITO PLS TY EMMAN PAAYOS NITO PLS TY EMMAN PAAYOS NITO PLS TY
-     * EMMAN PAAYOS NITO PLS TY EMMAN PAAYOS NITO PLS TY EMMAN PAAYOS NITO PLS TY EMMAN PAAYOS NITO PLS TY EMMAN PAAYOS NITO PLS TY
-     * EMMAN PAAYOS NITO PLS TY EMMAN PAAYOS NITO PLS TY EMMAN PAAYOS NITO PLS TY EMMAN PAAYOS NITO PLS TY EMMAN PAAYOS NITO PLS TY
-     * EMMAN PAAYOS NITO PLS TY EMMAN PAAYOS NITO PLS TY EMMAN PAAYOS NITO PLS TY EMMAN PAAYOS NITO PLS TY EMMAN PAAYOS NITO PLS TY
-     * EMMAN PAAYOS NITO PLS TY EMMAN PAAYOS NITO PLS TY EMMAN PAAYOS NITO PLS TY EMMAN PAAYOS NITO PLS TY EMMAN PAAYOS NITO PLS TY
-     * EMMAN PAAYOS NITO PLS TY EMMAN PAAYOS NITO PLS TY EMMAN PAAYOS NITO PLS TY EMMAN PAAYOS NITO PLS TY EMMAN PAAYOS NITO PLS TY
-     */
     String getTransactionSummary() 
     {
         

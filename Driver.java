@@ -31,6 +31,7 @@ public class Driver {
                 i, item.getName(), slot.getQuantity(), item.getPrice(), item.getCalories());
         i++;
     }
+    System.out.println("************************************");
 }
 
 public void printCashInventory(VendingMachine vendingmachine) {
@@ -149,6 +150,123 @@ public VendingMachine createVendingMachine() {
         
     }
 
+    public void setItemPrice(VendingMachine vendingmachine)
+    {
+        boolean value = true;
+        boolean terminator;
+        String choice;
+        int slot = 0;
+        int price = 0;
+        Scanner scanner = new Scanner(System.in);
+
+        while (value)
+        {
+            terminator = true;
+            printItemInventory(vendingmachine);
+            System.out.println("Select which slot you want to edit: ");
+            slot = scanner.nextInt();
+            System.out.println("Set the new (int) price you want the product in Slot " + slot + " to be: ");
+            price = scanner.nextInt();
+            
+            System.out.println("HERE IS THE UPDATED INVENTORY: ");
+            vendingmachine.setItemPrice(slot-1, price);
+
+            printItemInventory(vendingmachine);
+
+            scanner.nextLine(); //Removes the newline character after the recent scanner
+            
+                while (terminator)
+                {
+                    System.out.println("Would you like to edit again? Y/N");
+
+                    choice = scanner.nextLine();
+
+                    if ( choice.equalsIgnoreCase("Y"))
+                    {
+                        terminator = false;
+                    }
+                    else if (choice.equalsIgnoreCase("N") )
+                    {
+                        terminator = false;
+                        value = false;
+                    }
+                    else
+                    {
+                        System.out.println("Invalid Input. Try again.");
+                    }
+                }
+        }
+    }
+
+    public void restockmachineItem(VendingMachine vendingmachine)
+    {
+        boolean value = true;
+        boolean terminator;
+        String choice;
+        int slot = 0;
+        int quantity = 0;
+        Scanner scanner = new Scanner(System.in);
+
+        while (value)
+        {
+            terminator = true;
+            printItemInventory(vendingmachine);
+            System.out.println("!!!INVENTORY BEFORE RESTOCKING!!!");
+            System.out.println("Select which slot you want to edit: ");
+            slot = scanner.nextInt();
+            System.out.println("Set the new (int) quantity you want add in the product at Slot " + slot);
+            quantity = scanner.nextInt();
+            
+            System.out.println("!!!INVENTORY AFTER RESTOCKING!!!");
+            vendingmachine.restockItem(slot-1, quantity);
+            printItemInventory(vendingmachine);
+
+            scanner.nextLine(); //Removes the newline character after the recent scanner
+            
+                while (terminator)
+                {
+                    System.out.println("Would you like to restock again? Y/N");
+
+                    choice = scanner.nextLine();
+
+                    if ( choice.equalsIgnoreCase("Y"))
+                    {
+                        terminator = false;
+                    }
+                    else if (choice.equalsIgnoreCase("N") )
+                    {
+                        terminator = false;
+                        value = false;
+                    }
+                    else
+                    {
+                        System.out.println("Invalid Input. Try again.");
+                    }
+                }
+        }
+    }
+
+    
+   public void addCashToInventory(VendingMachine vendingMachine) 
+   {
+    Scanner scanner = new Scanner(System.in);
+
+    System.out.print("Enter the value of the cash to add: ");
+    int value = scanner.nextInt();
+    System.out.print("Enter the quantity of the cash to add: ");
+    int quantity = scanner.nextInt();
+
+    for (int i = 0; i < quantity; i++) {
+        Cash cash = new Cash(value);
+        vendingMachine.addCashtocashInv(cash);
+    }
+
+    System.out.println("Cash added to inventory successfully!\n");
+
+    // Display the updated cash inventory
+    printCashInventory(vendingMachine);
+}
+
     public void testVendingMachine(VendingMachine vendingMachine)
     {
         int choice = 0;
@@ -179,10 +297,10 @@ public VendingMachine createVendingMachine() {
                     buyfromMachine(vendingMachine);
                     break;
                 case 2:
-                    //function here
+                    restockmachineItem(vendingMachine);
                     break;
                 case 3:
-                    //function here
+                    addCashToInventory(vendingMachine);
                     break;
                 case 4:
                     //function here
@@ -194,7 +312,7 @@ public VendingMachine createVendingMachine() {
                     //function here
                     break;
                 case 7:
-                    //function here
+                    setItemPrice(vendingMachine);
                     break;
                 case 8:
                     String transactionSummary = vendingMachine.getTransactionSummary();
