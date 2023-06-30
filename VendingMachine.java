@@ -124,7 +124,7 @@ public class VendingMachine {
                 System.out.println( "Coin: " + change/coin.getValue() + "x " + coin.getValue() + "php| ");
                 change -= coin.getValue() * (change/coin.getValue() );
         }
-                System.out.println("Vending Machine Remaining Cash: " + cashInventory.getTotalCash() + "php" );
+                System.out.println("Vending Machine Remaining Cash: " + cashInventory.getTotalCash() + "php." );
         } else 
             {
                 System.out.println("No change available.");

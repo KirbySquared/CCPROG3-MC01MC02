@@ -95,7 +95,7 @@ public VendingMachine createVendingMachine() {
         int choice = 0;
         Scanner scanner = new Scanner(System.in);
 
-        while (choice != 7)
+        while (choice != 8)
         {
             printItemInventory(vendingMachine);
 
@@ -103,11 +103,12 @@ public VendingMachine createVendingMachine() {
             System.out.println("What would you like to do? ");
             System.out.println("1. Buy from Machine");
             System.out.println("2. Restock Items");
-            System.out.println("3. Buy from Machine");
-            System.out.println("4. Buy from Machine");
-            System.out.println("5. Buy from Machine");
-            System.out.println("6. Buy from Machine");
-            System.out.println("7. Exit Vending Machine");
+            System.out.println("3. Add Cash Quantity");
+            System.out.println("4. Add Coin Quantity");
+            System.out.println("5. Decrease Cash Quantity");
+            System.out.println("6. Decrease Coin Quantity");
+            System.out.println("7. Show Transaction Summary");
+            System.out.println("8. Exit Vending Machine");
             System.out.println("************************************");
 
             if (scanner.hasNextInt()) {
