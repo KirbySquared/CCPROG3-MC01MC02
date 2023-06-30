@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.Scanner;
 
 public class Driver {
 /*
@@ -13,10 +14,12 @@ public class Driver {
  */
 
  public void printItemInventory(VendingMachine vendingmachine) {
+    int i = 1;
     System.out.println("Item Inventory:");
     for (Slot slot : vendingmachine.getSlots()) {
         Item item = slot.getItem();
-        System.out.println(item.getName() + ": " + slot.getQuantity());
+        System.out.println("Slot #" + i + " " + item.getName() + ": " + slot.getQuantity() + " In stock");
+        i++;
     }
 }
 
@@ -44,7 +47,8 @@ public void printTransactionLog(VendingMachine vendingmachine) {
 }
 
 
-    public void createVendingMachine(VendingMachine vendingMachine) {
+public VendingMachine createVendingMachine() {
+    VendingMachine vendingMachine;
         Scanner scanner = new Scanner(System.in);
         String choice;
 
@@ -81,51 +85,65 @@ public void printTransactionLog(VendingMachine vendingmachine) {
            vendingMachine.addCointocashInv(new Coin(1));
 
 
-           System.out.println("Vending machine created successfully!");
-           System.out.println(vendingMachine.getName());
+           System.out.println("Vending machine created successfully!\n");
 
-           scanner.close();
+           return vendingMachine;
     }
 
     public void testVendingMachine(VendingMachine vendingMachine)
     {
         
+        printItemInventory(vendingMachine);
+
+        System.out.println("********************************");
+
+
     }
 
-    public void VendingMachineFactory(VendingMachine vendingmachine)
-    {
-        int choice = 0;
+    public void VendingMachineFactory() {
+    int choice = 0;
+    Scanner scanner = new Scanner(System.in);
+    VendingMachine vendingmachine = null;
 
-        while (choice != 3)
-        {
-            System.out.println("VENDING MACHINE FACTORY - MC01 EDITION");
-            System.out.println("1. Create Vending Machine");
-            System.out.println("2. Test Vending Machine");
-            System.out.println("3. Exit Program");
+    while (choice != 3) {
+        System.out.println("VENDING MACHINE FACTORY - MC01 EDITION");
+        System.out.println("1. Create Vending Machine");
+        System.out.println("2. Test Vending Machine");
+        System.out.println("3. Exit Program\n");
 
-            switch (choice)
-            {
-                case 1: createVendingMachine(vendingmachine); break;
-                case 2: if (vendingmachine == null)
-                {
-                    System.out.println("Please create a vending machine first.");
-                }
-                else
-                //call test vending machine function here
-                break;
-                case 3: System.out.println("\nThank you for using the Vending Machine Factory!");
-                break;
+        if (scanner.hasNextInt()) {
+            choice = scanner.nextInt();
+
+            switch (choice) {
+                case 1:
+                    vendingmachine = createVendingMachine();
+                    break;
+                case 2:
+                    if (vendingmachine == null) {
+                        System.out.println("Please create a vending machine first.");
+                    } else {
+                        testVendingMachine(vendingmachine);
+                    }
+                    break;
+                case 3:
+                    System.out.println("\nThank you for using the Vending Machine Factory!");
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+                    break;
             }
+        } else {
+            System.out.println("Invalid choice. Please enter a valid integer.");
+            scanner.nextLine(); // Consume the invalid input
         }
-        
     }
+    scanner.close();
+}
 
     public static void main(String[] args) {
-        VendingMachine vendingmachine = null;
-        Driver driver = new Driver();
-        driver.createVendingMachine(vendingmachine);
+       Driver driver = new Driver();
 
-       driver.VendingMachineFactory(vendingmachine);
+       driver.VendingMachineFactory();
         // Continue with the vending machine operations
     }
     
