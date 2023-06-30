@@ -6,7 +6,6 @@ academic dishonesty, as stated in the DLSU Student Handbook. We affirm that we h
 unauthorized assistance or unfair means in completing this project.
  */
 import java.util.*;
-import java.util.Scanner;
 
 public class Driver {
 /*
@@ -57,9 +56,8 @@ public void printTransactionLog(VendingMachine vendingmachine) {
     }
 }
 
-public VendingMachine createVendingMachine() {
+public VendingMachine createVendingMachine(Scanner scanner) {
     VendingMachine vendingMachine;
-        Scanner scanner = new Scanner(System.in); //Dont close it or it will cause error
         String choice;
 
         System.out.print("Do you want to name your vending machine? (Y/N): ");
@@ -100,7 +98,7 @@ public VendingMachine createVendingMachine() {
            return vendingMachine;
     }
 
-    public void buyfromMachine(VendingMachine vendingmachine)
+     public void buyfromMachine(VendingMachine vendingmachine, Scanner scanner)
     {   
         boolean value = true;
         boolean terminator;
@@ -108,7 +106,6 @@ public VendingMachine createVendingMachine() {
         int slot = 0;
         int money = 0;
         int quantity = 0;
-        Scanner scanner = new Scanner(System.in);
 
         while (value)
         {
@@ -150,14 +147,13 @@ public VendingMachine createVendingMachine() {
         
     }
 
-    public void setItemPrice(VendingMachine vendingmachine)
+    public void setItemPrice(VendingMachine vendingmachine, Scanner scanner)
     {
         boolean value = true;
         boolean terminator;
         String choice;
         int slot = 0;
         int price = 0;
-        Scanner scanner = new Scanner(System.in);
 
         while (value)
         {
@@ -198,14 +194,13 @@ public VendingMachine createVendingMachine() {
         }
     }
 
-    public void restockmachineItem(VendingMachine vendingmachine)
+    public void restockmachineItem(VendingMachine vendingmachine, Scanner scanner)
     {
         boolean value = true;
         boolean terminator;
         String choice;
         int slot = 0;
         int quantity = 0;
-        Scanner scanner = new Scanner(System.in);
 
         while (value)
         {
@@ -247,30 +242,37 @@ public VendingMachine createVendingMachine() {
     }
 
     
-   public void addCashToInventory(VendingMachine vendingMachine) 
-   {
-    Scanner scanner = new Scanner(System.in);
+   public void addCashToInventory(VendingMachine vendingMachine, Scanner scanner) {
 
-    System.out.print("Enter the value of the cash to add: ");
-    int value = scanner.nextInt();
-    System.out.print("Enter the quantity of the cash to add: ");
+    // Display current cash inventory
+    System.out.println("Current Cash Inventory:");
+    printCashInventory(vendingMachine);
+
+    // Ask user to select a cash denomination
+    System.out.print("Select a cash denomination to add (e.g., 1000, 500, 200): ");
+    int denomination = scanner.nextInt();
+
+    // Ask user for the quantity to add
+    System.out.print("Enter the quantity of cash to add: ");
     int quantity = scanner.nextInt();
 
+    // Create the specified cash denomination and add it to the cash inventory
+    Cash cash = new Cash(denomination);
     for (int i = 0; i < quantity; i++) {
-        Cash cash = new Cash(value);
         vendingMachine.addCashtocashInv(cash);
     }
 
     System.out.println("Cash added to inventory successfully!\n");
 
     // Display the updated cash inventory
+    System.out.println("Updated Cash Inventory:");
     printCashInventory(vendingMachine);
 }
 
-    public void testVendingMachine(VendingMachine vendingMachine)
+
+    public void testVendingMachine(VendingMachine vendingMachine, Scanner scanner)
     {
         int choice = 0;
-        Scanner scanner = new Scanner(System.in); //Dont close it or it will cause error
 
         while (choice != 9)
         {
@@ -294,13 +296,13 @@ public VendingMachine createVendingMachine() {
                
             switch (choice) {
                 case 1:
-                    buyfromMachine(vendingMachine);
+                    buyfromMachine(vendingMachine, scanner);
                     break;
                 case 2:
-                    restockmachineItem(vendingMachine);
+                    restockmachineItem(vendingMachine, scanner);
                     break;
                 case 3:
-                    addCashToInventory(vendingMachine);
+                    addCashToInventory(vendingMachine, scanner);
                     break;
                 case 4:
                     //function here
@@ -312,7 +314,7 @@ public VendingMachine createVendingMachine() {
                     //function here
                     break;
                 case 7:
-                    setItemPrice(vendingMachine);
+                    setItemPrice(vendingMachine, scanner);
                     break;
                 case 8:
                     String transactionSummary = vendingMachine.getTransactionSummary();
@@ -333,9 +335,8 @@ public VendingMachine createVendingMachine() {
         }
         
 
-    public void VendingMachineFactory() {
+    public void VendingMachineFactory(Scanner scanner) {
     int choice = 0;
-    Scanner scanner = new Scanner(System.in);
     VendingMachine vendingmachine = null;
 
     while (choice != 3) {
@@ -346,16 +347,17 @@ public VendingMachine createVendingMachine() {
 
         if (scanner.hasNextInt()) {
             choice = scanner.nextInt();
+            scanner.nextLine();
 
             switch (choice) {
                 case 1:
-                    vendingmachine = createVendingMachine();
+                    vendingmachine = createVendingMachine(scanner);
                     break;
                 case 2:
                     if (vendingmachine == null) {
                         System.out.println("Please create a vending machine first.");
                     } else {
-                        testVendingMachine(vendingmachine);
+                        testVendingMachine(vendingmachine, scanner);
                     }
                     break;
                 case 3:
@@ -370,14 +372,15 @@ public VendingMachine createVendingMachine() {
             scanner.nextLine(); // Consumes the invalid input
         }
     }
-    scanner.close();//SCANNER WILL ONLY CLOSE ONCE PROGRAM IS DONE
 }
 
     public static void main(String[] args) {
        Driver driver = new Driver();
+       Scanner scanner = new Scanner(System.in);
 
-       driver.VendingMachineFactory();
-        // Continue with the vending machine operations
+       driver.VendingMachineFactory(scanner);
+        
+        scanner.close();
     }
     
 
