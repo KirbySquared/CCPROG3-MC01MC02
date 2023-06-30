@@ -92,13 +92,48 @@ public VendingMachine createVendingMachine() {
 
     public void testVendingMachine(VendingMachine vendingMachine)
     {
-        
-        printItemInventory(vendingMachine);
+        int choice = 0;
+        Scanner scanner = new Scanner(System.in);
 
-        System.out.println("********************************");
+        while (choice != 7)
+        {
+            printItemInventory(vendingMachine);
 
+            System.out.println("************************************");
+            System.out.println("What would you like to do? ");
+            System.out.println("1. Buy from Machine");
+            System.out.println("2. Buy from Machine");
+            System.out.println("3. Buy from Machine");
+            System.out.println("4. Buy from Machine");
+            System.out.println("5. Buy from Machine");
+            System.out.println("6. Buy from Machine");
+            System.out.println("7. Exit Vending Machine");
+            System.out.println("************************************");
 
+            if (scanner.hasNextInt()) {
+            choice = scanner.nextInt();
+
+            switch (choice) {
+                case 1:
+                    //function here
+                    break;
+                case 2:
+                    //function here
+                    break;
+                case 3:
+                    //function here
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+                    break;
+            }
+        } else {
+            System.out.println("Invalid choice. Please enter a valid integer.");
+            scanner.nextLine(); // Consumes the invalid input
+        }
     }
+        }
+        
 
     public void VendingMachineFactory() {
     int choice = 0;
@@ -134,7 +169,7 @@ public VendingMachine createVendingMachine() {
             }
         } else {
             System.out.println("Invalid choice. Please enter a valid integer.");
-            scanner.nextLine(); // Consume the invalid input
+            scanner.nextLine(); // Consumes the invalid input
         }
     }
     scanner.close();
