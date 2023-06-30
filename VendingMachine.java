@@ -145,7 +145,8 @@ public class VendingMachine {
         double totalSales = transactionLog.getTotalSales();
 
         summary.append("Starting Inventory: ").append(itemInventory.toString() ).append("\n");
-        //NEED BAGUHIN YUNG INVENTORY PARA MAGKAIBA SA ENDING INVENTORY 
+        //Need ihiwalay yung pagdisplay ng ending inventory and starting inventory, this function must only be called
+        //when restocking
         summary.append("Ending Inventory: ").append(itemInventory.toString() ).append("\n");
         summary.append("Total Sales: ").append(totalSales).append("\n");
 
