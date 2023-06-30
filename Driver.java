@@ -22,7 +22,7 @@ public class Driver {
  public void printItemInventory(VendingMachine vendingmachine) {
     int i = 1;
     System.out.println("************************************");
-    System.out.println(vendingmachine.getName() + " Item Inventory:");
+    System.out.println(vendingmachine.getName() + " Machine Item Inventory: ");
     System.out.println("Slot #\t| Item\t\t  | In Stock\t | Price     | Calories");
     for (Slot slot : vendingmachine.getSlots()) {
         Item item = slot.getItem();
@@ -242,8 +242,7 @@ public VendingMachine createVendingMachine(Scanner scanner) {
     }
 
     
-   public void addCashToInventory(VendingMachine vendingMachine, Scanner scanner) {
-
+  public void addCashQuantity(VendingMachine vendingMachine, Scanner scanner) {
     // Display current cash inventory
     System.out.println("Current Cash Inventory:");
     printCashInventory(vendingMachine);
@@ -256,18 +255,22 @@ public VendingMachine createVendingMachine(Scanner scanner) {
     System.out.print("Enter the quantity of cash to add: ");
     int quantity = scanner.nextInt();
 
-    // Create the specified cash denomination and add it to the cash inventory
-    Cash cash = new Cash(denomination);
-    for (int i = 0; i < quantity; i++) {
-        vendingMachine.addCashtocashInv(cash);
+    // Add the specified cash denomination to the cash inventory
+    CashInventory cashInventory = vendingMachine.getcashInventory();
+    Cash selectedCash = cashInventory.getCashByValue(denomination);
+
+    if (selectedCash != null) {
+        selectedCash.setQuantity(selectedCash.getQuantity() + quantity);
+        System.out.println("Cash added to inventory successfully!\n");
+
+        // Display the updated cash inventory
+        System.out.println("Updated Cash Inventory:");
+        printCashInventory(vendingMachine);
+    } else {
+        System.out.println("Invalid cash denomination. Please try again.");
     }
-
-    System.out.println("Cash added to inventory successfully!\n");
-
-    // Display the updated cash inventory
-    System.out.println("Updated Cash Inventory:");
-    printCashInventory(vendingMachine);
 }
+
 
 
     public void testVendingMachine(VendingMachine vendingMachine, Scanner scanner)
@@ -302,7 +305,7 @@ public VendingMachine createVendingMachine(Scanner scanner) {
                     restockmachineItem(vendingMachine, scanner);
                     break;
                 case 3:
-                    addCashToInventory(vendingMachine, scanner);
+                    addCashQuantity(vendingMachine, scanner);
                     break;
                 case 4:
                     //function here

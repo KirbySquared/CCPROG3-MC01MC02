@@ -47,7 +47,7 @@ public class VendingMachine {
             if (availableCash >= price && money >= price) 
             {
                 selectedSlot.decreaseQuantity(quantity);
-                produceChange(price, money);
+                produceChange(price, money, selecteditem, quantity);
                 Sale sale = new Sale(selecteditem,quantity);
                 transactionLog.addSale(sale);
             }
@@ -64,7 +64,7 @@ public class VendingMachine {
         }
     }
 
-    void produceChange(int price, int money)
+    void produceChange(int price, int money, Item selecteditem, int quantitydisplay)
     {
         int change = money - price;
         int tempchange = change;
@@ -100,6 +100,7 @@ public class VendingMachine {
 
         if (valuechecker == true) 
         {
+            System.out.println("Getting your product. . .");
             System.out.println("Cash:\tQuantity\tValue");
             for (Cash cash : cashInventory.getcashList()) {
                 int quantity = change / cash.getValue();
@@ -115,10 +116,12 @@ public class VendingMachine {
                 System.out.printf("Coin:\t%d\t\t%dphp%n", quantity, coin.getValue());
                 change -= coin.getValue() * quantity;
             }
-
-            System.out.println("\nYOU INSERTED: " + money + " php");
+            System.out.println("Dispensing product . . .");
+            System.out.println("\nYOU BOUGHT: " + selecteditem.getName() + " " + quantitydisplay + "x");
             System.out.println("TOTAL COST: " + price + " php");
+            System.out.println("\nYOU INSERTED: " + money + " php");
             System.out.println("YOUR CHANGE IS: " + tempchange2 + " php");
+            System.out.println("Product dispensed! ! ! Don't forget to take your product and your change.");
             System.out.println("Vending Machine Remaining Cash: " + cashInventory.getTotalCash() + " php.\n");
         }
         else 
