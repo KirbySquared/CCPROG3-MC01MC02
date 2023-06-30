@@ -57,7 +57,7 @@ public class VendingMachine {
             {
                 selectedSlot.decreaseQuantity(quantity);
                 produceChange(price, money);
-                Sale sale = new Sale(selecteditem);
+                Sale sale = new Sale(selecteditem,quantity);
                 transactionLog.addSale(sale);
             }
              else {

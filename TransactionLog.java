@@ -9,7 +9,6 @@ public class TransactionLog {
         totalSales = 0.0;
     }
 
-
     public void addSale(Sale sale) 
     {
         sales.add(sale);

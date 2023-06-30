@@ -1,3 +1,10 @@
+/*
+ * We/I, Morales,Kurvy & Ting, Emmanuel of section S26, declare that the code, resources, and documents that we
+submitted for the [1st/2nd] phase of the major course output (MCO) for CCPROG3 are our own work and
+effort. We take full responsibility for the submission and understand the repercussions of committing
+academic dishonesty, as stated in the DLSU Student Handbook. We affirm that we have not used any
+unauthorized assistance or unfair means in completing this project.
+ */
 import java.util.*;
 import java.util.Scanner;
 
@@ -18,7 +25,7 @@ public class Driver {
     System.out.println( vendingmachine.getName() + " Item Inventory:");
     for (Slot slot : vendingmachine.getSlots()) {
         Item item = slot.getItem();
-        System.out.println("Slot #" + i + " " + item.getName() + ": " + slot.getQuantity() + " In stock \t| " + item.getPrice() + "php");
+        System.out.println("Slot #" + i + " " + item.getName() + ": " + slot.getQuantity() + " In stock| \t" + item.getPrice() + "php");
         i++; 
     }
 }
@@ -64,14 +71,14 @@ public VendingMachine createVendingMachine() {
 
         // Rest of the vending machine setup
            // Add 8 Item objects to the vending machine
-           vendingMachine.addItemtoSlot(new Item("Coke", 10, 10));
-           vendingMachine.addItemtoSlot(new Item("Sprite",20, 20));
-           vendingMachine.addItemtoSlot(new Item("Royal",30,30));
-           vendingMachine.addItemtoSlot(new Item("Pepsi",40,40));
-           vendingMachine.addItemtoSlot(new Item("Mug",50,50));
-           vendingMachine.addItemtoSlot(new Item("7UP",60,60));
-           vendingMachine.addItemtoSlot(new Item("Water",70,70));
-           vendingMachine.addItemtoSlot(new Item("C2",80,80));
+           vendingMachine.addItemtoSlot(new Item("Coke", 50, 139));
+           vendingMachine.addItemtoSlot(new Item("Sprite",45, 105));
+           vendingMachine.addItemtoSlot(new Item("Royal",45,76));
+           vendingMachine.addItemtoSlot(new Item("Pepsi",45,105));
+           vendingMachine.addItemtoSlot(new Item("Mug",50,107));
+           vendingMachine.addItemtoSlot(new Item("7UP",55,150));
+           vendingMachine.addItemtoSlot(new Item("Water",20,0));
+           vendingMachine.addItemtoSlot(new Item("C2",60,105));
            // Add Philippine peso bills
            vendingMachine.addCashtocashInv(new Cash(1000)); 
            vendingMachine.addCashtocashInv(new Cash(500));

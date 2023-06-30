@@ -7,6 +7,11 @@ public class Sale {
         this.quantity = 1;
     }
 
+    public Sale(Item item, int quantity) {
+        this.item = item;
+        this.quantity = quantity;
+    }
+
     public Item getItem() {
         return item;
     }
