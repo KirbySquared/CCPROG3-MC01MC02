@@ -171,6 +171,7 @@ public class CashInventory {
     {
         return this.coinsList;
     }
+    
     public double getTotalCash()
     {
         double total = 0.0;
@@ -178,6 +179,11 @@ public class CashInventory {
         for (Cash tempcash: cashList)
         {   
             total += tempcash.getValue() * tempcash.getQuantity();
+        }
+
+        for (Coin tempcoin: coinsList)
+        {   
+            total += tempcoin.getValue() * tempcoin.getQuantity();
         }
 
         return total;

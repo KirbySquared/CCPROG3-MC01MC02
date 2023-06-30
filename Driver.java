@@ -12,30 +12,32 @@ public class Driver {
  * updated using the different methods.
  */
 
- public void printItemInventory() {
+ public void printItemInventory(VendingMachine vendingmachine) {
     System.out.println("Item Inventory:");
-    for (Slot slot : slots) {
+    for (Slot slot : vendingmachine.getSlots()) {
         Item item = slot.getItem();
-        int quantity = slot.getQuantity();
-        System.out.println(item.getName() + ": " + quantity);
+        System.out.println(item.getName() + ": " + slot.getQuantity());
     }
 }
 
-public void printCashInventory() {
+public void printCashInventory(VendingMachine vendingmachine) {
     System.out.println("Cash Inventory:");
-    for (Cash cash : cashInventory.getcashList()) {
+    CashInventory cashinv = vendingmachine.getcashInventory();
+    CashInventory coininv = vendingmachine.getcashInventory();
+    for (Cash cash : cashinv.getcashList()) {
         int quantity = cash.getQuantity();
         System.out.println(cash.getValue() + "php: " + quantity);
     }
-    for (Coin coin : cashInventory.getcoinsList()) {
+    for (Coin coin : coininv.getcoinsList()) {
         int quantity = coin.getQuantity();
         System.out.println(coin.getValue() + "php: " + quantity);
     }
 }
 
-public void printTransactionLog() {
+public void printTransactionLog(VendingMachine vendingmachine) {
     System.out.println("Transaction Log:");
-    for (Sale sale : transactionLog.getSales()) {
+    TransactionLog templog = vendingmachine.gettransactionLog();
+    for (Sale sale : templog.getsalesList()) {
         Item item = sale.getItem();
         System.out.println("Item: " + item.getName() + ", Price: " + item.getPrice());
     }
@@ -105,7 +107,7 @@ public void printTransactionLog() {
             switch (choice)
             {
                 case 1: createVendingMachine(vendingmachine); break;
-                case 2: if (vendingmachine = null)
+                case 2: if (vendingmachine == null)
                 {
                     System.out.println("Please create a vending machine first.");
                 }
@@ -120,11 +122,11 @@ public void printTransactionLog() {
     }
 
     public static void main(String[] args) {
-        VendingMachine vendingMachine = null;
+        VendingMachine vendingmachine = null;
         Driver driver = new Driver();
-        driver.createVendingMachine(vendingMachine);
+        driver.createVendingMachine(vendingmachine);
 
-        VendingMachineFactory(vendingmachine);
+       driver.VendingMachineFactory(vendingmachine);
         // Continue with the vending machine operations
     }
     

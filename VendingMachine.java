@@ -50,18 +50,49 @@ public class VendingMachine {
        this.cashInventory.addCoin(coin);
     }
 
-    public void selectItems(int slot)
+    public void selectItems(int slot, int money, int quantity)
     {
         Slot selectedSlot = slots.get(slot);
         Item selecteditem = selectedSlot.getItem();
-        int quantity = selectedSlot.getQuantity();
-        boolean valuechecker = true;
 
-        if (quantity > 0) {
+        if (selectedSlot.getQuantity() > 0) {
             int price = selecteditem.getPrice() * quantity;
             double availableCash = cashInventory.getTotalCash();
 
-            for (Cash cash:  cashInventory.getcashList() )
+            if (availableCash >= price && money > price) {
+                selectedSlot.decreaseQuantity(1);
+
+                produceChange(price, money);
+
+                Sale sale = new Sale(selecteditem);
+                transactionLog.addSale(sale);
+            }
+            else if (availableCash >= price && money == price)
+            {
+                selectedSlot.decreaseQuantity(1);
+                System.out.println("NO Change is produced as the exact amount was given. Thank you!");
+                Sale sale = new Sale(selecteditem);
+                transactionLog.addSale(sale);
+            }
+             else {
+                System.out.println("Insufficient funds. Please insert more coins.");
+            }
+        } else {
+            System.out.println("Item is out of stock.");
+        }
+    }
+
+    public void produceChange(int price, int money)
+    {
+        int change = money - price;
+        boolean valuechecker = true;
+
+        for (Cash cash : cashInventory.getcashList() )
+        {
+            System.out.println(cash.getValue() + ": IN STOCK = " + cash.getQuantity());
+        }
+
+             for (Cash cash:  cashInventory.getcashList() )
             {
                 if (cash.getQuantity() == 0)
                 {
@@ -79,68 +110,31 @@ public class VendingMachine {
                 }
             }
 
-            if (availableCash >= price && valuechecker == true) {
-                selectedSlot.decreaseQuantity(1);
-                System.out.println("You purchased: " + selecteditem.getName() + "for Php " + selecteditem.getPrice() );
-                cashInventory.reducecashQuantity(1000, price/1000);
-                System.out.println( "Cash: " + price/1000 + "x " + "1000php| ");
-                price %= 1000;
-                cashInventory.reducecashQuantity(500, price/500);
-                System.out.print( price/500 + "x " + "500php| ");
-                price %= 500;
-                cashInventory.reducecashQuantity(200, price/200);
-                System.out.print( price/200 + "x " + "200php| ");
-                price %= 200;
-                cashInventory.reducecashQuantity(100, price/100);
-                System.out.print( price/100 + "x " + "100php| ");
-                price %= 100;
-                cashInventory.reducecashQuantity(50, price/50);
-                System.out.print( price/50 + "x " + "50php| ");
-                price %= 50;
-                cashInventory.reducecashQuantity(20, price/20);
-                System.out.print( price/20 + "x " + "20php| ");
-                price %= 20;
-                cashInventory.reducecoinQuantity(10, price/10);
-                System.out.println( "Coins: "+ price/10 + "x " + "10php| ");
-                price %= 10;
-                cashInventory.reducecoinQuantity(5, price/5);
-                System.out.print( + price/5 + "x " + "5php| ");
-                price %= 5;
-                cashInventory.reducecoinQuantity(1, price);
-                System.out.print( price + "x " + "1php| ");
-
-                Sale sale = new Sale(selecteditem);
-                transactionLog.addSale(sale);
-            } else {
-                System.out.println("Insufficient funds. Please insert more coins.");
-            }
-        } else {
-            System.out.println("Item is out of stock.");
-        }
-    }
-
-    public void produceChange()
+    if (valuechecker == true) 
     {
-        double totalCash = cashInventory.getTotalCash();
-        double availableCashTotal = cashInventory.getTotalCash();
-        double change = totalCash - availableCashTotal;
-
-        for (Cash cash : cashInventory.getcashList() )
+            for (Cash cash: cashInventory.getcashList() )
+    {
+        cashInventory.reducecashQuantity(cash.getValue(), change/cash.getValue());
+            System.out.println( "Cash: " + change/cash.getValue() + "x " + cash.getValue() + "php| ");
+            change %= cash.getValue();
+    }
+    for (Coin coin: cashInventory.getcoinsList() )
+    {
+        cashInventory.reducecashQuantity(coin.getValue(), change/coin.getValue());
+            System.out.println( "Coin: " + change/coin.getValue() + "x " + coin.getValue() + "php| ");
+            change %= coin.getValue();
+    }
+            System.out.println("Vending Machine Remaining Cash: " + cashInventory.getTotalCash() + "php" );
+    } else 
         {
-            System.out.println(cash.getValue() + ": IN STOCK = " + cash.getQuantity());
-        }
-
-        if (change > 0) {
-            // Dispense change to the user
-        } else {
             System.out.println("No change available.");
         }
     }
 
-    public void cancelTransaction()
+    /* public void cancelTransaction() No need for this function 
     {
          cashInventory.clearCash();
-    }
+    } */
 
     String getTransactionSummary() 
     {
@@ -177,6 +171,21 @@ public class VendingMachine {
     public ArrayList<Slot> getSlots()
     {
         return this.slots;
+    }
+
+    public CashInventory getcashInventory()
+    {
+        return this.cashInventory;
+    }
+
+    public ItemInventory getitemInventory()
+    {
+        return this.itemInventory;
+    }
+
+    public TransactionLog gettransactionLog()
+    {
+        return this.transactionLog;
     }
 
     public String getName()
