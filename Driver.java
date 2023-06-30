@@ -45,6 +45,7 @@ public void printCashInventory(VendingMachine vendingmachine) {
         int quantity = coin.getQuantity();
         System.out.println(coin.getValue() + "php: " + quantity);
     }
+    
 }
 
 public void printTransactionLog(VendingMachine vendingmachine) {
@@ -408,71 +409,86 @@ public void addCoinQuantity(VendingMachine vendingMachine, Scanner scanner) {
             }
         }
     }
-
     
     public void testVendingMachine(VendingMachine vendingMachine, Scanner scanner)
     {
         int choice = 0;
 
-        while (choice != 9)
+        while (choice != 10)
         {
-            printItemInventory(vendingMachine);
-
-            System.out.println("************************************");
-            System.out.println("What would you like to do? ");
-            System.out.println("1. Buy from Machine");
-            System.out.println("2. Restock Items");
-            System.out.println("3. Add Cash Quantity");
-            System.out.println("4. Add Coin Quantity");
-            System.out.println("5. Decrease Cash Quantity");
-            System.out.println("6. Decrease Coin Quantity");
-            System.out.println("7. Set Item Price");
-            System.out.println("8. Show Transaction Summary");
-            System.out.println("9. Exit Vending Machine");
-            System.out.println("************************************");
-
-            if (scanner.hasNextInt()) {
-            choice = scanner.nextInt();
-               
-            switch (choice) {
-                case 1:
-                    buyfromMachine(vendingMachine, scanner);
-                    break;
-                case 2:
-                    restockmachineItem(vendingMachine, scanner);
-                    break;
-                case 3:
-                    addCashQuantity(vendingMachine, scanner);
-                    break;
-                case 4:
-                    addCoinQuantity(vendingMachine, scanner);
-                    break;
-                case 5:
-                    decreaseCashQuantity(vendingMachine,scanner);
-                    break;
-                case 6:
-                    reduceCoinQuantity(vendingMachine,scanner);
-                    break;
-                case 7:
-                    setItemPrice(vendingMachine, scanner);
-                    break;
-                case 8:
-                    String transactionSummary = vendingMachine.getTransactionSummary();
-                    System.out.println(transactionSummary);
-                    break;
-                case 9:
-                    //function here
-                    break;
-                default:
-                    System.out.println("Invalid choice. Please try again.");
-                    break;
+            if (vendingMachine.getcashInventory().getTotalCash() <= 0)
+            {
+                choice = 10;
+                System.out.println("NO MORE CASH DETECTED, SHUTTING DOWN VENDING MACHINE.");
             }
-        } else {
-            System.out.println("Invalid choice. Please enter a valid integer.");
-            scanner.nextLine(); // Consumes the invalid input
-        }
+            else
+            {
+                printItemInventory(vendingMachine);
+
+                System.out.println("************************************");
+                System.out.println("What would you like to do? ");
+                System.out.println("1. Buy from Machine");
+                System.out.println("2. Restock Items");
+                System.out.println("3. Add Cash Quantity");
+                System.out.println("4. Add Coin Quantity");
+                System.out.println("5. Decrease Cash Quantity");
+                System.out.println("6. Decrease Coin Quantity");
+                System.out.println("7. Set Item Price");
+                System.out.println("8. Show Transaction Summary");
+                System.out.println("9. Collect Money");
+                System.out.println("10. Exit Vending Machine");
+                System.out.println("************************************");
+
+                if (scanner.hasNextInt()) {
+                choice = scanner.nextInt();
+                
+                switch (choice) {
+                    case 1:
+                        buyfromMachine(vendingMachine, scanner);
+                        break;
+                    case 2:
+                        restockmachineItem(vendingMachine, scanner);
+                        break;
+                    case 3:
+                        addCashQuantity(vendingMachine, scanner);
+                        break;
+                    case 4:
+                        addCoinQuantity(vendingMachine, scanner);
+                        break;
+                    case 5:
+                        decreaseCashQuantity(vendingMachine,scanner);
+                        break;
+                    case 6:
+                        reduceCoinQuantity(vendingMachine,scanner);
+                        break;
+                    case 7:
+                        setItemPrice(vendingMachine, scanner);
+                        break;
+                    case 8:
+                        String transactionSummary = vendingMachine.getTransactionSummary();
+                        System.out.println(transactionSummary);
+                        break;
+                    case 9: vendingMachine.getcashInventory().clearCash();
+                        vendingMachine.getcashInventory().clearCoins();
+                        printCashInventory(vendingMachine);
+                        System.out.println("Available Cash: " + vendingMachine.getcashInventory().getTotalCash());
+                    break;
+                    case 10:
+                        System.out.println("Exiting Vending Machine. . . ");
+                        break;
+                    default:
+                        System.out.println("Invalid choice. Please try again.");
+                        break;
+                    }
+                }
+                else 
+                {
+                    System.out.println("Invalid choice. Please enter a valid integer.");
+                    scanner.nextLine(); // Consumes the invalid input
+                }
+            }
+        } 
     }
-        }
         
 
     public void VendingMachineFactory(Scanner scanner) {

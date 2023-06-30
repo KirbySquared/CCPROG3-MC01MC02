@@ -44,12 +44,16 @@ public class VendingMachine {
             int price = selecteditem.getPrice() * quantity;
             double availableCash = cashInventory.getTotalCash();
 
-            if (availableCash >= price && money >= price) 
+            if (availableCash >= price && money >= price && (money - price) < availableCash) 
             {
                 selectedSlot.decreaseQuantity(quantity);
                 produceChange(price, money, selecteditem, quantity);
                 Sale sale = new Sale(selecteditem,quantity);
                 transactionLog.addSale(sale);
+            }
+            else if (availableCash <= price && money >= price && (money - price) > availableCash)
+            {
+                System.out.println("Vending Machine is out of change. Please contact the maintenance manager.");
             }
              else {
                 System.out.println("Insufficient funds. Please insert more coins.");
@@ -59,7 +63,7 @@ public class VendingMachine {
         {
             System.out.println("The quantity you have entered is invalid.");
         }
-         else {
+        else {
             System.out.println("Item is out of stock.");
         }
     }
@@ -73,10 +77,10 @@ public class VendingMachine {
 
             for (Cash cash:  cashInventory.getcashList() )
             {
-                if (tempchange / cash.getValue() >= 1 ) 
+                if (tempchange / cash.getValue() >= 1) 
                 {
-                  tempchange -= (tempchange / cash.getValue()) * cash.getValue();
-                  if (cash.getQuantity() == 0)
+                  tempchange -= (tempchange / cash.getValue() ) * cash.getValue(); //(1643 / 1000) * 1000, denomination
+                  if (cash.getQuantity() == 0 )
                     {
                         valuechecker = false;
                         break;
@@ -85,20 +89,21 @@ public class VendingMachine {
                
             }
 
-            for (Coin coin:  cashInventory.getcoinsList() ) //Checks
+            for (Coin coin:  cashInventory.getcoinsList() ) 
             {
-                if (tempchange / coin.getValue() >= 1 ) 
+                if (tempchange / coin.getValue() >= 1) 
                 {
                 tempchange -= (tempchange / coin.getValue()) * coin.getValue();
-                  if (coin.getQuantity() == 0)
+                  if (coin.getQuantity() == 0 )
                     {
                         valuechecker = false;
                         break;
                     }
                 }
+                
             }
 
-        if (valuechecker == true) 
+        if (valuechecker == true && cashInventory.getTotalCash() >= change) 
         {
             System.out.println("Getting your product. . .");
             System.out.println("Cash:\tQuantity\tValue");
