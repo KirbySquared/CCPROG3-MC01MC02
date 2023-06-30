@@ -95,7 +95,7 @@ public VendingMachine createVendingMachine() {
         int choice = 0;
         Scanner scanner = new Scanner(System.in);
 
-        while (choice != 8)
+        while (choice != 9)
         {
             printItemInventory(vendingMachine);
 
@@ -107,13 +107,14 @@ public VendingMachine createVendingMachine() {
             System.out.println("4. Add Coin Quantity");
             System.out.println("5. Decrease Cash Quantity");
             System.out.println("6. Decrease Coin Quantity");
-            System.out.println("7. Show Transaction Summary");
-            System.out.println("8. Exit Vending Machine");
+            System.out.println("7. Set Item Price");
+            System.out.println("8. Show Transaction Summary");
+            System.out.println("9. Exit Vending Machine");
             System.out.println("************************************");
 
             if (scanner.hasNextInt()) {
             choice = scanner.nextInt();
-
+               
             switch (choice) {
                 case 1:
                     //function here
@@ -122,6 +123,24 @@ public VendingMachine createVendingMachine() {
                     //function here
                     break;
                 case 3:
+                    //function here
+                    break;
+                case 4:
+                    //function here
+                    break;
+                case 5:
+                    //function here
+                    break;
+                case 6:
+                    //function here
+                    break;
+                case 7:
+                    //function here
+                    break;
+                case 8:
+                    //function here
+                    break;
+                case 9:
                     //function here
                     break;
                 default:

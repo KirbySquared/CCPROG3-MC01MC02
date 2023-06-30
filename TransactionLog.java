@@ -20,13 +20,17 @@ public class TransactionLog {
         return this.sales;
     }
 
-    public double getTotalSales()
+    public void updateTotalSales()
     {
+        totalSales = 0.0;
         for (Sale tempsale: sales)
         {
             totalSales += tempsale.getItem().getPrice() * tempsale.getQuantity();
         }
+    }
 
+    public double getTotalSales()
+    {
         return totalSales;
     }
 

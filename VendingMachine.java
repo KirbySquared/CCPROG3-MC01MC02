@@ -37,7 +37,6 @@ public class VendingMachine {
                break;
             }
         }
-
     }
 
     public void setItemPrice(int slot, int price)
@@ -45,7 +44,7 @@ public class VendingMachine {
         slots.get(slot).getItem().setPrice(price);
     }
 
-    public void selectItems(int slot, int money, int quantity)
+    public void selectItem(int slot, int money, int quantity) //For buying in vending machine
     {
         Slot selectedSlot = slots.get(slot);
         Item selecteditem = selectedSlot.getItem();

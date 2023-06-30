@@ -9,6 +9,11 @@ public class Coin {
         this.value = value;
         this.quantity = 50;
     }
+    public Coin (int value, int quantity)
+    {
+        this.value = value;
+        this.quantity = quantity;
+    }
 
     public int getValue()
     {

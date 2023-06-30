@@ -4,5 +4,9 @@ public class Cash extends Coin{
     {
         super(value);
     }
+    public Cash (int value, int quantity)
+    {
+        super(value, quantity);
+    }
     
 }
