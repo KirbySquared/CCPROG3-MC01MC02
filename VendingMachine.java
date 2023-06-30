@@ -82,7 +82,7 @@ public class VendingMachine {
         }
     }
 
-    public void produceChange(int price, int money)
+    void produceChange(int price, int money)
     {
         int change = money - price;
         boolean valuechecker = true;

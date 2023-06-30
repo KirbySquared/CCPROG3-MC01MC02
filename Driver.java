@@ -60,7 +60,6 @@ public void printTransactionLog(VendingMachine vendingmachine) {
         }
 
         // Rest of the vending machine setup
-
            // Add 8 Item objects to the vending machine
            vendingMachine.addItemtoSlot(new Item("Coke", 10, 10));
            vendingMachine.addItemtoSlot(new Item("Sprite",20, 20));
@@ -70,8 +69,8 @@ public void printTransactionLog(VendingMachine vendingmachine) {
            vendingMachine.addItemtoSlot(new Item("7UP",60,60));
            vendingMachine.addItemtoSlot(new Item("Water",70,70));
            vendingMachine.addItemtoSlot(new Item("C2",80,80));
-
-           vendingMachine.addCashtocashInv(new Cash(1000)); // Add 1000 PHP bill
+           // Add Philippine peso bills
+           vendingMachine.addCashtocashInv(new Cash(1000)); 
            vendingMachine.addCashtocashInv(new Cash(500));
            vendingMachine.addCashtocashInv(new Cash(200));
            vendingMachine.addCashtocashInv(new Cash(100));
