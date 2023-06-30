@@ -5,35 +5,6 @@ public class ItemInventory {
     public ItemInventory() {
         this.items = new ArrayList<>(8); // Assuming 8 slots in the vending machine
     }
-    /**
-     * addItem adds an Item to the ItemInventory
-     * @param item
-     * @param slot
-     */
-    public boolean addItem(Item item, int slot) {
-        boolean value = false;
-        slot -=1;
-
-        if (slot >= 0 && slot < items.size() ) {
-            items.set(slot, item);
-            value = true;
-        }
-        else if (slot >= 0 && slot > items.size() )
-        {
-            items.add(slot,item);
-            value = true;
-        }
-       
-        return value;
-    }
-
-    public Item getItem(int slot) {
-        if (slot >= 0 && slot < items.size()) {
-            return items.get(slot);
-        }
-        
-        return null;
-    }
 
     public int getItemCount() {
         int count = 0;
@@ -45,8 +16,8 @@ public class ItemInventory {
         return count;
     }
 
-    public int getItemCalories(int slot) {
-        Item item = getItem(slot);
+    public int getItemCalories(int slot) { //slot refers to Slot currently assigned to in the machine
+        Item item = items.get(slot);
         if (item != null) {
             return item.getCalories();
         }

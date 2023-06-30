@@ -18,7 +18,7 @@ public class VendingMachine {
 
     public VendingMachine()
     {
-        this.name = "Stock Vending Machine";
+        this.name = "StockMachine";
         this.slots = new ArrayList<>(8);
         this.cashInventory = new CashInventory();
         this.itemInventory = new ItemInventory();
@@ -80,6 +80,7 @@ public class VendingMachine {
     {
         int change = money - price;
         int tempchange = change;
+        int tempchange2 = change;
         boolean valuechecker = true;
 
             for (Cash cash:  cashInventory.getcashList() )
@@ -123,7 +124,8 @@ public class VendingMachine {
                 System.out.println( "Coin: " + change/coin.getValue() + "x " + coin.getValue() + "php| ");
                 change -= coin.getValue() * (change/coin.getValue() );
         }
-                System.out.println("Vending Machine Remaining Cash: " + cashInventory.getTotalCash() + "php." );
+                System.out.println("YOUR CHANGE IS: " + tempchange2 + " php");
+                System.out.println("Vending Machine Remaining Cash: " + cashInventory.getTotalCash() + " php." );
         } else 
             {
                 System.out.println("No change available.");

@@ -18,7 +18,7 @@ public class Driver {
     System.out.println( vendingmachine.getName() + " Item Inventory:");
     for (Slot slot : vendingmachine.getSlots()) {
         Item item = slot.getItem();
-        System.out.println("Slot #" + i + " " + item.getName() + ": " + slot.getQuantity() + " In stock");
+        System.out.println("Slot #" + i + " " + item.getName() + ": " + slot.getQuantity() + " In stock \t| " + item.getPrice() + "php");
         i++; 
     }
 }
@@ -46,10 +46,9 @@ public void printTransactionLog(VendingMachine vendingmachine) {
     }
 }
 
-
 public VendingMachine createVendingMachine() {
     VendingMachine vendingMachine;
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in); //Dont close it or it will cause error
         String choice;
 
         System.out.print("Do you want to name your vending machine? (Y/N): ");
@@ -90,10 +89,42 @@ public VendingMachine createVendingMachine() {
            return vendingMachine;
     }
 
+    public void buyfromMachine(VendingMachine vendingmachine)
+    {   
+        String choice = "Y";
+        int slot = 0;
+        int money = 0;
+        int quantity = 0;
+        Scanner scanner = new Scanner(System.in);
+
+        while (choice.equalsIgnoreCase("Y"))
+        {
+            printItemInventory(vendingmachine);
+            System.out.println("PLEASE BE CAREFUL IN INPUTTING YOUR NUMBERS OR ELSE THE PROGRAM WILL CRASH");
+            System.out.println("Select slot to buy from: ");
+            slot = scanner.nextInt();
+            System.out.println("How much money will you insert? (Keep it less than or equal to 1000 php) ");
+            money = scanner.nextInt();
+            System.out.println("How many are you going to buy? (Keep it less than or equal to the current quantity)");
+            quantity = scanner.nextInt();
+
+            vendingmachine.selectItem(slot-1, money, quantity);
+            
+            while ( !choice.equalsIgnoreCase("Y") && !choice.equalsIgnoreCase("N") )
+            {
+                System.out.println("Would you like to buy again? Y/N");
+                choice = scanner.nextLine();
+                if (!choice.equalsIgnoreCase("Y") && !choice.equalsIgnoreCase("N") )
+                System.out.println("Invalid input, try again.");
+            }
+        }
+        
+    }
+
     public void testVendingMachine(VendingMachine vendingMachine)
     {
         int choice = 0;
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in); //Dont close it or it will cause error
 
         while (choice != 9)
         {
@@ -117,7 +148,7 @@ public VendingMachine createVendingMachine() {
                
             switch (choice) {
                 case 1:
-                    //function here
+                    buyfromMachine(vendingMachine);
                     break;
                 case 2:
                     //function here
@@ -192,7 +223,7 @@ public VendingMachine createVendingMachine() {
             scanner.nextLine(); // Consumes the invalid input
         }
     }
-    scanner.close();
+    scanner.close();//SCANNER WILL ONLY CLOSE ONCE PROGRAM IS DONE
 }
 
     public static void main(String[] args) {
