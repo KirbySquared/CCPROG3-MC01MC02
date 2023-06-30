@@ -110,26 +110,26 @@ public class VendingMachine {
                 }
             }
 
-    if (valuechecker == true) 
-    {
-            for (Cash cash: cashInventory.getcashList() )
-    {
-        cashInventory.reducecashQuantity(cash.getValue(), change/cash.getValue());
-            System.out.println( "Cash: " + change/cash.getValue() + "x " + cash.getValue() + "php| ");
-            change %= cash.getValue();
-    }
-    for (Coin coin: cashInventory.getcoinsList() )
-    {
-        cashInventory.reducecashQuantity(coin.getValue(), change/coin.getValue());
-            System.out.println( "Coin: " + change/coin.getValue() + "x " + coin.getValue() + "php| ");
-            change %= coin.getValue();
-    }
-            System.out.println("Vending Machine Remaining Cash: " + cashInventory.getTotalCash() + "php" );
-    } else 
+        if (valuechecker == true) 
         {
-            System.out.println("No change available.");
+                for (Cash cash: cashInventory.getcashList() )
+        {
+            cashInventory.reducecashQuantity(cash.getValue(), change/cash.getValue());
+                System.out.println( "Cash: " + change/cash.getValue() + "x " + cash.getValue() + "php| ");
+                change %= cash.getValue();
         }
-    }
+        for (Coin coin: cashInventory.getcoinsList() )
+        {
+            cashInventory.reducecashQuantity(coin.getValue(), change/coin.getValue());
+                System.out.println( "Coin: " + change/coin.getValue() + "x " + coin.getValue() + "php| ");
+                change %= coin.getValue();
+        }
+                System.out.println("Vending Machine Remaining Cash: " + cashInventory.getTotalCash() + "php" );
+        } else 
+            {
+                System.out.println("No change available.");
+            }
+        }
 
     /* public void cancelTransaction() No need for this function 
     {
