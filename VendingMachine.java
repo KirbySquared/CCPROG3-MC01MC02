@@ -45,11 +45,6 @@ public class VendingMachine {
         slots.get(slot).getItem().setPrice(price);
     }
 
-    public void insertCoin(Coin coin)
-    {
-       this.cashInventory.addCoin(coin);
-    }
-
     public void selectItems(int slot, int money, int quantity)
     {
         Slot selectedSlot = slots.get(slot);
@@ -85,44 +80,49 @@ public class VendingMachine {
     void produceChange(int price, int money)
     {
         int change = money - price;
+        int tempchange = change;
         boolean valuechecker = true;
 
-        for (Cash cash : cashInventory.getcashList() )
-        {
-            System.out.println(cash.getValue() + ": IN STOCK = " + cash.getQuantity());
-        }
-
-             for (Cash cash:  cashInventory.getcashList() )
+            for (Cash cash:  cashInventory.getcashList() )
             {
-                if (cash.getQuantity() == 0)
+                if (tempchange / cash.getValue() >= 1 ) 
                 {
-                    valuechecker = false;
-                    break;
+                  tempchange -= (tempchange / cash.getValue()) * cash.getValue();
+                  if (cash.getQuantity() == 0)
+                    {
+                        valuechecker = false;
+                        break;
+                    }
                 }
+               
             }
 
-            for (Coin coin:  cashInventory.getcoinsList() )
+            for (Coin coin:  cashInventory.getcoinsList() ) //Checks
             {
-                if (coin.getQuantity() == 0)
+                if (tempchange / coin.getValue() >= 1 ) 
                 {
-                    valuechecker = false;
-                    break;
+                tempchange -= (tempchange / coin.getValue()) * coin.getValue();
+                  if (coin.getQuantity() == 0)
+                    {
+                        valuechecker = false;
+                        break;
+                    }
                 }
             }
 
         if (valuechecker == true) 
         {
-                for (Cash cash: cashInventory.getcashList() )
+            for (Cash cash: cashInventory.getcashList() )
         {
             cashInventory.reducecashQuantity(cash.getValue(), change/cash.getValue());
                 System.out.println( "Cash: " + change/cash.getValue() + "x " + cash.getValue() + "php| ");
-                change %= cash.getValue();
+                change -= cash.getValue() * (change/cash.getValue() );
         }
-        for (Coin coin: cashInventory.getcoinsList() )
+             for (Coin coin: cashInventory.getcoinsList() )
         {
             cashInventory.reducecashQuantity(coin.getValue(), change/coin.getValue());
                 System.out.println( "Coin: " + change/coin.getValue() + "x " + coin.getValue() + "php| ");
-                change %= coin.getValue();
+                change -= coin.getValue() * (change/coin.getValue() );
         }
                 System.out.println("Vending Machine Remaining Cash: " + cashInventory.getTotalCash() + "php" );
         } else 
@@ -131,11 +131,14 @@ public class VendingMachine {
             }
         }
 
-    /* public void cancelTransaction() No need for this function 
-    {
-         cashInventory.clearCash();
-    } */
-
+    /*
+     * EMMAN PAAYOS NITO PLS TY EMMAN PAAYOS NITO PLS TY EMMAN PAAYOS NITO PLS TY EMMAN PAAYOS NITO PLS TY EMMAN PAAYOS NITO PLS TY
+     * EMMAN PAAYOS NITO PLS TY EMMAN PAAYOS NITO PLS TY EMMAN PAAYOS NITO PLS TY EMMAN PAAYOS NITO PLS TY EMMAN PAAYOS NITO PLS TY
+     * EMMAN PAAYOS NITO PLS TY EMMAN PAAYOS NITO PLS TY EMMAN PAAYOS NITO PLS TY EMMAN PAAYOS NITO PLS TY EMMAN PAAYOS NITO PLS TY
+     * EMMAN PAAYOS NITO PLS TY EMMAN PAAYOS NITO PLS TY EMMAN PAAYOS NITO PLS TY EMMAN PAAYOS NITO PLS TY EMMAN PAAYOS NITO PLS TY
+     * EMMAN PAAYOS NITO PLS TY EMMAN PAAYOS NITO PLS TY EMMAN PAAYOS NITO PLS TY EMMAN PAAYOS NITO PLS TY EMMAN PAAYOS NITO PLS TY
+     * EMMAN PAAYOS NITO PLS TY EMMAN PAAYOS NITO PLS TY EMMAN PAAYOS NITO PLS TY EMMAN PAAYOS NITO PLS TY EMMAN PAAYOS NITO PLS TY
+     */
     String getTransactionSummary() 
     {
         StringBuilder summary = new StringBuilder();

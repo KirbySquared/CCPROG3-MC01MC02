@@ -21,7 +21,7 @@ public class Item {
         this.price = price;
     }
 
-    public int getCalories() {
+    public int getCalories() { 
         return calories;
     }
 }

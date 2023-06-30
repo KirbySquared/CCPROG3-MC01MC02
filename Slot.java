@@ -14,7 +14,7 @@ public class Slot {
     public Slot(Item item)
     {
         this.item = item;
-        this.quantity = 8;
+        this.quantity = 10;
     }
 
     public Item getItem()

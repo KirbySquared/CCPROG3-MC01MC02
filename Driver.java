@@ -15,11 +15,11 @@ public class Driver {
 
  public void printItemInventory(VendingMachine vendingmachine) {
     int i = 1;
-    System.out.println("Item Inventory:");
+    System.out.println( vendingmachine.getName() + " Item Inventory:");
     for (Slot slot : vendingmachine.getSlots()) {
         Item item = slot.getItem();
         System.out.println("Slot #" + i + " " + item.getName() + ": " + slot.getQuantity() + " In stock");
-        i++;
+        i++; 
     }
 }
 
@@ -102,7 +102,7 @@ public VendingMachine createVendingMachine() {
             System.out.println("************************************");
             System.out.println("What would you like to do? ");
             System.out.println("1. Buy from Machine");
-            System.out.println("2. Buy from Machine");
+            System.out.println("2. Restock Items");
             System.out.println("3. Buy from Machine");
             System.out.println("4. Buy from Machine");
             System.out.println("5. Buy from Machine");
@@ -144,7 +144,7 @@ public VendingMachine createVendingMachine() {
         System.out.println("VENDING MACHINE FACTORY - MC01 EDITION");
         System.out.println("1. Create Vending Machine");
         System.out.println("2. Test Vending Machine");
-        System.out.println("3. Exit Program\n");
+        System.out.println("3. Exit Program");
 
         if (scanner.hasNextInt()) {
             choice = scanner.nextInt();
