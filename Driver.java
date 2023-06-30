@@ -111,7 +111,7 @@ public VendingMachine createVendingMachine() {
             System.out.println("How many are you going to buy? (Keep it less than or equal to the current quantity)");
             quantity = scanner.nextInt();
 
-            scanner.nextLine();
+            scanner.nextLine(); //Removes the newline character after the recent scanner
 
             vendingmachine.selectItem(slot-1, money, quantity);
             

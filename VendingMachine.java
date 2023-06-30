@@ -49,29 +49,26 @@ public class VendingMachine {
         Slot selectedSlot = slots.get(slot);
         Item selecteditem = selectedSlot.getItem();
 
-        if (selectedSlot.getQuantity() > 0) {
+        if (selectedSlot.getQuantity() > 0 && selectedSlot.getQuantity() >= quantity) {
             int price = selecteditem.getPrice() * quantity;
             double availableCash = cashInventory.getTotalCash();
 
-            if (availableCash >= price && money > price) {
-                selectedSlot.decreaseQuantity(quantity);
-
-                produceChange(price, money);
-
-                Sale sale = new Sale(selecteditem);
-                transactionLog.addSale(sale);
-            }
-            else if (availableCash >= price && money == price)
+            if (availableCash >= price && money >= price) 
             {
-                selectedSlot.decreaseQuantity(1);
-                System.out.println("NO Change is produced as the exact amount was given. Thank you!");
+                selectedSlot.decreaseQuantity(quantity);
+                produceChange(price, money);
                 Sale sale = new Sale(selecteditem);
                 transactionLog.addSale(sale);
             }
              else {
                 System.out.println("Insufficient funds. Please insert more coins.");
             }
-        } else {
+        }
+        else if (selectedSlot.getQuantity() > 0 && selectedSlot.getQuantity() < quantity)
+        {
+            System.out.println("The quantity you have entered is invalid.");
+        }
+         else {
             System.out.println("Item is out of stock.");
         }
     }
@@ -124,6 +121,7 @@ public class VendingMachine {
                 System.out.println( "Coin: " + change/coin.getValue() + "x " + coin.getValue() + "php| ");
                 change -= coin.getValue() * (change/coin.getValue() );
         }       System.out.println("YOU INSERTED: " + money + " php");
+                System.out.println("TOTAL COST: " + price + " php");
                 System.out.println("YOUR CHANGE IS: " + tempchange2 + " php");
                 System.out.println("Vending Machine Remaining Cash: " + cashInventory.getTotalCash() + " php.\n" );
         } else 
