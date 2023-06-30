@@ -240,39 +240,176 @@ public VendingMachine createVendingMachine(Scanner scanner) {
                 }
         }
     }
-
     
-  public void addCashQuantity(VendingMachine vendingMachine, Scanner scanner) {
-    // Display current cash inventory
-    System.out.println("Current Cash Inventory:");
-    printCashInventory(vendingMachine);
+ public void addCashQuantity(VendingMachine vendingMachine, Scanner scanner) {
+        boolean value = true;
+        boolean terminator;
+        String choice;
+        int cashValue = 0;
+        int quantity = 0;
 
-    // Ask user to select a cash denomination
-    System.out.print("Select a cash denomination to add (e.g., 1000, 500, 200): ");
-    int denomination = scanner.nextInt();
+        while (value) {
+            terminator = true;
+            printCashInventory(vendingMachine);
+            System.out.println("Select which cash value you want to add quantity to: ");
+            cashValue = scanner.nextInt();
+            System.out.println("Enter the quantity to add: ");
+            quantity = scanner.nextInt();
 
-    // Ask user for the quantity to add
-    System.out.print("Enter the quantity of cash to add: ");
-    int quantity = scanner.nextInt();
+            boolean result = vendingMachine.getcashInventory().addcashQuantity(cashValue, quantity);
+            if (result) {
+                System.out.println("Quantity added successfully!");
+                printCashInventory(vendingMachine);
+            } else {
+                System.out.println("Invalid cash value or quantity. Please try again.");
+            }
 
-    // Add the specified cash denomination to the cash inventory
-    CashInventory cashInventory = vendingMachine.getcashInventory();
-    Cash selectedCash = cashInventory.getCashByValue(denomination);
+            scanner.nextLine(); // Removes the newline character after the recent scanner
 
-    if (selectedCash != null) {
-        selectedCash.setQuantity(selectedCash.getQuantity() + quantity);
-        System.out.println("Cash added to inventory successfully!\n");
+            while (terminator) {
+                System.out.println("Would you like to add quantity to another cash value? (Y/N)");
 
-        // Display the updated cash inventory
-        System.out.println("Updated Cash Inventory:");
+                choice = scanner.nextLine();
+
+                if (choice.equalsIgnoreCase("Y")) {
+                    terminator = false;
+                } else if (choice.equalsIgnoreCase("N")) {
+                    terminator = false;
+                    value = false;
+                } else {
+                    System.out.println("Invalid Input. Try again.");
+                }
+            }
+        }
+    }
+
+public void decreaseCashQuantity(VendingMachine vendingMachine, Scanner scanner) {
+    boolean value = true;
+    boolean terminator;
+    String choice;
+    int cashValue = 0;
+    int quantity = 0;
+
+    while (value) {
+        terminator = true;
         printCashInventory(vendingMachine);
-    } else {
-        System.out.println("Invalid cash denomination. Please try again.");
+        System.out.println("Select which cash value you want to decrease quantity from: ");
+        cashValue = scanner.nextInt();
+        System.out.println("Enter the quantity to decrease: ");
+        quantity = scanner.nextInt();
+
+        boolean result = vendingMachine.getcashInventory().reducecashQuantity(cashValue, quantity);
+        if (result) {
+            System.out.println("Quantity decreased successfully!");
+            printCashInventory(vendingMachine);
+        } else {
+            System.out.println("Invalid cash value or quantity. Please try again.");
+        }
+
+        scanner.nextLine(); // Removes the newline character after the recent scanner
+
+        while (terminator) {
+            System.out.println("Would you like to decrease quantity from another cash value? (Y/N)");
+
+            choice = scanner.nextLine();
+
+            if (choice.equalsIgnoreCase("Y")) {
+                terminator = false;
+            } else if (choice.equalsIgnoreCase("N")) {
+                terminator = false;
+                value = false;
+            } else {
+                System.out.println("Invalid Input. Try again.");
+            }
+        }
     }
 }
 
+public void addCoinQuantity(VendingMachine vendingMachine, Scanner scanner) {
+        boolean value = true;
+        boolean terminator;
+        String choice;
+        int coinValue = 0;
+        int quantity = 0;
 
+        while (value) {
+            terminator = true;
+            printCashInventory(vendingMachine);
+            System.out.println("Select which coin value you want to add quantity to: ");
+            coinValue = scanner.nextInt();
+            System.out.println("Enter the quantity to add: ");
+            quantity = scanner.nextInt();
 
+            boolean result = vendingMachine.getcashInventory().addcoinQuantity(coinValue, quantity);
+            if (result) {
+                System.out.println("Quantity added successfully!");
+                printCashInventory(vendingMachine);
+            } else {
+                System.out.println("Invalid coin value or quantity. Please try again.");
+            }
+
+            scanner.nextLine(); // Removes the newline character after the recent scanner
+
+            while (terminator) {
+                System.out.println("Would you like to add quantity to another coin value? (Y/N)");
+
+                choice = scanner.nextLine();
+
+                if (choice.equalsIgnoreCase("Y")) {
+                    terminator = false;
+                } else if (choice.equalsIgnoreCase("N")) {
+                    terminator = false;
+                    value = false;
+                } else {
+                    System.out.println("Invalid Input. Try again.");
+                }
+            }
+        }
+    }
+
+    public void reduceCoinQuantity(VendingMachine vendingMachine, Scanner scanner) {
+        boolean value = true;
+        boolean terminator;
+        String choice;
+        int coinValue = 0;
+        int quantity = 0;
+
+        while (value) {
+            terminator = true;
+            printCashInventory(vendingMachine);
+            System.out.println("Select which coin value you want to add quantity to: ");
+            coinValue = scanner.nextInt();
+            System.out.println("Enter the quantity to add: ");
+            quantity = scanner.nextInt();
+
+            boolean result = vendingMachine.getcashInventory().reducecoinQuantity(coinValue, quantity);
+            if (result) {
+                System.out.println("Quantity added successfully!");
+                printCashInventory(vendingMachine);
+            } else {
+                System.out.println("Invalid coin value or quantity. Please try again.");
+            }
+
+            scanner.nextLine(); // Removes the newline character after the recent scanner
+
+            while (terminator) {
+                System.out.println("Would you like to add quantity to another coin value? (Y/N)");
+
+                choice = scanner.nextLine();
+
+                if (choice.equalsIgnoreCase("Y")) {
+                    terminator = false;
+                } else if (choice.equalsIgnoreCase("N")) {
+                    terminator = false;
+                    value = false;
+                } else {
+                    System.out.println("Invalid Input. Try again.");
+                }
+            }
+        }
+    }
+
+    
     public void testVendingMachine(VendingMachine vendingMachine, Scanner scanner)
     {
         int choice = 0;
@@ -308,13 +445,13 @@ public VendingMachine createVendingMachine(Scanner scanner) {
                     addCashQuantity(vendingMachine, scanner);
                     break;
                 case 4:
-                    //function here
+                    addCoinQuantity(vendingMachine, scanner);
                     break;
                 case 5:
-                    //function here
+                    decreaseCashQuantity(vendingMachine,scanner);
                     break;
                 case 6:
-                    //function here
+                    reduceCoinQuantity(vendingMachine,scanner);
                     break;
                 case 7:
                     setItemPrice(vendingMachine, scanner);

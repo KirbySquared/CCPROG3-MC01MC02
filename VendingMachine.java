@@ -112,7 +112,7 @@ public class VendingMachine {
             System.out.println("\nCoin:\tQuantity\tValue");
             for (Coin coin : cashInventory.getcoinsList()) {
                 int quantity = change / coin.getValue();
-                cashInventory.reducecashQuantity(coin.getValue(), quantity);
+                cashInventory.reducecoinQuantity(coin.getValue(), quantity);
                 System.out.printf("Coin:\t%d\t\t%dphp%n", quantity, coin.getValue());
                 change -= coin.getValue() * quantity;
             }
