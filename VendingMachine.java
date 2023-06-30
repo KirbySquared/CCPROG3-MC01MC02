@@ -54,7 +54,7 @@ public class VendingMachine {
             double availableCash = cashInventory.getTotalCash();
 
             if (availableCash >= price && money > price) {
-                selectedSlot.decreaseQuantity(1);
+                selectedSlot.decreaseQuantity(quantity);
 
                 produceChange(price, money);
 
@@ -123,9 +123,9 @@ public class VendingMachine {
             cashInventory.reducecashQuantity(coin.getValue(), change/coin.getValue());
                 System.out.println( "Coin: " + change/coin.getValue() + "x " + coin.getValue() + "php| ");
                 change -= coin.getValue() * (change/coin.getValue() );
-        }
+        }       System.out.println("YOU INSERTED: " + money + " php");
                 System.out.println("YOUR CHANGE IS: " + tempchange2 + " php");
-                System.out.println("Vending Machine Remaining Cash: " + cashInventory.getTotalCash() + " php." );
+                System.out.println("Vending Machine Remaining Cash: " + cashInventory.getTotalCash() + " php.\n" );
         } else 
             {
                 System.out.println("No change available.");

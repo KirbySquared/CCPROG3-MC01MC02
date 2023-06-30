@@ -31,7 +31,7 @@ public class Slot {
     {   
         boolean value = true;
 
-        if (this.quantity > quantity)
+        if (this.quantity >= quantity)
         this.quantity -= quantity;
         else
         value = false;

@@ -91,14 +91,17 @@ public VendingMachine createVendingMachine() {
 
     public void buyfromMachine(VendingMachine vendingmachine)
     {   
-        String choice = "Y";
+        boolean value = true;
+        boolean terminator;
+        String choice;
         int slot = 0;
         int money = 0;
         int quantity = 0;
         Scanner scanner = new Scanner(System.in);
 
-        while (choice.equalsIgnoreCase("Y"))
+        while (value)
         {
+            terminator = true;
             printItemInventory(vendingmachine);
             System.out.println("PLEASE BE CAREFUL IN INPUTTING YOUR NUMBERS OR ELSE THE PROGRAM WILL CRASH");
             System.out.println("Select slot to buy from: ");
@@ -108,15 +111,30 @@ public VendingMachine createVendingMachine() {
             System.out.println("How many are you going to buy? (Keep it less than or equal to the current quantity)");
             quantity = scanner.nextInt();
 
+            scanner.nextLine();
+
             vendingmachine.selectItem(slot-1, money, quantity);
             
-            while ( !choice.equalsIgnoreCase("Y") && !choice.equalsIgnoreCase("N") )
-            {
-                System.out.println("Would you like to buy again? Y/N");
-                choice = scanner.nextLine();
-                if (!choice.equalsIgnoreCase("Y") && !choice.equalsIgnoreCase("N") )
-                System.out.println("Invalid input, try again.");
-            }
+                while (terminator)
+                {
+                    System.out.println("Would you like to buy again? Y/N");
+
+                    choice = scanner.nextLine();
+
+                    if ( choice.equalsIgnoreCase("Y"))
+                    {
+                        terminator = false;
+                    }
+                    else if (choice.equalsIgnoreCase("N") )
+                    {
+                        terminator = false;
+                        value = false;
+                    }
+                    else
+                    {
+                        System.out.println("Invalid Input. Try again.");
+                    }
+                }
         }
         
     }
