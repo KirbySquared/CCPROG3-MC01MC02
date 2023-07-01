@@ -378,14 +378,14 @@ public void addCoinQuantity(VendingMachine vendingMachine, Scanner scanner) {
         while (value) {
             terminator = true;
             printCashInventory(vendingMachine);
-            System.out.println("Select which coin value you want to add quantity to: ");
+            System.out.println("Select which coin value you want to decrease the quantity of: ");
             coinValue = scanner.nextInt();
-            System.out.println("Enter the quantity to add: ");
+            System.out.println("Enter the quantity to decrease: ");
             quantity = scanner.nextInt();
 
             boolean result = vendingMachine.getcashInventory().reducecoinQuantity(coinValue, quantity);
             if (result) {
-                System.out.println("Quantity added successfully!");
+                System.out.println("Quantity decreased successfully!");
                 printCashInventory(vendingMachine);
             } else {
                 System.out.println("Invalid coin value or quantity. Please try again.");
@@ -416,13 +416,6 @@ public void addCoinQuantity(VendingMachine vendingMachine, Scanner scanner) {
 
         while (choice != 10)
         {
-            if (vendingMachine.getcashInventory().getTotalCash() <= 0)
-            {
-                choice = 10;
-                System.out.println("NO MORE CASH DETECTED, SHUTTING DOWN VENDING MACHINE.");
-            }
-            else
-            {
                 printItemInventory(vendingMachine);
 
                 System.out.println("************************************");
@@ -486,7 +479,7 @@ public void addCoinQuantity(VendingMachine vendingMachine, Scanner scanner) {
                     System.out.println("Invalid choice. Please enter a valid integer.");
                     scanner.nextLine(); // Consumes the invalid input
                 }
-            }
+            
         } 
     }
         
