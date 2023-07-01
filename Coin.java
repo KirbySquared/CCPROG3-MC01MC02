@@ -1,3 +1,4 @@
+
 /**
  * Represents a coin with a specific value and quantity.
  */

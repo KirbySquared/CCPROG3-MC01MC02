@@ -1,3 +1,4 @@
+
 /**
  * Represents an item in the vending machine.
  */

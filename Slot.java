@@ -1,3 +1,4 @@
+
 /**
  * Represents a slot in the vending machine that holds an item and its quantity.
  */

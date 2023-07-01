@@ -1,3 +1,8 @@
+/**
+     * Returns the total sales amount.
+     *
+     * @return the total sales amount
+   
 import java.util.*;
 
 /**
