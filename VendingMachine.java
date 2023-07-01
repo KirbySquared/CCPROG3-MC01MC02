@@ -1,12 +1,41 @@
 import java.util.*;
+
+/**
+ * Represents a vending machine that sells items and provides change.
+ */
 public class VendingMachine {
 
+    /**
+     * The name of the vending machine.
+     */
     private final String name;
+
+    /**
+     * The list of slots containing items in the vending machine.
+     */
     private ArrayList<Slot> slots;
+
+    /**
+     * The inventory of cash in the vending machine.
+     */
     private CashInventory cashInventory;
+
+    /**
+     * The inventory of items in the vending machine.
+     */
     private ItemInventory itemInventory;
+
+    /**
+     * The transaction log for keeping track of sales in the vending machine.
+     */
     private TransactionLog transactionLog;
 
+
+    /**
+     * Constructs a vending machine with the given name.
+     *
+     * @param name the name of the vending machine
+     */
     public VendingMachine(String name)
     {
         this.name = name;
@@ -16,6 +45,9 @@ public class VendingMachine {
         this.transactionLog = new TransactionLog ();
     }
 
+    /**
+     * Constructs a vending machine with a default name.
+     */
     public VendingMachine()
     {
         this.name = "StockMachine";
@@ -25,16 +57,35 @@ public class VendingMachine {
         this.transactionLog = new TransactionLog();
     }
 
+    /**
+     * Restocks the specified slot in the vending machine with the given quantity of items.
+     *
+     * @param slot     the slot index to restock
+     * @param quantity the quantity of items to add to the slot
+     */
    public void restockItem(int slot, int quantity)
     {
         slots.get(slot).addQuantity(quantity);
     }
 
+    /**
+     * Sets the price of the item in the specified slot.
+     *
+     * @param slot  the slot index to set the item price
+     * @param price the price to set for the item
+     */
     public void setItemPrice(int slot, int price)
     {
         slots.get(slot).getItem().setPrice(price);
     }
 
+    /**
+     * Selects the item from the specified slot and processes the transaction.
+     *
+     * @param slot     the slot index to select the item from
+     * @param money    the amount of money inserted by the user
+     * @param quantity the quantity of items to purchase
+     */
     public void selectItem(int slot, int money, int quantity) //For buying in vending machine
     {
         Slot selectedSlot = slots.get(slot);
@@ -68,6 +119,14 @@ public class VendingMachine {
         }
     }
 
+    /**
+     * Calculates and dispenses the change to the user after a successful transaction.
+     *
+     * @param price          the total price of the items
+     * @param money          the amount of money inserted by the user
+     * @param selecteditem   the item selected by the user
+     * @param quantitydisplay the quantity of items purchased
+     */
     void produceChange(int price, int money, Item selecteditem, int quantitydisplay)
     {
         int change = money - price;
@@ -135,6 +194,11 @@ public class VendingMachine {
             }
         }
 
+     /**
+     * Retrieves the summary of all transactions from the transaction log.
+     *
+     * @return the summary of all transactions in the vending machine
+     */    
     String getTransactionSummary() 
     {
         
@@ -158,42 +222,82 @@ public class VendingMachine {
 
     }
 
+    /**
+     * Adds an item to the next available slot in the vending machine.
+     *
+     * @param item the item to be added to the vending machine
+     */
     public void addItemtoSlot(Item item)
     {
         Slot temp = new Slot(item);
         slots.add(temp);
     }
 
+    /**
+     * Adds cash to the cash inventory of the vending machine.
+     *
+     * @param cash the cash to be added to the cash inventory
+     */
     public void addCashtocashInv(Cash cash)
     {
         cashInventory.addCash(cash);
     }
 
+     /**
+     * Adds a coin to the cash inventory of the vending machine.
+     *
+     * @param coin the coin to be added to the cash inventory
+     */
     public void addCointocashInv(Coin coin)
     {
         cashInventory.addCoin(coin);
     }
 
+    /**
+     * Returns the list of slots in the vending machine.
+     *
+     * @return the list of slots in the vending machine
+     */
     public ArrayList<Slot> getSlots()
     {
         return this.slots;
     }
 
+    /**
+     * Returns the cash inventory of the vending machine.
+     *
+     * @return the cash inventory of the vending machine
+     */
     public CashInventory getcashInventory()
     {
         return this.cashInventory;
     }
 
+    /**
+     * Returns the item inventory of the vending machine.
+     *
+     * @return the item inventory of the vending machine
+     */
     public ItemInventory getitemInventory()
     {
         return this.itemInventory;
     }
 
+    /**
+     * Returns the transaction log of the vending machine.
+     *
+     * @return the transaction log of the vending machine
+     */
     public TransactionLog gettransactionLog()
     {
         return this.transactionLog;
     }
 
+    /**
+     * Returns the name of the vending machine.
+     *
+     * @return the name of the vending machine
+     */
     public String getName()
     {
         return this.name;
