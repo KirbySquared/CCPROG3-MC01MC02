@@ -1,8 +1,4 @@
-/**
-     * Returns the total sales amount.
-     *
-     * @return the total sales amount
-   
+package GUIINTERFACE;
 import java.util.*;
 
 /**
