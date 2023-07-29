@@ -1,3 +1,5 @@
+package GUIINTERFACE;
+
 import java.util.ArrayList;
 
 /**
@@ -13,8 +15,6 @@ public class CustomizableVendingMachine extends VendingMachine {
     /**
      * The list of selected items by the user to customize the product.
      */
-    private ArrayList<Item> selectedItems;
-
     /**
      * Constructs a customizable vending machine with the given name.
      *
@@ -23,7 +23,6 @@ public class CustomizableVendingMachine extends VendingMachine {
     public CustomizableVendingMachine(String name) {
         super(name);
         this.customizableItems = new ArrayList<>();
-        this.selectedItems = new ArrayList<>();
     }
 
     /**
@@ -32,7 +31,6 @@ public class CustomizableVendingMachine extends VendingMachine {
     public CustomizableVendingMachine() {
         super("CustomizableMachine");
         this.customizableItems = new ArrayList<>();
-        this.selectedItems = new ArrayList<>();
     }
 
     /**
@@ -69,9 +67,6 @@ public class CustomizableVendingMachine extends VendingMachine {
      *
      * @param item the item selected by the user to customize the product
      */
-    public void selectCustomizableItem(Item item) {
-        selectedItems.add(item);
-    }
 
     /**
      * Prepares and returns a string representation of the custom product.
@@ -84,12 +79,12 @@ public class CustomizableVendingMachine extends VendingMachine {
 
         productSummary.append("Custom Product Summary:\n");
 
-        for (Item item : selectedItems) {
+       /*  for (Item item : selectedItems) {
             productSummary.append("Item: ").append(item.getName()).append("\n");
             productSummary.append("Price: ").append(item.getPrice()).append(" php\n");
             productSummary.append("Calories: ").append(item.getCalories()).append("\n\n");
             totalCalories += item.getCalories();
-        }
+        } */
 
         productSummary.append("Total Calories: ").append(totalCalories).append(" kcal\n");
 

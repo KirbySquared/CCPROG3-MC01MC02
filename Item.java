@@ -1,4 +1,4 @@
-
+package GUIINTERFACE;
 /**
  * Represents an item in the vending machine.
  */

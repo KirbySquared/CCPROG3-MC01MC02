@@ -1,3 +1,4 @@
+package GUIINTERFACE;
 /**
  * Represents a cash denomination, which is a specific type of coin.
  */

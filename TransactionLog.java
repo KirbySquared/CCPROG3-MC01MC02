@@ -1,4 +1,5 @@
-import java.util;
+package GUIINTERFACE;
+import java.util.*;
 
 /**
  * Represents a transaction log that keeps track of sales and total sales.
