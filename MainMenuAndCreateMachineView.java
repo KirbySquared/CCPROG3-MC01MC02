@@ -5,6 +5,8 @@
 package GUIINTERFACE;
 
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
 /*
  * @author kurvy morales & emmanuel ting
  */
@@ -13,7 +15,6 @@ public class MainMenuAndCreateMachineView extends javax.swing.JFrame {
      * Creates new form BaseFrame
      */
     private RegMachineView Machine; //REMOVE ONCE CONTROLLER CODE IS IMPLEMENTED
-    //private Model something something;
     private GUIModel Model;
     private JFrame CreateMachine;
     private ButtonGroup buttonGroup;
@@ -35,10 +36,11 @@ public class MainMenuAndCreateMachineView extends javax.swing.JFrame {
     private JTextField jTextField1;
     
     public MainMenuAndCreateMachineView(GUIModel model, RegMachineView secondView) {
-        this.Model = model;
+        this.Model = model;//REMOVE THIS WHEN DONE DESIGNING
         this.Machine = secondView;
         initComponents();
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -81,20 +83,10 @@ public class MainMenuAndCreateMachineView extends javax.swing.JFrame {
         buttonGroup.add(RegMachineButton);
         RegMachineButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         RegMachineButton.setText("Regular Vending Machine");
-        RegMachineButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RegMachineButtonActionPerformed(evt);
-            }
-        });
 
         buttonGroup.add(SpecialMachineButton);
         SpecialMachineButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         SpecialMachineButton.setText("Special Vending Machine");
-        SpecialMachineButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SpecialMachineButtonActionPerformed(evt);
-            }
-        });
 
         ItemDisplayLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         ItemDisplayLabel.setText("Items in the Machine: ");
@@ -130,23 +122,12 @@ public class MainMenuAndCreateMachineView extends javax.swing.JFrame {
                 .addContainerGap(26, Short.MAX_VALUE))
         );
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel4.setText("Enter your Vending Machine Name:");
 
         CreateMachineButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         CreateMachineButton.setText("Create Machine");
         CreateMachineButton.setEnabled(false);
-        CreateMachineButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CreateMachineButtonActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -221,60 +202,44 @@ public class MainMenuAndCreateMachineView extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Jokerman", 1, 36)); // NOI18N
         jLabel1.setText("MCO2 Vending Machine");
 
-        ExitButton.setFont(new java.awt.Font("OCR A Extended", 0, 12)); // NOI18N
+        ExitButton.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         ExitButton.setText("Exit Program");
-        ExitButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ExitButtonActionPerformed(evt);
-            }
-        });
 
-        CreateVendingMachine.setFont(new java.awt.Font("OCR A Extended", 0, 12)); // NOI18N
+        CreateVendingMachine.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         CreateVendingMachine.setText("Create Vending Machine");
-        CreateVendingMachine.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CreateVendingMachineActionPerformed(evt);
-            }
-        });
 
-        TestVendingMachine.setFont(new java.awt.Font("OCR A Extended", 0, 12)); // NOI18N
+        TestVendingMachine.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         TestVendingMachine.setText("Test Vending Machine");
         TestVendingMachine.setEnabled(false);
-        TestVendingMachine.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TestVendingMachineActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(102, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(CreateVendingMachine, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(TestVendingMachine, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(ExitButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(214, 214, 214))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(67, 67, 67))))
+                .addGap(65, 65, 65)
+                .addComponent(jLabel1)
+                .addGap(65, 65, 65))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(190, 190, 190)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(ExitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TestVendingMachine, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CreateVendingMachine, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 190, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addGap(45, 45, 45)
                 .addComponent(jLabel1)
-                .addGap(43, 43, 43)
-                .addComponent(CreateVendingMachine, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
-                .addComponent(TestVendingMachine, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
-                .addComponent(ExitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addGap(45, 45, 45)
+                .addComponent(CreateVendingMachine, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(TestVendingMachine, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(ExitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -282,76 +247,80 @@ public class MainMenuAndCreateMachineView extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(25, 25, 25)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15))
+                .addGap(25, 25, 25))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(50, 50, 50)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addGap(50, 50, 50))
         );
 
         getAccessibleContext().setAccessibleName("FirstFrame");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    public void setItemListDisplayText (String text) {
+        ItemListDisplay.setText(text);
+    }
+    
+    public void setTestVendingMachineEnabled (boolean value) {
+        TestVendingMachine.setEnabled(value);
+    }
+    
+    public void disposecreateMachine() {
+        this.CreateMachine.dispose();
+    }
+    
+    public boolean isRegMachineButtonSelected () {
+        return this.RegMachineButton.isSelected();
+    }
+    
+    public boolean isSpecialMachineButtonSelected () {
+        return this.SpecialMachineButton.isSelected();
+    }
+    
+    public void setmachineNameTextField (String text) {
+        this.jTextField1.setText(text);
+    }
+    
+    public String getmachineNameTextField () {
+        return this.jTextField1.getText();
+    }
+    
+    public void setCreateMachineVisible(boolean value) {
+        this.CreateMachine.setVisible(value);
+    }
+    
+    public void setCreateMachineButtonEnabled (boolean value) {
+        this.CreateMachineButton.setEnabled(value);
+    }
+    public void setExitButtonListener(ActionListener actionlistener) {
+        this.ExitButton.addActionListener(actionlistener);
+    }
 
-    private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitButtonActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_ExitButtonActionPerformed
-
-    private void TestVendingMachineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TestVendingMachineActionPerformed
-        this.Machine.setVisible(false);
-        this.Machine.setVisible(true);
-    }//GEN-LAST:event_TestVendingMachineActionPerformed
-
-    private void CreateVendingMachineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateVendingMachineActionPerformed
-        CreateMachine.setVisible(true);
-    }//GEN-LAST:event_CreateVendingMachineActionPerformed
-
-    private void RegMachineButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegMachineButtonActionPerformed
-        CreateMachineButton.setEnabled(true);
-        ItemListDisplay.setText(Model.getItem1Name()+"\n"+Model.getItem2Name()+"\n"+Model.getItem3Name()
-    +"\n"+Model.getItem4Name()+"\n"+Model.getItem5Name()+"\n"+Model.getItem6Name()+"\n"+Model.getItem7Name()
-    +"\n"+Model.getItem8Name() );
-    }//GEN-LAST:event_RegMachineButtonActionPerformed
-
-    private void SpecialMachineButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SpecialMachineButtonActionPerformed
-        CreateMachineButton.setEnabled(true);
-        ItemListDisplay.setText(Model.getItem1Name()+"\n"+Model.getItem2Name()+"\n"+Model.getItem3Name()
-    +"\n"+Model.getItem4Name()+"\n"+Model.getItem5Name()+"\n"+Model.getItem6Name()+"\n"+Model.getItem7Name()
-    +"\n"+Model.getItem8Name()+"\n"+Model.getItem9Name()+"\n"+Model.getIng1Name()+"\n"+Model.getIng2Name()
-    +"\n"+Model.getIng3Name()+"\n"+Model.getIng4Name()+"\n"+Model.getIng5Name()+"\n"+Model.getIng6Name());
-    }//GEN-LAST:event_SpecialMachineButtonActionPerformed
-
-    private void CreateMachineButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateMachineButtonActionPerformed
-
-        if (RegMachineButton.isSelected() ) {
-            this.Machine.setmachineLabel(jTextField1.getText());
-            this.Machine.dispose();
-            this.Machine.setTitle("Regular Vending Machine MCO2");
-            
-            System.out.println("REGULAR MACHINE HAS BEEN SET.");
-        } else if (SpecialMachineButton.isSelected() ) {
-            this.Machine.setmachineLabel(jTextField1.getText());
-            this.Machine.dispose();
-            this.Machine.setTitle("Special Vending Machine MCO2");
-            System.out.println("SPECIAL MACHINE HAS BEEN SET.");
-        }
-        CreateMachine.dispose();
-        TestVendingMachine.setEnabled(true);
-        jTextField1.setText("");
-        RegMachineButton.setSelected(false);
-        SpecialMachineButton.setSelected(false);
-    }//GEN-LAST:event_CreateMachineButtonActionPerformed
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
+    public void setBtnTestVendingMachineListener (ActionListener actionlistener) {
+        this.TestVendingMachine.addActionListener(actionlistener);
+    }
+    
+    public void setCreateVendingBtnListener(ActionListener actionlistener) {
+        this.CreateVendingMachine.addActionListener(actionlistener);
+    }
+    
+    public void setRegMachineButtonListener (ActionListener actionlistener) {
+        this.RegMachineButton.addActionListener(actionlistener);
+    }    
+    
+    public void setSpecialMachineButtonListener (ActionListener actionlistener) {
+        this.SpecialMachineButton.addActionListener(actionlistener);
+    }
+    
+    public void setCreateMachineButtonListener(ActionListener actionlistener) {
+        this.CreateMachineButton.addActionListener(actionlistener);
+    }
     /**
      * @param args the command line arguments
      */
