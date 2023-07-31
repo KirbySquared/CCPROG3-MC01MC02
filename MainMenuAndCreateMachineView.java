@@ -5,7 +5,6 @@
 package GUIINTERFACE;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.*;
 /*
  * @author kurvy morales & emmanuel ting
@@ -14,8 +13,7 @@ public class MainMenuAndCreateMachineView extends javax.swing.JFrame {
     /**
      * Creates new form BaseFrame
      */
-    private RegMachineView Machine; //REMOVE ONCE CONTROLLER CODE IS IMPLEMENTED
-    private GUIModel Model;
+    //private RegMachineView Machine; //REMOVE ONCE CONTROLLER CODE IS IMPLEMENTED
     private JFrame CreateMachine;
     private ButtonGroup buttonGroup;
     private JButton ExitButton;
@@ -35,9 +33,7 @@ public class MainMenuAndCreateMachineView extends javax.swing.JFrame {
     private JTextArea ItemListDisplay;
     private JTextField jTextField1;
     
-    public MainMenuAndCreateMachineView(GUIModel model, RegMachineView secondView) {
-        this.Model = model;//REMOVE THIS WHEN DONE DESIGNING
-        this.Machine = secondView;
+    public MainMenuAndCreateMachineView() {
         initComponents();
     }
     
@@ -94,10 +90,7 @@ public class MainMenuAndCreateMachineView extends javax.swing.JFrame {
         ItemListDisplay.setEditable(false);
         ItemListDisplay.setColumns(20);
         ItemListDisplay.setRows(5);
-        ItemListDisplay.setText(Model.getItem1Name()+"\n"+Model.getItem2Name()+"\n"+Model.getItem3Name()
-            +"\n"+Model.getItem4Name()+"\n"+Model.getItem5Name()+"\n"+Model.getItem6Name()+"\n"+Model.getItem7Name()
-            +"\n"+Model.getItem8Name()+"\n"+Model.getItem9Name()
-        );
+        ItemListDisplay.setText("Item 1\nItem 2\nItem 3\nItem 4\nItem 5\nItem 6\nItem 7\nItem 8\nItem 9\nIngredient 1\nIngredient 2\nIngredient 3\nIngredient 4\nIngredient 5\nIngredient 6\n");
         ItemListDisplay.setFocusable(false);
         jScrollPane1.setViewportView(ItemListDisplay);
 
@@ -110,7 +103,7 @@ public class MainMenuAndCreateMachineView extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ItemDisplayLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -321,10 +314,7 @@ public class MainMenuAndCreateMachineView extends javax.swing.JFrame {
     public void setCreateMachineButtonListener(ActionListener actionlistener) {
         this.CreateMachineButton.addActionListener(actionlistener);
     }
-    /**
-     * @param args the command line arguments
-     */
- 
+
 }
 /* DEFAULT VARIABLE DECLARATION FROM NETBEANS
     // Variables declaration - do not modify//GEN-BEGIN:variables

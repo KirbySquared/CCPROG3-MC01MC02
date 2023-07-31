@@ -4,18 +4,17 @@
  */
 package GUIINTERFACE;
 import javax.swing.*;
+import java.awt.event.*;
 /**
  *
  * @author kurvy morales & emmanuel ting
  */
 public class RegMachineView extends javax.swing.JFrame {
-    private GUIModel Model;//REMOVE ONCE NA CONNECT NA MVC
-    private JScrollPane jScrollPane5;
-    private JTextArea QuantityDisplay;
+    private JSpinner SpinnerQuantity;
     private JLabel QuantityLabel;
     private JLabel InputLabel;
-    private javax.swing.JPanel BuyItemPanel;
-    private javax.swing.JButton DispenseButton;
+    private JPanel BuyItemPanel;
+    private JButton DispenseButton;
     private JButton CustomItemBuy;
     private JButton Ing1Buy;
     private JButton Ing2Buy;
@@ -51,7 +50,7 @@ public class RegMachineView extends javax.swing.JFrame {
     private JButton jButtonCreate4;
     private JButton jButtonCreate9;
     private JButton jButtonCreate0;
-    private JButton amountGetterButton;
+    private JButton EnterButton;
     private JButton jButtonCreate3;
     private JButton AdminSettingsButton;
     private JLabel MaintenanceLabel;
@@ -64,7 +63,7 @@ public class RegMachineView extends javax.swing.JFrame {
     private JButton jButtonCreate7;
     private JButton jButtonCreate5;
     private JButton ClearButton;
-    private JFrame AdminFrameRegular;
+    private JFrame AdminFrame;
     private JLabel VendingMachineName;
     private JPanel BigMachinePanel;
     private JPanel InputPanel;
@@ -74,55 +73,15 @@ public class RegMachineView extends javax.swing.JFrame {
     private JTextArea AdminDisplayArea;
     private JScrollPane jScrollPane3;
     private JTextArea NumPadDisplay;
-    private int quantityBuy;
     private int balLabel;
     
-    public RegMachineView(GUIModel model) {
+    public RegMachineView() {
         /**
          * TODO: CONNECT EACH VIEW USING CONTROLLER IN MVC)
          */
-        this.quantityBuy = 0;
-        this.balLabel = 0;
-        this.Model = model;
         initComponents();
     }
     
-    public void setmachineLabel(String text){
-        this.VendingMachineName.setText(text);
-    }
-    
-    public void setcustomItemLabelStatus (boolean value) {
-        CustomItemLabel.setEnabled(value);
-    }
-    
-    public void setcustomItemBuyStatus (boolean value) {
-        CustomItemBuy.setEnabled(value);
-    }
-    
-    public void setIng1LabelStatus (boolean value) {
-        Ing1Label.setEnabled(value);
-    }
-    
-     public void setIng1BuyStatus (boolean value) {
-        Ing1Buy.setEnabled(value);
-    }
-    
-    public void setIng2LabelStatus (boolean value) {
-        Ing2Label.setEnabled(value);
-    }
-    
-    public void setIng2BuyStatus (boolean value) {
-        Ing2Buy.setEnabled(value);
-    }
-    
-    public void setIng3LabelStatus (boolean value) {
-        Ing3Label.setEnabled(value);
-    }
-    
-     public void setIng3BuyStatus (boolean value) {
-        Ing3Buy.setEnabled(value);
-    }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -132,7 +91,7 @@ public class RegMachineView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        AdminFrameRegular = new javax.swing.JFrame();
+        AdminFrame = new javax.swing.JFrame();
         AdminPanel = new javax.swing.JPanel();
         AdminBackButton = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -144,7 +103,7 @@ public class RegMachineView extends javax.swing.JFrame {
         VendingMachineName = new javax.swing.JLabel();
         InputPanel = new javax.swing.JPanel();
         ClearButton = new javax.swing.JButton();
-        amountGetterButton = new javax.swing.JButton();
+        EnterButton = new javax.swing.JButton();
         InsertMoneyButton = new javax.swing.JButton();
         MachineButtonPanel = new javax.swing.JPanel();
         jButtonCreate1 = new javax.swing.JButton();
@@ -194,11 +153,10 @@ public class RegMachineView extends javax.swing.JFrame {
         MachinePrintDisplay = new javax.swing.JTextArea();
         InputLabel = new javax.swing.JLabel();
         QuantityLabel = new javax.swing.JLabel();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        QuantityDisplay = new javax.swing.JTextArea();
+        SpinnerQuantity = new javax.swing.JSpinner();
 
-        AdminFrameRegular.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        AdminFrameRegular.setSize(new java.awt.Dimension(632, 632));
+        AdminFrame.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        AdminFrame.setSize(new java.awt.Dimension(632, 632));
 
         AdminPanel.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -259,18 +217,18 @@ public class RegMachineView extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout AdminFrameRegularLayout = new javax.swing.GroupLayout(AdminFrameRegular.getContentPane());
-        AdminFrameRegular.getContentPane().setLayout(AdminFrameRegularLayout);
-        AdminFrameRegularLayout.setHorizontalGroup(
-            AdminFrameRegularLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AdminFrameRegularLayout.createSequentialGroup()
+        javax.swing.GroupLayout AdminFrameLayout = new javax.swing.GroupLayout(AdminFrame.getContentPane());
+        AdminFrame.getContentPane().setLayout(AdminFrameLayout);
+        AdminFrameLayout.setHorizontalGroup(
+            AdminFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AdminFrameLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(AdminPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        AdminFrameRegularLayout.setVerticalGroup(
-            AdminFrameRegularLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AdminFrameRegularLayout.createSequentialGroup()
+        AdminFrameLayout.setVerticalGroup(
+            AdminFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AdminFrameLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(AdminPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -313,8 +271,10 @@ public class RegMachineView extends javax.swing.JFrame {
         setMaximumSize(new java.awt.Dimension(891, 610));
         setResizable(false);
         setSize(new java.awt.Dimension(891, 610));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         BigMachinePanel.setBackground(new java.awt.Color(204, 204, 204));
+        BigMachinePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         VendingMachineName.setBackground(new java.awt.Color(255, 204, 102));
         VendingMachineName.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
@@ -329,111 +289,48 @@ public class RegMachineView extends javax.swing.JFrame {
         VendingMachineName.setName(""); // NOI18N
         VendingMachineName.setOpaque(true);
         VendingMachineName.setPreferredSize(new java.awt.Dimension(50, 34));
+        BigMachinePanel.add(VendingMachineName, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 526, 68));
+        VendingMachineName.getAccessibleContext().setAccessibleName("");
 
         InputPanel.setBackground(new java.awt.Color(255, 255, 255));
 
         ClearButton.setText("CLEAR");
-        ClearButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ClearButtonActionPerformed(evt);
-            }
-        });
 
-        amountGetterButton.setText("ENTER");
-        amountGetterButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                amountGetterButtonActionPerformed(evt);
-            }
-        });
+        EnterButton.setText("ENTER");
 
         InsertMoneyButton.setText("Insert Money");
-        InsertMoneyButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                InsertMoneyButtonActionPerformed(evt);
-            }
-        });
 
         MachineButtonPanel.setBackground(new java.awt.Color(204, 255, 255));
 
         jButtonCreate1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButtonCreate1.setText("1");
-        jButtonCreate1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonCreate1ActionPerformed(evt);
-            }
-        });
 
         jButtonCreate2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButtonCreate2.setText("2");
-        jButtonCreate2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonCreate2ActionPerformed(evt);
-            }
-        });
 
         jButtonCreate3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButtonCreate3.setText("3");
-        jButtonCreate3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonCreate3ActionPerformed(evt);
-            }
-        });
 
         jButtonCreate4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButtonCreate4.setText("4");
-        jButtonCreate4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonCreate4ActionPerformed(evt);
-            }
-        });
 
         jButtonCreate5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButtonCreate5.setText("5");
-        jButtonCreate5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonCreate5ActionPerformed(evt);
-            }
-        });
 
         jButtonCreate6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButtonCreate6.setText("6");
-        jButtonCreate6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonCreate6ActionPerformed(evt);
-            }
-        });
 
         jButtonCreate7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButtonCreate7.setText("7");
-        jButtonCreate7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonCreate7ActionPerformed(evt);
-            }
-        });
 
         jButtonCreate8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButtonCreate8.setText("8");
-        jButtonCreate8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonCreate8ActionPerformed(evt);
-            }
-        });
 
         jButtonCreate9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButtonCreate9.setText("9");
-        jButtonCreate9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonCreate9ActionPerformed(evt);
-            }
-        });
 
         jButtonCreate0.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButtonCreate0.setText("0");
-        jButtonCreate0.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonCreate0ActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout MachineButtonPanelLayout = new javax.swing.GroupLayout(MachineButtonPanel);
         MachineButtonPanel.setLayout(MachineButtonPanelLayout);
@@ -462,12 +359,12 @@ public class RegMachineView extends javax.swing.JFrame {
                         .addComponent(jButtonCreate9)
                         .addGap(18, 18, 18)
                         .addComponent(jButtonCreate0)))
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addGap(20, 20, 20))
         );
         MachineButtonPanelLayout.setVerticalGroup(
             MachineButtonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MachineButtonPanelLayout.createSequentialGroup()
-                .addContainerGap(16, Short.MAX_VALUE)
+                .addGap(20, 20, 20)
                 .addGroup(MachineButtonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonCreate5)
                     .addComponent(jButtonCreate4)
@@ -491,34 +388,36 @@ public class RegMachineView extends javax.swing.JFrame {
             .addGroup(InputPanelLayout.createSequentialGroup()
                 .addGroup(InputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(InputPanelLayout.createSequentialGroup()
-                        .addContainerGap()
+                        .addGap(9, 9, 9)
                         .addComponent(ClearButton, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(amountGetterButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(12, 12, 12)
+                        .addComponent(EnterButton)
+                        .addGap(12, 12, 12)
                         .addComponent(InsertMoneyButton))
                     .addGroup(InputPanelLayout.createSequentialGroup()
-                        .addGap(14, 14, 14)
+                        .addGap(27, 27, 27)
                         .addComponent(MachineButtonPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(9, 9, 9))
+                .addGap(20, 20, 20))
         );
         InputPanelLayout.setVerticalGroup(
             InputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(InputPanelLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(20, 20, 20)
                 .addComponent(MachineButtonPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(InputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ClearButton)
-                    .addComponent(amountGetterButton)
+                    .addComponent(EnterButton)
                     .addComponent(InsertMoneyButton))
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addGap(20, 20, 20))
         );
+
+        BigMachinePanel.add(InputPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(571, 404, -1, -1));
 
         LayoutPanel.setMaximumSize(new java.awt.Dimension(526, 486));
         LayoutPanel.setMinimumSize(new java.awt.Dimension(526, 486));
 
-        AdminSettingsButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        AdminSettingsButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         AdminSettingsButton.setText("ADMIN SETTINGS");
         AdminSettingsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -528,11 +427,6 @@ public class RegMachineView extends javax.swing.JFrame {
 
         ExitButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         ExitButton.setText("EXIT MACHINE");
-        ExitButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ExitButtonActionPerformed(evt);
-            }
-        });
 
         MachineBalLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         MachineBalLabel.setText("MACHINE BALANCE: 0");
@@ -542,11 +436,6 @@ public class RegMachineView extends javax.swing.JFrame {
 
         DispenseButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         DispenseButton.setText("DISPENSE");
-        DispenseButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DispenseButtonActionPerformed(evt);
-            }
-        });
 
         BuyItemPanel.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -675,36 +564,38 @@ public class RegMachineView extends javax.swing.JFrame {
                     .addComponent(CustomItemBuy, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Item5Buy, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Item1Buy, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Item1Label, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Item5Label, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(CustomItemLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(CustomItemLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Item1Label, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(25, 25, 25)
                 .addGroup(BuyItemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(BuyItemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(Item2Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Ing1Buy, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
-                        .addComponent(Ing1Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Item2Buy, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Item6Buy, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(Item6Label, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Ing1Buy, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
+                    .addComponent(Ing1Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Item2Buy, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Item6Buy, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Item2Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Item6Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(25, 25, 25)
                 .addGroup(BuyItemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(BuyItemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(Item3Buy, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
-                        .addComponent(Item7Buy, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Ing2Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Item3Label, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(Ing2Buy, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(Item7Label, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Item3Buy, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
+                    .addComponent(Item7Buy, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Ing2Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Ing2Buy, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Item3Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Item7Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(25, 25, 25)
                 .addGroup(BuyItemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Item4Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Item8Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Ing3Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Item4Buy, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Item8Buy, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
-                    .addComponent(Ing3Buy, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(25, 25, 25))
+                    .addGroup(BuyItemPanelLayout.createSequentialGroup()
+                        .addGroup(BuyItemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Item8Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Ing3Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Item4Buy, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Item8Buy, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Ing3Buy, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(25, 25, 25))
+                    .addGroup(BuyItemPanelLayout.createSequentialGroup()
+                        .addComponent(Item4Label, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30))))
         );
         BuyItemPanelLayout.setVerticalGroup(
             BuyItemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -755,9 +646,9 @@ public class RegMachineView extends javax.swing.JFrame {
             .addGroup(LayoutPanelLayout.createSequentialGroup()
                 .addGroup(LayoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(LayoutPanelLayout.createSequentialGroup()
-                        .addGap(50, 50, 50)
+                        .addGap(28, 28, 28)
                         .addComponent(MachineBalLabel)
-                        .addGap(205, 205, 205)
+                        .addGap(94, 94, 94)
                         .addComponent(PersonBalLabel))
                     .addGroup(LayoutPanelLayout.createSequentialGroup()
                         .addGap(20, 20, 20)
@@ -776,17 +667,19 @@ public class RegMachineView extends javax.swing.JFrame {
             .addGroup(LayoutPanelLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(BuyItemPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addGroup(LayoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ExitButton)
-                    .addComponent(AdminSettingsButton)
-                    .addComponent(DispenseButton))
+                .addGap(18, 18, 18)
+                .addGroup(LayoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(DispenseButton, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                    .addComponent(ExitButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(AdminSettingsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(20, 20, 20)
                 .addGroup(LayoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(MachineBalLabel)
                     .addComponent(PersonBalLabel))
                 .addGap(25, 25, 25))
         );
+
+        BigMachinePanel.add(LayoutPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 93, 526, -1));
 
         NumPadDisplay.setEditable(false);
         NumPadDisplay.setBackground(new java.awt.Color(255, 255, 204));
@@ -798,222 +691,225 @@ public class RegMachineView extends javax.swing.JFrame {
         NumPadDisplay.setRequestFocusEnabled(false);
         jScrollPane3.setViewportView(NumPadDisplay);
 
+        BigMachinePanel.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 360, 150, 42));
+
         MachinePrintDisplay.setEditable(false);
         MachinePrintDisplay.setBackground(new java.awt.Color(204, 255, 204));
         MachinePrintDisplay.setColumns(20);
+        MachinePrintDisplay.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         MachinePrintDisplay.setLineWrap(true);
         MachinePrintDisplay.setRows(6);
         MachinePrintDisplay.setWrapStyleWord(true);
         MachinePrintDisplay.setRequestFocusEnabled(false);
         jScrollPane4.setViewportView(MachinePrintDisplay);
 
+        BigMachinePanel.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(571, 20, 303, 286));
+
         InputLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         InputLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        InputLabel.setText("INPUT:");
+        InputLabel.setText("INPUT USER BALANCE:");
         InputLabel.setAlignmentY(0.0F);
         InputLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        BigMachinePanel.add(InputLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 330, 160, -1));
 
         QuantityLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         QuantityLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         QuantityLabel.setText("QUANTITY:");
         QuantityLabel.setAlignmentY(0.0F);
         QuantityLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        BigMachinePanel.add(QuantityLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 330, 90, -1));
 
-        QuantityDisplay.setEditable(false);
-        QuantityDisplay.setBackground(new java.awt.Color(255, 204, 255));
-        QuantityDisplay.setColumns(20);
-        QuantityDisplay.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        QuantityDisplay.setLineWrap(true);
-        QuantityDisplay.setRows(6);
-        QuantityDisplay.setWrapStyleWord(true);
-        QuantityDisplay.setRequestFocusEnabled(false);
-        jScrollPane5.setViewportView(QuantityDisplay);
+        SpinnerQuantity.setModel(new javax.swing.SpinnerNumberModel(0, 0, 20, 1));
+        SpinnerQuantity.setAlignmentX(0.0F);
+        SpinnerQuantity.setAlignmentY(0.0F);
+        SpinnerQuantity.setEditor(new JSpinner.DefaultEditor(SpinnerQuantity));
+        SpinnerQuantity.setMaximumSize(new java.awt.Dimension(64, 22));
+        BigMachinePanel.add(SpinnerQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 360, 90, 42));
 
-        javax.swing.GroupLayout BigMachinePanelLayout = new javax.swing.GroupLayout(BigMachinePanel);
-        BigMachinePanel.setLayout(BigMachinePanelLayout);
-        BigMachinePanelLayout.setHorizontalGroup(
-            BigMachinePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BigMachinePanelLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(BigMachinePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(VendingMachineName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(LayoutPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(25, 25, 25)
-                .addGroup(BigMachinePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(BigMachinePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jScrollPane4)
-                        .addComponent(InputPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(BigMachinePanelLayout.createSequentialGroup()
-                        .addGroup(BigMachinePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(InputLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addGroup(BigMachinePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(BigMachinePanelLayout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                            .addComponent(QuantityLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(20, Short.MAX_VALUE))
-        );
-        BigMachinePanelLayout.setVerticalGroup(
-            BigMachinePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BigMachinePanelLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(BigMachinePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(BigMachinePanelLayout.createSequentialGroup()
-                        .addComponent(VendingMachineName, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(5, 5, 5)
-                        .addComponent(LayoutPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(BigMachinePanelLayout.createSequentialGroup()
-                        .addComponent(jScrollPane4)
-                        .addGap(24, 24, 24)
-                        .addGroup(BigMachinePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(InputLabel)
-                            .addComponent(QuantityLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(BigMachinePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(InputPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(20, 20, 20))
-        );
-
-        VendingMachineName.getAccessibleContext().setAccessibleName("");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(BigMachinePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(11, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
-                .addComponent(BigMachinePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        getContentPane().add(BigMachinePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButtonCreate4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreate4ActionPerformed
-        if (NumPadDisplay.getText().equals("TEXT GOES HERE") )
-         NumPadDisplay.setText("4");
-     else
-        NumPadDisplay.setText(NumPadDisplay.getText() + "4");
-    }//GEN-LAST:event_jButtonCreate4ActionPerformed
-
-    private void jButtonCreate1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreate1ActionPerformed
-     if (NumPadDisplay.getText().equals("TEXT GOES HERE") )
-         NumPadDisplay.setText("1");
-     else
-        NumPadDisplay.setText(NumPadDisplay.getText() + "1");
-    }//GEN-LAST:event_jButtonCreate1ActionPerformed
-
-    private void jButtonCreate6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreate6ActionPerformed
-        if (NumPadDisplay.getText().equals("TEXT GOES HERE") )
-         NumPadDisplay.setText("6");
-     else
-        NumPadDisplay.setText(NumPadDisplay.getText() + "6");
-    }//GEN-LAST:event_jButtonCreate6ActionPerformed
-
-    private void jButtonCreate8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreate8ActionPerformed
-        if (NumPadDisplay.getText().equals("TEXT GOES HERE") )
-         NumPadDisplay.setText("8");
-     else
-        NumPadDisplay.setText(NumPadDisplay.getText() + "8");
-    }//GEN-LAST:event_jButtonCreate8ActionPerformed
-
-    private void jButtonCreate7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreate7ActionPerformed
-        if (NumPadDisplay.getText().equals("TEXT GOES HERE") )
-         NumPadDisplay.setText("7");
-     else
-        NumPadDisplay.setText(NumPadDisplay.getText() + "7");
-    }//GEN-LAST:event_jButtonCreate7ActionPerformed
-
-    private void jButtonCreate5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreate5ActionPerformed
-        if (NumPadDisplay.getText().equals("TEXT GOES HERE") )
-         NumPadDisplay.setText("5");
-     else
-        NumPadDisplay.setText(NumPadDisplay.getText() + "5");
-    }//GEN-LAST:event_jButtonCreate5ActionPerformed
-
-    private void ClearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearButtonActionPerformed
-       //Back Space
-       NumPadDisplay.setText("");
-    }//GEN-LAST:event_ClearButtonActionPerformed
-
-    private void jButtonCreate9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreate9ActionPerformed
-        if (NumPadDisplay.getText().equals("TEXT GOES HERE") )
-         NumPadDisplay.setText("9");
-     else
-        NumPadDisplay.setText(NumPadDisplay.getText() + "9");
-    }//GEN-LAST:event_jButtonCreate9ActionPerformed
-
-    private void jButtonCreate0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreate0ActionPerformed
-        if (NumPadDisplay.getText().equals("TEXT GOES HERE") )
-         NumPadDisplay.setText("0");
-     else
-        NumPadDisplay.setText(NumPadDisplay.getText() + "0");
-    }//GEN-LAST:event_jButtonCreate0ActionPerformed
-
-    private void amountGetterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_amountGetterButtonActionPerformed
-        try {
-            this.quantityBuy = Integer.parseInt(NumPadDisplay.getText() );
-        } catch (Exception e) {
-            this.quantityBuy = -999;
-        }
-    }//GEN-LAST:event_amountGetterButtonActionPerformed
-
+    
+    public void setMachinePrintDisplayText(String text) {
+        this.MachinePrintDisplay.setText(text);
+    }
+    
+    public String getMachinePrintDisplayText() {
+        return this.MachinePrintDisplay.getText();
+    }
+    
+    public void setPersonBalLabelText(String text) {
+        this.PersonBalLabel.setText(text);
+    }
+    public void setmachineLabel(String text){
+        this.VendingMachineName.setText(text);
+    }
+    
+    public void setcustomItemLabelStatus (boolean value) {
+        CustomItemLabel.setEnabled(value);
+    }
+    
+    public void setcustomItemBuyStatus (boolean value) {
+        CustomItemBuy.setEnabled(value);
+    }
+    
+    public void setIng1LabelStatus (boolean value) {
+        Ing1Label.setEnabled(value);
+    }
+    
+     public void setIng1BuyStatus (boolean value) {
+        Ing1Buy.setEnabled(value);
+    }
+    
+    public void setIng2LabelStatus (boolean value) {
+        Ing2Label.setEnabled(value);
+    }
+    
+    public void setIng2BuyStatus (boolean value) {
+        Ing2Buy.setEnabled(value);
+    }
+    
+    public void setIng3LabelStatus (boolean value) {
+        Ing3Label.setEnabled(value);
+    }
+    
+     public void setIng3BuyStatus (boolean value) {
+        Ing3Buy.setEnabled(value);
+    }
+    public void setNumPadDisplayText (String text) {
+        NumPadDisplay.setText(text);
+    }
+    
+    public String getNumPadDisplayText() {
+        return this.NumPadDisplay.getText();
+    }
+    
+    public int getSpinnerQuantity() {
+       return Integer.parseInt((String) this.SpinnerQuantity.getValue());
+    }
+    
+    public void setSpinnerQuantity(int quantity) {
+      this.SpinnerQuantity.setValue(quantity);
+    }
+    
+    public void setItem1BuyActionListener (ActionListener actionlistener) {
+        this.Item1Buy.addActionListener(actionlistener);
+    }
+    
+    public void setItem2BuyActionListener (ActionListener actionlistener) {
+        this.Item2Buy.addActionListener(actionlistener);
+    }
+    
+    public void setItem3BuyActionListener (ActionListener actionlistener) {
+        this.Item3Buy.addActionListener(actionlistener);
+    }
+    
+    public void setItem4BuyActionListener (ActionListener actionlistener) {
+        this.Item4Buy.addActionListener(actionlistener);
+    }
+    
+    public void setItem5BuyActionListener (ActionListener actionlistener) {
+        this.Item5Buy.addActionListener(actionlistener);
+    }
+    
+    public void setItem6BuyActionListener (ActionListener actionlistener) {
+        this.Item6Buy.addActionListener(actionlistener);
+    }
+    
+    public void setItem7BuyActionListener (ActionListener actionlistener) {
+        this.Item7Buy.addActionListener(actionlistener);
+    }
+    
+    public void setItem8BuyActionListener (ActionListener actionlistener) {
+        this.Item8Buy.addActionListener(actionlistener);
+    }
+    
+    public void setCustomItemBuyActionListener (ActionListener actionlistener) {
+        this.CustomItemBuy.addActionListener(actionlistener);
+    }
+    
+    public void setIng1BuyActionListener (ActionListener actionlistener) {
+        this.Ing1Buy.addActionListener(actionlistener);
+    }
+    
+    public void setIng2BuyActionListener (ActionListener actionlistener) {
+        this.Ing2Buy.addActionListener(actionlistener);
+    }
+    
+    public void set3ng1BuyActionListener (ActionListener actionlistener) {
+        this.Ing3Buy.addActionListener(actionlistener);
+    }
+    
+    public void setButtonCreate0ActionListener (ActionListener actionlistener) {
+        this.jButtonCreate0.addActionListener(actionlistener);
+    }
+    
+    public void setButtonCreate1ActionListener (ActionListener actionlistener) {
+        this.jButtonCreate1.addActionListener(actionlistener);
+    }
+    
+    public void setButtonCreate2ActionListener (ActionListener actionlistener) {
+        this.jButtonCreate2.addActionListener(actionlistener);
+    }
+    
+    public void setButtonCreate3ActionListener (ActionListener actionlistener) {
+        this.jButtonCreate3.addActionListener(actionlistener);
+    }
+    
+    public void setButtonCreate4ActionListener (ActionListener actionlistener) {
+        this.jButtonCreate4.addActionListener(actionlistener);
+    }
+    
+     public void setButtonCreate5ActionListener (ActionListener actionlistener) {
+        this.jButtonCreate5.addActionListener(actionlistener);
+    }
+    
+    public void setButtonCreate6ActionListener (ActionListener actionlistener) {
+        this.jButtonCreate6.addActionListener(actionlistener);
+    }
+    
+    public void setButtonCreate7ActionListener (ActionListener actionlistener) {
+        this.jButtonCreate7.addActionListener(actionlistener);
+    }
+    
+    public void setButtonCreate8ActionListener (ActionListener actionlistener) {
+        this.jButtonCreate8.addActionListener(actionlistener);
+    }
+    
+    public void setButtonCreate9ActionListener (ActionListener actionlistener) {
+        this.jButtonCreate9.addActionListener(actionlistener);
+    }
+    
+    public void setClearButtonListener(ActionListener actionlistener) {
+        this.ClearButton.addActionListener(actionlistener);
+    }
+    
+    public void setEnterButtonListener  (ActionListener actionlistener) {
+        this.EnterButton.addActionListener(actionlistener);
+    }
+    
+    public void setMachineBalance(String text) {
+        MachineBalLabel.setText(text);
+    }
+    
     private void AdminSettingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminSettingsButtonActionPerformed
-        AdminFrameRegular.setVisible(true);
+        AdminFrame.setVisible(true);
        // TODO add your handling code here:
     }//GEN-LAST:event_AdminSettingsButtonActionPerformed
-
-    private void jButtonCreate2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreate2ActionPerformed
-     if (NumPadDisplay.getText().equals("TEXT GOES HERE") )
-         NumPadDisplay.setText("2");
-     else
-        NumPadDisplay.setText(NumPadDisplay.getText() + "2");
-    }//GEN-LAST:event_jButtonCreate2ActionPerformed
-
-    private void jButtonCreate3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreate3ActionPerformed
-        if (NumPadDisplay.getText().equals("TEXT GOES HERE") )
-         NumPadDisplay.setText("3");
-     else
-        NumPadDisplay.setText(NumPadDisplay.getText() + "3");
-    }//GEN-LAST:event_jButtonCreate3ActionPerformed
-
-    private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitButtonActionPerformed
-        dispose();
-    }//GEN-LAST:event_ExitButtonActionPerformed
-
+    public void setExitButtonActionListener(ActionListener listener) {
+        this.ExitButton.addActionListener(listener);
+    }
     private void AdminBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminBackButtonActionPerformed
-        AdminFrameRegular.dispose();
+        AdminFrame.dispose();
     }//GEN-LAST:event_AdminBackButtonActionPerformed
-
-    private void InsertMoneyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertMoneyButtonActionPerformed
-       int temp = 0;
-       //TODO: Link with Controller code to manipulate VendingMachine obj attributes
-        try {
-          temp = Integer.parseInt(NumPadDisplay.getText());
-          balLabel += temp;
-       } catch (Exception e) {
-          temp = 0;
-       }
-       PersonBalLabel.setText ( "BALANCE: " + balLabel);
-       NumPadDisplay.setText("");
-    }//GEN-LAST:event_InsertMoneyButtonActionPerformed
-
-    private void DispenseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DispenseButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_DispenseButtonActionPerformed
-
+    public void setInsertMoneyButtonListener (ActionListener actionlistener) {
+        this.InsertMoneyButton.addActionListener(actionlistener);
+    }
+    
+    public void setDispenseButtonActionListener(ActionListener actionlistener) {
+        this.DispenseButton.addActionListener(actionlistener);
+    }
 }
     /**
      * @param args the command line arguments
@@ -1041,7 +937,7 @@ public class RegMachineView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AdminBackButton;
     private javax.swing.JTextArea AdminDisplayArea;
-    private javax.swing.JFrame AdminFrameRegular;
+    private javax.swing.JFrame AdminFrame;
     private javax.swing.JPanel AdminPanel;
     private javax.swing.JButton AdminSettingsButton;
     private javax.swing.JPanel BigMachinePanel;
@@ -1050,6 +946,7 @@ public class RegMachineView extends javax.swing.JFrame {
     private javax.swing.JButton CustomItemBuy;
     private javax.swing.JLabel CustomItemLabel;
     private javax.swing.JButton DispenseButton;
+    private javax.swing.JButton EnterButton;
     private javax.swing.JButton ExitButton;
     private javax.swing.JButton Ing1Buy;
     private javax.swing.JLabel Ing1Label;
@@ -1083,12 +980,11 @@ public class RegMachineView extends javax.swing.JFrame {
     private javax.swing.JLabel MaintenanceLabel;
     private javax.swing.JTextArea NumPadDisplay;
     private javax.swing.JLabel PersonBalLabel;
-    private javax.swing.JTextArea QuantityDisplay;
     private javax.swing.JLabel QuantityLabel;
     private javax.swing.JFrame SpecialMachineCustom;
     private javax.swing.JPanel SpecialMachinePanel;
+    private javax.swing.JSpinner SpinnerQuantity;
     private javax.swing.JLabel VendingMachineName;
-    private javax.swing.JButton amountGetterButton;
     private javax.swing.JButton jButtonCreate0;
     private javax.swing.JButton jButtonCreate1;
     private javax.swing.JButton jButtonCreate2;
@@ -1102,7 +998,6 @@ public class RegMachineView extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
     // End of variables declaration//GEN-END:variables
 }
 */

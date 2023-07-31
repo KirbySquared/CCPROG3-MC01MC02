@@ -20,6 +20,10 @@ public class CustomizableVendingMachine extends VendingMachine {
      *
      * @param name the name of the vending machine
      */
+    public void addIngredienttoSlot(Ingredient ing) {
+        super.addItemtoSlot(ing);
+    }
+
     public CustomizableVendingMachine(String name) {
         super(name);
         this.customizableItems = new ArrayList<>();
