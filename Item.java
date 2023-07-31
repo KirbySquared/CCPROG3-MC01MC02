@@ -66,4 +66,8 @@ public class Item {
     public int getCalories() { 
         return calories;
     }
+    
+    public String toString (){
+        return "Item: " + name + "\nPrice: " + price + "\nCalories: " + calories;
+    }
 }

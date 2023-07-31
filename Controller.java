@@ -84,6 +84,18 @@ public class Controller {
                 SecondView.setTitle("Special Vending Machine MCO2");
                 System.out.println("SPECIAL MACHINE HAS BEEN SET.");
             }
+                SecondView.setItem1Label(Model.getItem1Name());
+                SecondView.setItem2Label(Model.getItem2Name());
+                SecondView.setItem3Label(Model.getItem3Name());
+                SecondView.setItem4Label(Model.getItem4Name());
+                SecondView.setItem5Label(Model.getItem5Name());
+                SecondView.setItem6Label(Model.getItem6Name());
+                SecondView.setItem7Label(Model.getItem7Name());
+                SecondView.setItem8Label(Model.getItem8Name());
+                SecondView.setCustomItemLabel(Model.getItem9Name());
+                SecondView.setIng1Label(Model.getIng4Name());
+                SecondView.setIng2Label(Model.getIng5Name());
+                SecondView.setIng3Label(Model.getIng6Name());
                 FirstView.disposecreateMachine();
                 SecondView.setMachinePrintDisplayText("");
                 FirstView.setTestVendingMachineEnabled(true);
@@ -198,69 +210,86 @@ public class Controller {
                     SecondView.setPersonBalLabelText("BALANCE: ERROR IN CODE");
                 }
             }
-                
         });
         
         this.SecondView.setItem1BuyActionListener(new ActionListener () {
             @Override
             public void actionPerformed (ActionEvent evt) {
-                SecondView.setMachinePrintDisplayText(Model.getItem1Description());
+                SecondView.setMachinePrintDisplayText("Item: " + Model.getItem1().getName() 
+                + "\nCalories: " + Model.getItem1().getCalories() * SecondView.getSpinnerQuantity()+ " (" + Model.getItem1().getCalories() + " per item)" 
+                + "\nPrice: " + Model.getItem1().getPrice() * SecondView.getSpinnerQuantity() );
             }
         });
         
          this.SecondView.setItem2BuyActionListener(new ActionListener () {
             @Override
             public void actionPerformed (ActionEvent evt) {
-                SecondView.setMachinePrintDisplayText(Model.getItem2Description());
+                SecondView.setMachinePrintDisplayText("Item: " + Model.getItem2().getName() 
+                + "\nCalories: " + Model.getItem2().getCalories() * SecondView.getSpinnerQuantity()+ " (" + Model.getItem2().getCalories() + " per item)" 
+                + "\nPrice: " + Model.getItem2().getPrice() * SecondView.getSpinnerQuantity() );
             }
         });
          
         this.SecondView.setItem3BuyActionListener(new ActionListener () {
             @Override
             public void actionPerformed (ActionEvent evt) {
-                SecondView.setMachinePrintDisplayText(Model.getItem3Description());
+                SecondView.setMachinePrintDisplayText("Item: " + Model.getItem3().getName() 
+                + "\nCalories: " + Model.getItem3().getCalories() * SecondView.getSpinnerQuantity()+ " (" + Model.getItem3().getCalories() + " per item)" 
+                + "\nPrice: " + Model.getItem3().getPrice() * SecondView.getSpinnerQuantity() );
             }
         });
         
          this.SecondView.setItem4BuyActionListener(new ActionListener () {
             @Override
             public void actionPerformed (ActionEvent evt) {
-                SecondView.setMachinePrintDisplayText(Model.getItem4Description());
+                SecondView.setMachinePrintDisplayText("Item: " + Model.getItem4().getName() 
+                + "\nCalories: " + Model.getItem4().getCalories() * SecondView.getSpinnerQuantity()+ " (" + Model.getItem4().getCalories() + " per item)" 
+                + "\nPrice: " + Model.getItem4().getPrice() * SecondView.getSpinnerQuantity() );
             }
         }); 
          
         this.SecondView.setItem5BuyActionListener(new ActionListener () {
             @Override
             public void actionPerformed (ActionEvent evt) {
-                SecondView.setMachinePrintDisplayText(Model.getItem5Description());
+                SecondView.setMachinePrintDisplayText("Item: " + Model.getItem5().getName() 
+                + "\nCalories: " + Model.getItem5().getCalories() * SecondView.getSpinnerQuantity()+ " (" + Model.getItem5().getCalories() + " per item)" 
+                + "\nPrice: " + Model.getItem5().getPrice() * SecondView.getSpinnerQuantity() );
             }
         });
         
         this.SecondView.setItem6BuyActionListener(new ActionListener () {
             @Override
             public void actionPerformed (ActionEvent evt) {
-                SecondView.setMachinePrintDisplayText(Model.getItem6Description());
+                SecondView.setMachinePrintDisplayText("Item: " + Model.getItem6().getName() 
+                + "\nCalories: " + Model.getItem6().getCalories() * SecondView.getSpinnerQuantity()+ " (" + Model.getItem6().getCalories() + " per item)" 
+                + "\nPrice: " + Model.getItem6().getPrice() * SecondView.getSpinnerQuantity() );
             }
         });
          
         this.SecondView.setItem7BuyActionListener(new ActionListener () {
             @Override
             public void actionPerformed (ActionEvent evt) {
-                SecondView.setMachinePrintDisplayText(Model.getItem7Description());
+                SecondView.setMachinePrintDisplayText("Item: " + Model.getItem7().getName() 
+                + "\nCalories: " + Model.getItem7().getCalories() * SecondView.getSpinnerQuantity()+ " (" + Model.getItem7().getCalories() + " per item)" 
+                + "\nPrice: " + Model.getItem7().getPrice() * SecondView.getSpinnerQuantity() );
             }
         });
         
         this.SecondView.setItem8BuyActionListener(new ActionListener () {
             @Override
             public void actionPerformed (ActionEvent evt) {
-                SecondView.setMachinePrintDisplayText(Model.getItem8Description());
+                SecondView.setMachinePrintDisplayText("Item: " + Model.getItem8().getName() 
+                + "\nCalories: " + Model.getItem8().getCalories() * SecondView.getSpinnerQuantity()+ " (" + Model.getItem8().getCalories() + " per item)" 
+                + "\nPrice: " + Model.getItem8().getPrice() * SecondView.getSpinnerQuantity() );
             }
         }); 
         
         this.SecondView.setCustomItemBuyActionListener(new ActionListener () {
             @Override
             public void actionPerformed (ActionEvent evt) {
-                SecondView.setMachinePrintDisplayText(Model.getItem9Description());
+                SecondView.setMachinePrintDisplayText("Item: " + Model.getItem9().getName() 
+                + "\nCalories: " + Model.getItem9().getCalories() * SecondView.getSpinnerQuantity()+ " (" + Model.getItem9().getCalories() + " per item)" 
+                + "\nPrice: " + Model.getItem9().getPrice() * SecondView.getSpinnerQuantity() );
             }
         }); 
     }

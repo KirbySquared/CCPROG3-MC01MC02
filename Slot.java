@@ -1,50 +1,43 @@
 package GUIINTERFACE;
+
+import java.util.ArrayList;
+
 /**
- * Represents a slot in the vending machine that holds an item and its quantity.
+ * Represents a slot in the vending machine that holds multiple items and their quantity.
  */
 public class Slot {
 
-     /**
-     * The item stored in the slot.
+    /**
+     * The list of items stored in the slot.
      */
-    private Item item;
+    private ArrayList<Item> items;
 
     /**
-     * The quantity of the item in the slot.
-     */
-    private int quantity;
-
-    /**
-     * Constructs a slot with the specified item and quantity.
+     * Constructs a slot with the specified list of items and their quantity.
      *
-     * @param item     the item stored in the slot
-     * @param quantity the quantity of the item in the slot
+     * @param items    the list of items stored in the slot
      */
-    public Slot(Item item, int quantity)
-    {
-        this.item = item;
-        this.quantity = quantity;
+    public Slot(ArrayList<Item> items) {
+        this.items = items;
     }
 
     /**
      * Constructs a slot with the specified item and a default quantity of 10.
      *
-     * @param item the item stored in the slot
+     * @param item the item to be added to the slot
      */
-    public Slot(Item item)
-    {
-        this.item = item;
-        this.quantity = 10;
+    public Slot(Item item) {
+        this.items = new ArrayList<>();
+        this.items.add(item);
     }
 
     /**
-     * Returns the item stored in the slot.
+     * Returns the list of items stored in the slot.
      *
-     * @return the item stored in the slot
+     * @return the list of items stored in the slot
      */
-    public Item getItem()
-    {
-        return this.item;
+    public ArrayList<Item> getItems() {
+        return this.items;
     }
 
     /**
@@ -52,44 +45,43 @@ public class Slot {
      *
      * @return the quantity of the item in the slot
      */
-    public int getQuantity()
-    {
-        return this.quantity;
+    public int getQuantity() {
+        return this.items.size();
     }
 
-     /**
+    /**
      * Decreases the quantity of the item in the slot by the specified amount.
      *
      * @param quantity the quantity to be decreased
      * @return true if the quantity was successfully decreased, false otherwise
      */
-    public boolean decreaseQuantity(int quantity)
-    {   
-        boolean value = true;
-
-        if (this.quantity >= quantity)
-        this.quantity -= quantity;
-        else
-        value = false;
-
-        return value;
+    public boolean decreaseQuantity(int quantity) {
+        if (this.items.size() >= quantity) {
+            for (int i = 0; i < quantity; i++) {
+                this.items.remove(0); // Remove items from the front of the list
+            }
+            return true;
+        } else {
+            return false;
+        }
     }
 
-     /**
-     * Adds the specified quantity to the current quantity of the item in the slot.
+    /**
+     * Adds the specified quantity of items to the current items in the slot.
      *
+     * @param item     the item to be added
      * @param quantity the quantity to be added
-     * @return true if the quantity was successfully added, false otherwise
      */
-    public boolean addQuantity(int quantity)
-    {   
-        boolean value = true;
+    public void addItems(Item item, int quantity) {
+        for (int i = 0; i < quantity; i++) {
+            this.items.add(item);
+        }
+    }
 
-        if (quantity > 0)
-        this.quantity += quantity;
-        else
-        value = false;
-
-        return value;
+    public Item getItemAtIndex(int index) {
+        if (index >= 0 && index < items.size()) {
+            return items.get(index);
+        }
+        return null;
     }
 }

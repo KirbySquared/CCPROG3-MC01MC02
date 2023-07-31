@@ -39,13 +39,13 @@ public class GUIModel { //Model class for our GUI si emman na bahala dito
         this.item7 = new Item("Water", 20, 0);
         this.item8 = new Item("C2", 60, 105);
         //TODO: CHANGE TO CUSTOM ITEM
-        this.item9 = new Item("Customizable Milk Tea", 0, 500);
+        this.item9 = new Item("Custom Milk Tea", 0, 500);
         //END OF TODO
         this.ing1 = new Ingredient ("Tapioca Pearl", 20, 10);
         this.ing2 = new Ingredient ("Nata de Coco", 20 , 7);
         this.ing3 = new Ingredient ("Black Tea", 0, 50);
         this.ing4 = new Ingredient ("Plastic Straw", 0, 0);
-        this.ing5= new Ingredient ("Plastic Milktea Cup", 0, 0);
+        this.ing5= new Ingredient ("Milktea Cup", 0, 0);
         this.ing6 = new Ingredient ("Sugar Syrup", 0, 100);
         this.machine = new VendingMachine();
         this.customMachine = new CustomizableVendingMachine();
@@ -71,6 +71,65 @@ public class GUIModel { //Model class for our GUI si emman na bahala dito
         customMachine.addIngredienttoSlot(ing6);
         this.MachineBalance = 0;
         this.UserBalance = 0;
+    }
+    public Item getItem1(){
+        return this.item1;
+    }
+    
+    public Item getItem2(){
+        return this.item2;
+    }
+    
+    public Item getItem3(){
+        return this.item3;
+    }
+    
+    public Item getItem4(){
+        return this.item4;
+    }
+    
+    public Item getItem5(){
+        return this.item5;
+    }
+    
+    public Item getItem6(){
+        return this.item6;
+    }
+    
+    public Item getItem7(){
+        return this.item7;
+    }
+    
+    public Item getItem8(){
+        return this.item8;
+    }
+    
+    public Item getItem9(){
+        return this.item9;
+    }
+    
+    public Ingredient getIng1(){
+        return this.ing1;
+    }
+    
+    public Ingredient getIng2(){
+        return this.ing2;
+    }
+    
+    public Ingredient getIng3(){
+        return this.ing3;
+    }
+    
+    public Ingredient getIng4(){
+        return this.ing4;
+    }
+    
+    public Ingredient getIng5(){
+        return this.ing5;
+    }
+    
+    public Ingredient getIng6(){
+        return this.ing6;
     }
     
     public String getItem1Name(){

@@ -123,30 +123,30 @@ public class RegMachineView extends javax.swing.JFrame {
         PersonBalLabel = new javax.swing.JLabel();
         DispenseButton = new javax.swing.JButton();
         BuyItemPanel = new javax.swing.JPanel();
+        Item1Label = new javax.swing.JLabel();
+        Item2Label = new javax.swing.JLabel();
+        Item3Label = new javax.swing.JLabel();
+        Item4Label = new javax.swing.JLabel();
         Item1Buy = new javax.swing.JButton();
         Item2Buy = new javax.swing.JButton();
         Item3Buy = new javax.swing.JButton();
         Item4Buy = new javax.swing.JButton();
-        Item5Buy = new javax.swing.JButton();
-        Item6Buy = new javax.swing.JButton();
-        Item8Buy = new javax.swing.JButton();
-        Item7Buy = new javax.swing.JButton();
-        CustomItemBuy = new javax.swing.JButton();
-        Ing1Buy = new javax.swing.JButton();
-        Ing2Buy = new javax.swing.JButton();
-        Ing3Buy = new javax.swing.JButton();
-        Item1Label = new javax.swing.JLabel();
-        Item2Label = new javax.swing.JLabel();
-        Item4Label = new javax.swing.JLabel();
-        Item3Label = new javax.swing.JLabel();
         Item5Label = new javax.swing.JLabel();
         Item6Label = new javax.swing.JLabel();
         Item7Label = new javax.swing.JLabel();
         Item8Label = new javax.swing.JLabel();
+        Item5Buy = new javax.swing.JButton();
+        Item6Buy = new javax.swing.JButton();
+        Item7Buy = new javax.swing.JButton();
+        Item8Buy = new javax.swing.JButton();
         CustomItemLabel = new javax.swing.JLabel();
         Ing1Label = new javax.swing.JLabel();
         Ing2Label = new javax.swing.JLabel();
         Ing3Label = new javax.swing.JLabel();
+        CustomItemBuy = new javax.swing.JButton();
+        Ing1Buy = new javax.swing.JButton();
+        Ing2Buy = new javax.swing.JButton();
+        Ing3Buy = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         NumPadDisplay = new javax.swing.JTextArea();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -268,13 +268,14 @@ public class RegMachineView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Vending Machine MCO2");
-        setMaximumSize(new java.awt.Dimension(891, 610));
+        setBounds(new java.awt.Rectangle(0, 0, 0, 0));
+        setMaximumSize(null);
+        setMinimumSize(null);
         setResizable(false);
-        setSize(new java.awt.Dimension(891, 610));
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setSize(new java.awt.Dimension(927, 651));
 
         BigMachinePanel.setBackground(new java.awt.Color(204, 204, 204));
-        BigMachinePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        BigMachinePanel.setMaximumSize(new java.awt.Dimension(1000, 1000));
 
         VendingMachineName.setBackground(new java.awt.Color(255, 204, 102));
         VendingMachineName.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
@@ -289,8 +290,6 @@ public class RegMachineView extends javax.swing.JFrame {
         VendingMachineName.setName(""); // NOI18N
         VendingMachineName.setOpaque(true);
         VendingMachineName.setPreferredSize(new java.awt.Dimension(50, 34));
-        BigMachinePanel.add(VendingMachineName, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 526, 68));
-        VendingMachineName.getAccessibleContext().setAccessibleName("");
 
         InputPanel.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -412,8 +411,6 @@ public class RegMachineView extends javax.swing.JFrame {
                 .addGap(20, 20, 20))
         );
 
-        BigMachinePanel.add(InputPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(571, 404, -1, -1));
-
         LayoutPanel.setMaximumSize(new java.awt.Dimension(526, 486));
         LayoutPanel.setMinimumSize(new java.awt.Dimension(526, 486));
 
@@ -438,46 +435,8 @@ public class RegMachineView extends javax.swing.JFrame {
         DispenseButton.setText("DISPENSE");
 
         BuyItemPanel.setBackground(new java.awt.Color(204, 204, 204));
-
-        Item1Buy.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        Item1Buy.setText("BUY");
-
-        Item2Buy.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        Item2Buy.setText("BUY");
-
-        Item3Buy.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        Item3Buy.setText("BUY");
-
-        Item4Buy.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        Item4Buy.setText("BUY");
-
-        Item5Buy.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        Item5Buy.setText("BUY");
-
-        Item6Buy.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        Item6Buy.setText("BUY");
-
-        Item8Buy.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        Item8Buy.setText("BUY");
-
-        Item7Buy.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        Item7Buy.setText("BUY");
-
-        CustomItemBuy.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        CustomItemBuy.setText("BUY");
-        CustomItemBuy.setEnabled(false);
-
-        Ing1Buy.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        Ing1Buy.setText("BUY");
-        Ing1Buy.setEnabled(false);
-
-        Ing2Buy.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        Ing2Buy.setText("BUY");
-        Ing2Buy.setEnabled(false);
-
-        Ing3Buy.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        Ing3Buy.setText("BUY");
-        Ing3Buy.setEnabled(false);
+        BuyItemPanel.setMaximumSize(new java.awt.Dimension(481, 349));
+        BuyItemPanel.setLayout(new java.awt.GridLayout(6, 4, 15, 5));
 
         Item1Label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Item1Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -485,18 +444,14 @@ public class RegMachineView extends javax.swing.JFrame {
         Item1Label.setAlignmentX(5.0F);
         Item1Label.setAlignmentY(5.0F);
         Item1Label.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        BuyItemPanel.add(Item1Label);
 
         Item2Label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Item2Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Item2Label.setText(" ITEM 2");
         Item2Label.setAlignmentY(0.0F);
         Item2Label.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-
-        Item4Label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        Item4Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Item4Label.setText(" ITEM 4");
-        Item4Label.setAlignmentY(0.0F);
-        Item4Label.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        BuyItemPanel.add(Item2Label);
 
         Item3Label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Item3Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -506,180 +461,159 @@ public class RegMachineView extends javax.swing.JFrame {
         Item3Label.setFocusable(false);
         Item3Label.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         Item3Label.setVerifyInputWhenFocusTarget(false);
+        BuyItemPanel.add(Item3Label);
+
+        Item4Label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Item4Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Item4Label.setText(" ITEM 4");
+        Item4Label.setAlignmentY(0.0F);
+        Item4Label.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        BuyItemPanel.add(Item4Label);
+
+        Item1Buy.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Item1Buy.setText("BUY");
+        BuyItemPanel.add(Item1Buy);
+
+        Item2Buy.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Item2Buy.setText("BUY");
+        BuyItemPanel.add(Item2Buy);
+
+        Item3Buy.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Item3Buy.setText("BUY");
+        BuyItemPanel.add(Item3Buy);
+
+        Item4Buy.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Item4Buy.setText("BUY");
+        BuyItemPanel.add(Item4Buy);
 
         Item5Label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Item5Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Item5Label.setText(" ITEM 5");
         Item5Label.setAlignmentY(0.0F);
         Item5Label.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        BuyItemPanel.add(Item5Label);
 
         Item6Label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Item6Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Item6Label.setText(" ITEM 6 ");
         Item6Label.setAlignmentY(0.0F);
         Item6Label.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        BuyItemPanel.add(Item6Label);
 
         Item7Label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Item7Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Item7Label.setText(" ITEM 7");
         Item7Label.setAlignmentY(0.0F);
         Item7Label.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        BuyItemPanel.add(Item7Label);
 
         Item8Label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Item8Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Item8Label.setText(" ITEM 8");
         Item8Label.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        BuyItemPanel.add(Item8Label);
+
+        Item5Buy.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Item5Buy.setText("BUY");
+        BuyItemPanel.add(Item5Buy);
+
+        Item6Buy.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Item6Buy.setText("BUY");
+        BuyItemPanel.add(Item6Buy);
+
+        Item7Buy.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Item7Buy.setText("BUY");
+        BuyItemPanel.add(Item7Buy);
+
+        Item8Buy.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Item8Buy.setText("BUY");
+        BuyItemPanel.add(Item8Buy);
 
         CustomItemLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         CustomItemLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         CustomItemLabel.setText("CUSTOM ITEM");
         CustomItemLabel.setEnabled(false);
         CustomItemLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        BuyItemPanel.add(CustomItemLabel);
 
         Ing1Label.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         Ing1Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Ing1Label.setText("ING 1");
         Ing1Label.setEnabled(false);
         Ing1Label.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        BuyItemPanel.add(Ing1Label);
 
         Ing2Label.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         Ing2Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Ing2Label.setText("ING 2");
         Ing2Label.setEnabled(false);
         Ing2Label.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        BuyItemPanel.add(Ing2Label);
 
         Ing3Label.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         Ing3Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Ing3Label.setText("ING 3");
         Ing3Label.setEnabled(false);
         Ing3Label.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        BuyItemPanel.add(Ing3Label);
 
-        javax.swing.GroupLayout BuyItemPanelLayout = new javax.swing.GroupLayout(BuyItemPanel);
-        BuyItemPanel.setLayout(BuyItemPanelLayout);
-        BuyItemPanelLayout.setHorizontalGroup(
-            BuyItemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BuyItemPanelLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(BuyItemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(CustomItemBuy, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Item5Buy, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Item1Buy, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Item5Label, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(CustomItemLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Item1Label, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(25, 25, 25)
-                .addGroup(BuyItemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Ing1Buy, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
-                    .addComponent(Ing1Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Item2Buy, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Item6Buy, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Item2Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Item6Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(25, 25, 25)
-                .addGroup(BuyItemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Item3Buy, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
-                    .addComponent(Item7Buy, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Ing2Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Ing2Buy, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Item3Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Item7Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(25, 25, 25)
-                .addGroup(BuyItemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(BuyItemPanelLayout.createSequentialGroup()
-                        .addGroup(BuyItemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Item8Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Ing3Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Item4Buy, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Item8Buy, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Ing3Buy, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(25, 25, 25))
-                    .addGroup(BuyItemPanelLayout.createSequentialGroup()
-                        .addComponent(Item4Label, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30))))
-        );
-        BuyItemPanelLayout.setVerticalGroup(
-            BuyItemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BuyItemPanelLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(BuyItemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Item1Label)
-                    .addComponent(Item2Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Item4Label)
-                    .addComponent(Item3Label))
-                .addGap(25, 25, 25)
-                .addGroup(BuyItemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Item1Buy, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Item2Buy, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Item3Buy, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Item4Buy, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
-                .addGroup(BuyItemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Item5Label)
-                    .addComponent(Item6Label)
-                    .addComponent(Item7Label)
-                    .addComponent(Item8Label))
-                .addGap(25, 25, 25)
-                .addGroup(BuyItemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Item5Buy, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Item6Buy, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Item7Buy, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Item8Buy, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
-                .addGroup(BuyItemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CustomItemLabel)
-                    .addComponent(Ing1Label)
-                    .addComponent(Ing2Label)
-                    .addComponent(Ing3Label))
-                .addGap(25, 25, 25)
-                .addGroup(BuyItemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CustomItemBuy, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Ing1Buy, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Ing2Buy, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Ing3Buy, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25))
-        );
+        CustomItemBuy.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        CustomItemBuy.setText("BUY");
+        CustomItemBuy.setEnabled(false);
+        BuyItemPanel.add(CustomItemBuy);
+
+        Ing1Buy.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Ing1Buy.setText("BUY");
+        Ing1Buy.setEnabled(false);
+        BuyItemPanel.add(Ing1Buy);
+
+        Ing2Buy.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Ing2Buy.setText("BUY");
+        Ing2Buy.setEnabled(false);
+        BuyItemPanel.add(Ing2Buy);
+
+        Ing3Buy.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Ing3Buy.setText("BUY");
+        Ing3Buy.setEnabled(false);
+        BuyItemPanel.add(Ing3Buy);
 
         javax.swing.GroupLayout LayoutPanelLayout = new javax.swing.GroupLayout(LayoutPanel);
         LayoutPanel.setLayout(LayoutPanelLayout);
         LayoutPanelLayout.setHorizontalGroup(
             LayoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LayoutPanelLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
                 .addGroup(LayoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(BuyItemPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(LayoutPanelLayout.createSequentialGroup()
-                        .addGap(28, 28, 28)
+                        .addComponent(AdminSettingsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(15, 15, 15)
+                        .addComponent(ExitButton)
+                        .addGap(15, 15, 15)
+                        .addComponent(DispenseButton))
+                    .addGroup(LayoutPanelLayout.createSequentialGroup()
+                        .addGap(8, 8, 8)
                         .addComponent(MachineBalLabel)
-                        .addGap(94, 94, 94)
-                        .addComponent(PersonBalLabel))
-                    .addGroup(LayoutPanelLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addGroup(LayoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(BuyItemPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(LayoutPanelLayout.createSequentialGroup()
-                                .addComponent(AdminSettingsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(15, 15, 15)
-                                .addComponent(ExitButton)
-                                .addGap(15, 15, 15)
-                                .addComponent(DispenseButton)))))
-                .addGap(20, 20, 20))
+                        .addGap(99, 99, 99)
+                        .addComponent(PersonBalLabel)))
+                .addGap(23, 23, 23))
         );
         LayoutPanelLayout.setVerticalGroup(
             LayoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LayoutPanelLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(BuyItemPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(20, 20, 20)
-                .addComponent(BuyItemPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addGroup(LayoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(DispenseButton, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                    .addComponent(DispenseButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(ExitButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(AdminSettingsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(AdminSettingsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addGroup(LayoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(MachineBalLabel)
                     .addComponent(PersonBalLabel))
-                .addGap(25, 25, 25))
+                .addGap(46, 46, 46))
         );
-
-        BigMachinePanel.add(LayoutPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 93, 526, -1));
 
         NumPadDisplay.setEditable(false);
         NumPadDisplay.setBackground(new java.awt.Color(255, 255, 204));
@@ -691,11 +625,9 @@ public class RegMachineView extends javax.swing.JFrame {
         NumPadDisplay.setRequestFocusEnabled(false);
         jScrollPane3.setViewportView(NumPadDisplay);
 
-        BigMachinePanel.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 360, 150, 42));
-
         MachinePrintDisplay.setEditable(false);
         MachinePrintDisplay.setBackground(new java.awt.Color(204, 255, 204));
-        MachinePrintDisplay.setColumns(20);
+        MachinePrintDisplay.setColumns(10);
         MachinePrintDisplay.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         MachinePrintDisplay.setLineWrap(true);
         MachinePrintDisplay.setRows(6);
@@ -703,30 +635,92 @@ public class RegMachineView extends javax.swing.JFrame {
         MachinePrintDisplay.setRequestFocusEnabled(false);
         jScrollPane4.setViewportView(MachinePrintDisplay);
 
-        BigMachinePanel.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(571, 20, 303, 286));
-
         InputLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         InputLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         InputLabel.setText("INPUT USER BALANCE:");
         InputLabel.setAlignmentY(0.0F);
         InputLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        BigMachinePanel.add(InputLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 330, 160, -1));
 
         QuantityLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         QuantityLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         QuantityLabel.setText("QUANTITY:");
         QuantityLabel.setAlignmentY(0.0F);
         QuantityLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        BigMachinePanel.add(QuantityLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 330, 90, -1));
 
-        SpinnerQuantity.setModel(new javax.swing.SpinnerNumberModel(0, 0, 20, 1));
+        SpinnerQuantity.setModel(new javax.swing.SpinnerNumberModel(1, 1, 20, 1));
         SpinnerQuantity.setAlignmentX(0.0F);
         SpinnerQuantity.setAlignmentY(0.0F);
         SpinnerQuantity.setEditor(new JSpinner.DefaultEditor(SpinnerQuantity));
         SpinnerQuantity.setMaximumSize(new java.awt.Dimension(64, 22));
-        BigMachinePanel.add(SpinnerQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 360, 90, 42));
 
-        getContentPane().add(BigMachinePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+        javax.swing.GroupLayout BigMachinePanelLayout = new javax.swing.GroupLayout(BigMachinePanel);
+        BigMachinePanel.setLayout(BigMachinePanelLayout);
+        BigMachinePanelLayout.setHorizontalGroup(
+            BigMachinePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BigMachinePanelLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(BigMachinePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(VendingMachineName, javax.swing.GroupLayout.PREFERRED_SIZE, 526, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LayoutPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(BigMachinePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(BigMachinePanelLayout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(InputPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BigMachinePanelLayout.createSequentialGroup()
+                        .addGroup(BigMachinePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(InputLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(BigMachinePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(QuantityLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(SpinnerQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(20, 20, 20))
+                    .addComponent(jScrollPane4))
+                .addGap(25, 25, 25))
+        );
+        BigMachinePanelLayout.setVerticalGroup(
+            BigMachinePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BigMachinePanelLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(BigMachinePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(BigMachinePanelLayout.createSequentialGroup()
+                        .addComponent(VendingMachineName, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(5, 5, 5)
+                        .addComponent(LayoutPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(BigMachinePanelLayout.createSequentialGroup()
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addGroup(BigMachinePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(InputLabel)
+                            .addComponent(QuantityLabel))
+                        .addGap(10, 10, 10)
+                        .addGroup(BigMachinePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(SpinnerQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(InputPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(20, 20, 20))
+        );
+
+        VendingMachineName.getAccessibleContext().setAccessibleName("");
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(BigMachinePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(26, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(BigMachinePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(35, Short.MAX_VALUE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -786,7 +780,7 @@ public class RegMachineView extends javax.swing.JFrame {
     }
     
     public int getSpinnerQuantity() {
-       return Integer.parseInt((String) this.SpinnerQuantity.getValue());
+       return( (Integer) this.SpinnerQuantity.getValue() );
     }
     
     public void setSpinnerQuantity(int quantity) {
@@ -839,6 +833,54 @@ public class RegMachineView extends javax.swing.JFrame {
     
     public void set3ng1BuyActionListener (ActionListener actionlistener) {
         this.Ing3Buy.addActionListener(actionlistener);
+    }
+    
+    public void setItem1Label (String text) {
+        this.Item1Label.setText(text);
+    }
+    
+    public void setItem2Label (String text) {
+        this.Item2Label.setText(text);
+    }
+     
+    public void setItem3Label (String text) {
+        this.Item3Label.setText(text);
+    }
+      
+    public void setItem4Label (String text) {
+        this.Item4Label.setText(text);
+    }
+       
+    public void setItem5Label (String text) {
+        this.Item5Label.setText(text);
+    }
+        
+    public void setItem6Label (String text) {
+        this.Item6Label.setText(text);
+    }
+         
+    public void setItem7Label (String text) {
+        this.Item7Label.setText(text);
+    }
+          
+    public void setItem8Label (String text) {
+        this.Item8Label.setText(text);
+    }
+    
+    public void setCustomItemLabel (String text) {
+        this.CustomItemLabel.setText(text);
+    }
+    
+    public void setIng1Label (String text) {
+        this.Ing1Label.setText(text);
+    }
+    
+    public void setIng2Label (String text) {
+        this.Ing2Label.setText(text);
+    }
+    
+    public void setIng3Label (String text) {
+        this.Ing3Label.setText(text);
     }
     
     public void setButtonCreate0ActionListener (ActionListener actionlistener) {
