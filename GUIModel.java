@@ -9,12 +9,13 @@ package GUIINTERFACE;
  */
 public class GUIModel { //Model class for our GUI si emman na bahala dito
     private VendingMachine machine;
-    private Item item1; //MOVE ITEMS TO MODEL FOR MVC
-    private Item item2; //MOVE ITEMS TO MODEL FOR MVC
-    private Item item3; //MOVE ITEMS TO MODEL FOR MVC
-    private Item item4; //MOVE ITEMS TO MODEL FOR MVC 
-    private Item item5; //MOVE ITEMS TO MODEL FOR MVC
-    private Item item6; //MOVE ITEMS TO MODEL FOR MVC
+    private CustomizableVendingMachine customMachine;
+    private Item item1; 
+    private Item item2; 
+    private Item item3; 
+    private Item item4; 
+    private Item item5; 
+    private Item item6;
     private Item item7; 
     private Item item8;
     private Item item9;
@@ -24,26 +25,54 @@ public class GUIModel { //Model class for our GUI si emman na bahala dito
     private Ingredient ing4;
     private Ingredient ing5;
     private Ingredient ing6;
+    private int MachineBalance;
+    private int UserBalance;
 
     public GUIModel () {
-        //PRESET ITEMS TO INITIALIZE CODE
-     this.machine = new VendingMachine();
-     this.item1 = new Item("Coke", 50, 139);
-     this.item2 = new Item("Sprite", 45, 105);
-     this.item3 = new Item("Royal", 45, 76);
-     this.item4 = new Item("Pepsi", 45, 105);
-     this.item5 = new Item("Mug", 50, 107);
-     this.item6 = new Item("7UP", 55, 150);
-     this.item7 = new Item("Water", 20, 0);
-     this.item8 = new Item("C2", 60, 105);
-     this.item9 = new Item("Customizable Milk Tea", 0, 500);//Change to Custom Item
-     this.ing1 = new Ingredient ("Tapioca Pearl", 20, 10);
-     this.ing2 = new Ingredient ("Nata de Coco", 20 , 7);
-     this.ing3 = new Ingredient ("Black Tea", 0, 50);
-     this.ing4 = new Ingredient ("Plastic Straw", 0, 0);
-     this.ing5= new Ingredient ("Plastic Milktea Cup", 0, 0);
-     this.ing6 = new Ingredient ("Sugar Syrup", 0, 100);
+    //PRESET ITEMS TO INITIALIZE CODE
+        this.item1 = new Item("Coke", 50, 139);
+        this.item2 = new Item("Sprite", 45, 105);
+        this.item3 = new Item("Royal", 45, 76);
+        this.item4 = new Item("Pepsi", 45, 105);
+        this.item5 = new Item("Mug", 50, 107);
+        this.item6 = new Item("7UP", 55, 150);
+        this.item7 = new Item("Water", 20, 0);
+        this.item8 = new Item("C2", 60, 105);
+        //TODO: CHANGE TO CUSTOM ITEM
+        this.item9 = new Item("Customizable Milk Tea", 0, 500);
+        //END OF TODO
+        this.ing1 = new Ingredient ("Tapioca Pearl", 20, 10);
+        this.ing2 = new Ingredient ("Nata de Coco", 20 , 7);
+        this.ing3 = new Ingredient ("Black Tea", 0, 50);
+        this.ing4 = new Ingredient ("Plastic Straw", 0, 0);
+        this.ing5= new Ingredient ("Plastic Milktea Cup", 0, 0);
+        this.ing6 = new Ingredient ("Sugar Syrup", 0, 100);
+        this.machine = new VendingMachine();
+        this.customMachine = new CustomizableVendingMachine();
+        machine.addItemtoSlot(item1);
+        machine.addItemtoSlot(item2);
+        machine.addItemtoSlot(item3);
+        machine.addItemtoSlot(item4);
+        machine.addItemtoSlot(item5);
+        machine.addItemtoSlot(item6);
+        machine.addItemtoSlot(item7);
+        machine.addItemtoSlot(item8);
+        customMachine.addItemtoSlot(item1);
+        customMachine.addItemtoSlot(item2);
+        customMachine.addItemtoSlot(item3);
+        customMachine.addItemtoSlot(item4);
+        customMachine.addItemtoSlot(item5);
+        customMachine.addItemtoSlot(item6);
+        customMachine.addItemtoSlot(item7);
+        customMachine.addItemtoSlot(item8);
+        customMachine.addItemtoSlot(item9);
+        customMachine.addIngredienttoSlot(ing4);
+        customMachine.addIngredienttoSlot(ing5);
+        customMachine.addIngredienttoSlot(ing6);
+        this.MachineBalance = 0;
+        this.UserBalance = 0;
     }
+    
     public String getItem1Name(){
         return item1.getName();
     }
@@ -102,6 +131,50 @@ public class GUIModel { //Model class for our GUI si emman na bahala dito
     
     public String getIng6Name() {
         return ing6.getName();
+    }
+    
+    public String getItem1Description() {
+        return this.item1.toString();
+    }
+    
+    public String getItem2Description() {
+        return this.item2.toString();
+    }
+    
+    public String getItem3Description() {
+        return this.item3.toString();
+    }
+    
+     public String getItem4Description() {
+        return this.item4.toString();
+    }
+    
+    public String getItem5Description() {
+        return this.item5.toString();
+    }
+    
+    public String getItem6Description() {
+        return this.item6.toString();
+    }
+    
+     public String getItem7Description() {
+        return this.item7.toString();
+    }
+    
+    public String getItem8Description() {
+        return this.item8.toString();
+    }
+    
+    public String getItem9Description() {
+        return this.item9.toString();
+    }
+    
+    public int getUserBalance() {
+        return this.UserBalance;
+    }
+    
+    public int getMachineBalance () {
+        return this.MachineBalance;
     }
     
 }
