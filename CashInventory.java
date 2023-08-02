@@ -249,9 +249,9 @@ public class CashInventory {
      *
      * @return the total value of cash and coins
      */
-    public double getTotalCash()
+    public int getTotalCash()
     {
-        double total = 0.0;
+        int total = 0;
 
         for (Cash tempcash: cashList)
         {   

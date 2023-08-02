@@ -26,4 +26,8 @@ public class Cash extends Coin{
         super(value, quantity);
     }
     
+    public String toString() {
+        return "Value: " + this.getValue() + "\nQuantity: " + this.getQuantity();
+    }
+    
 }

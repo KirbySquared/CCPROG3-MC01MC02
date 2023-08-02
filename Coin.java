@@ -93,4 +93,8 @@ public class Coin {
 
         return value;
     }
+    
+    public String toString() {
+        return "Value: " + this.getValue() + "\nQuantity: " + this.getQuantity();
+    }
 }

@@ -46,7 +46,23 @@ public class Slot {
      * @return the quantity of the item in the slot
      */
     public int getQuantity() {
-        return this.items.size();
+        int value = 0;
+        Item dummyItem = new Item("Dummy Item", 0,0); // Create a dummy item with zero price
+        
+        if (items.isEmpty() ) 
+        {
+            // If the slot is empty, add a dummy item and return its quantity as 0
+            items.add(dummyItem);
+            return value;
+        } 
+        else if ( items.get(0).getName().equals("Dummy Item") )
+        {
+            return value;
+        }
+       else
+       {
+            return this.items.size();
+       } 
     }
 
     /**
@@ -56,14 +72,21 @@ public class Slot {
      * @return true if the quantity was successfully decreased, false otherwise
      */
     public boolean decreaseQuantity(int quantity) {
-        if (this.items.size() >= quantity) {
+        boolean value = true;
+        if (this.items.size() >= quantity) 
+        {
             for (int i = 0; i < quantity; i++) {
                 this.items.remove(0); // Remove items from the front of the list
             }
-            return true;
-        } else {
-            return false;
+            if (this.items.isEmpty() )
+            {
+               this.items.add(new Item("Dummy Item", 0,0));
+            }
+        } 
+        else {
+            value = false;
         }
+        return value;
     }
 
     /**

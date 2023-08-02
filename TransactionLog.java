@@ -14,14 +14,14 @@ public class TransactionLog {
     /**
      * The total sales amount.
      */
-    private double totalSales;
+    private int totalSales;
 
     /**
      * Constructs an empty transaction log.
      */
     public TransactionLog () {
         this.sales = new ArrayList<>(8);
-        totalSales = 0.0;
+        totalSales = 0;
     }
 
      /**
@@ -50,7 +50,7 @@ public class TransactionLog {
      */
     public void updateTotalSales()
     {
-        totalSales = 0.0;
+        totalSales = 0;
         for (Sale tempsale: sales)
         {
             totalSales += tempsale.getItem().getPrice() * tempsale.getQuantity();

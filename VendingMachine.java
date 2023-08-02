@@ -97,7 +97,7 @@ public class VendingMachine {
         Slot selectedSlot = slots.get(slot);
         int itemsAvailable = selectedSlot.getQuantity();
     
-        if (itemsAvailable > 0 && itemsAvailable >= quantity) {
+        if (itemsAvailable > 0 && itemsAvailable >= quantity) { 
             Item selecteditem = selectedSlot.getItemAtIndex(0); // Get the first item in the slot
             int price = selecteditem.getPrice() * quantity;
             double availableCash = cashInventory.getTotalCash();
@@ -143,7 +143,7 @@ public class VendingMachine {
                   if (cash.getQuantity() == 0 )
                     {
                         valuechecker = false;
-                        break;
+                        continue;
                     }
                 }
                
@@ -157,7 +157,7 @@ public class VendingMachine {
                   if (coin.getQuantity() == 0 )
                     {
                         valuechecker = false;
-                        break;
+                        continue;
                     }
                 }
                 
