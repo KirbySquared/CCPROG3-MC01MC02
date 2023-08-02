@@ -3,6 +3,7 @@ import java.util.*;
 
 /**
  * Represents a vending machine that sells items and provides change.
+ * The VendingMachine class manages slots containing items, cash inventory, item inventory, and transaction log.
  */
 public class VendingMachine {
 

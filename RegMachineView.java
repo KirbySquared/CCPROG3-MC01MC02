@@ -5,143 +5,680 @@
 package GUIINTERFACE;
 import javax.swing.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 /**
  *
- * @author kurvy morales & emmanuel ting
+ * @author kurvy morales and emmanuel ting
  */
 public class RegMachineView extends JFrame {
     
-    private JLabel MilkTeaQuantityLabel;
-    private JSpinner MilkTeaQuantity;
-    private JButton AdminBackButton;
-    private JTextArea AdminDisplayArea;
-    private JFrame AdminFrame;
-    private JTextArea AdminOtherDisplay;
-    private JPanel AdminPanel;
-    private JButton AdminSettingsButton;
-    private JPanel BigMachinePanel;
-    private JPanel BuyItemPanel;
-    private JButton ClearButton;
-    private JButton CustomItemBuy;
-    private JLabel CustomItemLabel;
-    private JFrame CustomItemMenu;
-    private JButton DispenseButton;
-    private JButton ExitButton;
-    private JButton Ing1Buy;
-    private JLabel Ing1Label;
-    private JButton Ing2Buy;
-    private JLabel Ing2Label;
-    private JButton Ing3Buy;
-    private JLabel Ing3Label;
-    private JLabel InputLabel;
-    private JPanel InputPanel;
-    private JButton InputQuantityButton;
-    private JLabel InputQuantityLabel;
-    private JButton InsertMoneyButton;
-    private JButton Item1Buy;
-    private JLabel Item1Label;
-    private JButton Item2Buy;
-    private JLabel Item2Label;
-    private JButton Item3Buy;
-    private JLabel Item3Label;
-    private JButton Item4Buy;
-    private JLabel Item4Label;
-    private JButton Item5Buy;
-    private JLabel Item5Label;
-    private JButton Item6Buy;
-    private JLabel Item6Label;
-    private JButton Item7Buy;
-    private JLabel Item7Label;
-    private JButton Item8Buy;
-    private JLabel Item8Label;
-    private JPanel LayoutPanel;
-    private JLabel MachineBalLabel;
-    private JPanel MachineButtonPanel;
-    private JTextArea MachinePrintDisplay;
-    private JLabel MaintenanceLabel;
-    private JLabel MaintenanceLabel1;
-    private JLabel MilkteaFlavor;
-    private JLabel MilkteaFlavor1;
-    private JLabel MilkteaFlavor2;
-    private JPanel MoneyPanel;
-    private JTextField MoneyQuantityField;
-    private JTextArea NumPadDisplay;
-    private JLabel PersonBalLabel;
-    private JLabel QuantityLabel;
-    private JButton RestockButton;
-    private JTextField RestockField;
-    private JLabel RestockLabel;
-    private JButton SetPriceButton;
-    private JTextField SetPriceField;
-    private JLabel SetPriceLabel;
-    private JSpinner SpinnerQuantity;
-    private JLabel VendingMachineName;
-    private ButtonGroup buttonGroup1;
-    private ButtonGroup buttonGroup2;
-    private ButtonGroup buttonGroup3;
-    private ButtonGroup buttonGroup4;
-    private ButtonGroup buttonGroup5;
-    private JButton CollectPaymentButton;
-    private JButton SummaryTransactionButton;
-    private JButton CustomItemMenuExitButton;
-    private JButton CreateMilkteaButton;
-    private JButton jButtonCreate0;
-    private JButton jButtonCreate1;
-    private JButton jButtonCreate2;
-    private JButton jButtonCreate3;
-    private JButton jButtonCreate4;
-    private JButton jButtonCreate5;
-    private JButton jButtonCreate6;
-    private JButton jButtonCreate7;
-    private JButton jButtonCreate8;
-    private JButton jButtonCreate9;
-    private JLabel MilkteaFlavorStockLabel;
-    private JLabel SugarLevelLabel;
-    private JLabel SinkerStockLabel;
-    private JPanel jPanel1;
-    private JPanel jPanel2;
-    private JPanel jPanel3;
-    private JPanel jPanel4;
-    private JPanel jPanel5;
-    private JRadioButton jRadioButton1;
-    private JRadioButton jRadioButton10;
-    private JRadioButton jRadioButton11;
-    private JRadioButton jRadioButton12;
-    private JRadioButton jRadioButton13;
-    private JRadioButton jRadioButton14;
-    private JRadioButton jRadioButton15;
-    private JRadioButton jRadioButton16;
-    private JRadioButton jRadioButton17;
-    private JRadioButton jRadioButton18;
-    private JRadioButton jRadioButton19;
-    private JRadioButton jRadioButton2;
-    private JRadioButton jRadioButton20;
-    private JRadioButton jRadioButton21;
-    private JRadioButton jRadioButton22;
-    private JRadioButton jRadioButton23;
-    private JRadioButton jRadioButton24;
-    private JRadioButton jRadioButton25;
-    private JRadioButton jRadioButton26;
-    private JRadioButton jRadioButton27;
-    private JRadioButton jRadioButton28;
-    private JRadioButton jRadioButton29;
-    private JRadioButton jRadioButton3;
-    private JRadioButton jRadioButton30;
-    private JRadioButton jRadioButton31;
-    private JRadioButton jRadioButton32;
-    private JRadioButton jRadioButton33;
-    private JRadioButton jRadioButton34;
-    private JRadioButton jRadioButton4;
-    private JRadioButton jRadioButton5;
-    private JRadioButton jRadioButton6;
-    private JRadioButton jRadioButton7;
-    private JRadioButton jRadioButton8;
-    private JRadioButton jRadioButton9;
-    private JScrollPane jScrollPane2;
-    private JScrollPane jScrollPane3;
-    private JScrollPane jScrollPane4;
-    private JScrollPane jScrollPane5;
-          
+    /**
+ * Represents the label displaying the quantity of Milk Tea selected by the user.
+ */
+private JLabel MilkTeaQuantityLabel;
+
+/**
+ * Represents the spinner control for selecting the quantity of Milk Tea.
+ */
+private JSpinner MilkTeaQuantity;
+
+/**
+ * Represents the button used to navigate back to the admin panel.
+ */
+private JButton AdminBackButton;
+
+/**
+ * Represents the text area used to display administrative information.
+ */
+private JTextArea AdminDisplayArea;
+
+/**
+ * Represents the main frame for the admin panel.
+ */
+private JFrame AdminFrame;
+
+/**
+ * Represents the text area used to display other administrative information.
+ */
+private JTextArea AdminOtherDisplay;
+
+/**
+ * Represents the panel used for the admin functionalities.
+ */
+private JPanel AdminPanel;
+
+/**
+ * Represents the button used to access the admin settings.
+ */
+private JButton AdminSettingsButton;
+
+/**
+ * Represents the main panel for the vending machine interface.
+ */
+private JPanel BigMachinePanel;
+
+/**
+ * Represents the panel used for the buying items in the vending machine.
+ */
+private JPanel BuyItemPanel;
+
+    /**
+ * Represents the button used to clear a custom item purchase.
+ */
+private JButton ClearButton;
+
+/**
+ * Represents the button used for custom item purchase in the vending machine.
+ */
+private JButton CustomItemBuy;
+
+/**
+ * Represents the label for the custom item.
+ */
+private JLabel CustomItemLabel;
+
+/**
+ * Represents the frame for the custom item menu in the vending machine.
+ */
+private JFrame CustomItemMenu;
+
+/**
+ * Represents the button used to dispense items from the vending machine.
+ */
+private JButton DispenseButton;
+
+/**
+ * Represents the button used to exit the vending machine interface.
+ */
+private JButton ExitButton;
+
+/**
+ * Represents the button used to buy ingredient 1 in the vending machine.
+ */
+private JButton Ing1Buy;
+
+/**
+ * Represents the label for ingredient 1 in the vending machine.
+ */
+private JLabel Ing1Label;
+
+/**
+ * Represents the button used to buy ingredient 2 in the vending machine.
+ */
+private JButton Ing2Buy;
+
+/**
+ * Represents the label for ingredient 2 in the vending machine.
+ */
+private JLabel Ing2Label;
+
+/**
+ * Represents the button used to buy ingredient 3 in the vending machine.
+ */
+private JButton Ing3Buy;
+
+/**
+ * Represents the label for ingredient 3 in the vending machine.
+ */
+private JLabel Ing3Label;
+
+/**
+ * Represents the label for input in the vending machine.
+ */
+private JLabel InputLabel;
+
+/**
+ * Represents the panel used for input in the vending machine.
+ */
+private JPanel InputPanel;
+
+/**
+ * Represents the button used to input quantity in the vending machine.
+ */
+private JButton InputQuantityButton;
+
+/**
+ * Represents the label for input quantity in the vending machine.
+ */
+private JLabel InputQuantityLabel;
+
+/**
+ * Represents the button used to insert money in the vending machine.
+ */
+private JButton InsertMoneyButton;
+
+/**
+ * Represents the button used to buy item 1 in the vending machine.
+ */
+private JButton Item1Buy;
+
+/**
+ * Represents the label for item 1 in the vending machine.
+ */
+private JLabel Item1Label;
+
+/**
+ * Represents the button used to buy item 2 in the vending machine.
+ */
+private JButton Item2Buy;
+
+/**
+ * Represents the label for item 2 in the vending machine.
+ */
+private JLabel Item2Label;
+
+/**
+ * Represents the button used to buy item 3 in the vending machine.
+ */
+private JButton Item3Buy;
+
+/**
+ * Represents the label for item 3 in the vending machine.
+ */
+private JLabel Item3Label;
+
+/**
+ * Represents the button used to buy item 4 in the vending machine.
+ */
+private JButton Item4Buy;
+
+/**
+ * Represents the label for item 4 in the vending machine.
+ */
+private JLabel Item4Label;
+
+/**
+ * Represents the button used to buy item 5 in the vending machine.
+ */
+private JButton Item5Buy;
+
+/**
+ * Represents the label for item 5 in the vending machine.
+ */
+private JLabel Item5Label;
+
+/**
+ * Represents the button used to buy item 6 in the vending machine.
+ */
+private JButton Item6Buy;
+
+/**
+ * Represents the label for item 6 in the vending machine.
+ */
+private JLabel Item6Label;
+
+/**
+ * Represents the button used to buy item 7 in the vending machine.
+ */
+private JButton Item7Buy;
+
+/**
+ * Represents the label for item 7 in the vending machine.
+ */
+private JLabel Item7Label;
+
+/**
+ * Represents the button used to buy item 8 in the vending machine.
+ */
+private JButton Item8Buy;
+
+/**
+ * Represents the label for item 8 in the vending machine.
+ */
+private JLabel Item8Label;
+
+/**
+ * Represents the panel for the layout of the vending machine interface.
+ */
+private JPanel LayoutPanel;
+
+/**
+ * Represents the label displaying the machine balance in the vending machine.
+ */
+private JLabel MachineBalLabel;
+
+/**
+ * Represents the panel containing the buttons for various vending machine functionalities.
+ */
+private JPanel MachineButtonPanel;
+
+/**
+ * Represents the text area used to display messages and transactions in the vending machine.
+ */
+private JTextArea MachinePrintDisplay;
+
+/**
+ * Represents the label used for maintenance information in the vending machine.
+ */
+private JLabel MaintenanceLabel;
+
+/**
+ * Represents the label used for additional maintenance information in the vending machine.
+ */
+private JLabel MaintenanceLabel1;
+    /**
+ * Represents the label for milk tea flavor in the vending machine.
+ */
+private JLabel MilkteaFlavor;
+
+/**
+ * Represents an additional label for milk tea flavor in the vending machine.
+ */
+private JLabel MilkteaFlavor1;
+
+/**
+ * Represents another additional label for milk tea flavor in the vending machine.
+ */
+private JLabel MilkteaFlavor2;
+
+/**
+ * Represents the panel used for handling money in the vending machine.
+ */
+private JPanel MoneyPanel;
+
+/**
+ * Represents the field used for entering money quantity in the vending machine.
+ */
+private JTextField MoneyQuantityField;
+
+/**
+ * Represents the text area used to display the numpad input in the vending machine.
+ */
+private JTextArea NumPadDisplay;
+
+/**
+ * Represents the label displaying the person's balance in the vending machine.
+ */
+private JLabel PersonBalLabel;
+
+/**
+ * Represents the label for quantity in the vending machine.
+ */
+private JLabel QuantityLabel;
+
+/**
+ * Represents the button used to restock items in the vending machine.
+ */
+private JButton RestockButton;
+
+/**
+ * Represents the field used for entering restock quantity in the vending machine.
+ */
+private JTextField RestockField;
+
+/**
+ * Represents the label for restocking in the vending machine.
+ */
+private JLabel RestockLabel;
+
+/**
+ * Represents the button used to set the item price in the vending machine.
+ */
+private JButton SetPriceButton;
+
+/**
+ * Represents the field used for entering the item price in the vending machine.
+ */
+private JTextField SetPriceField;
+
+/**
+ * Represents the label for setting the item price in the vending machine.
+ */
+private JLabel SetPriceLabel;
+
+/**
+ * Represents the spinner used for selecting the quantity of items in the vending machine.
+ */
+private JSpinner SpinnerQuantity;
+
+/**
+ * Represents the label for the vending machine name in the vending machine.
+ */
+private JLabel VendingMachineName;
+
+/**
+ * Represents the button group for item buttons in the vending machine.
+ */
+private ButtonGroup ItemButtonGroup;
+
+/**
+ * Represents the button group for money buttons in the vending machine.
+ */
+private ButtonGroup MoneyButtonGroup;
+
+/**
+ * Represents the button group for milk tea flavor selection in the vending machine.
+ */
+private ButtonGroup MilkTeaFlavorGroup;
+
+/**
+ * Represents the button group for sugar level selection in the vending machine.
+ */
+private ButtonGroup SugarLevelButtonGroup;
+
+/**
+ * Represents the button group for sinker selection in the vending machine.
+ */
+private ButtonGroup SinkerButtonGroup;
+
+/**
+ * Represents the button used to collect payment in the vending machine.
+ */
+private JButton CollectPaymentButton;
+
+/**
+ * Represents the button used to view transaction summaries in the vending machine.
+ */
+private JButton SummaryTransactionButton;
+
+/**
+ * Represents the button used to exit the custom item menu in the vending machine.
+ */
+private JButton CustomItemMenuExitButton;
+
+/**
+ * Represents the button used to create a milk tea in the vending machine.
+ */
+private JButton CreateMilkteaButton;
+
+/**
+ * Represents the button used for the digit "0" in the vending machine.
+ */
+private JButton jButtonCreate0;
+
+    /**
+ * Represents the button used for the digit "1" in the vending machine.
+ */
+private JButton jButtonCreate1;
+
+/**
+ * Represents the button used for the digit "2" in the vending machine.
+ */
+private JButton jButtonCreate2;
+
+/**
+ * Represents the button used for the digit "3" in the vending machine.
+ */
+private JButton jButtonCreate3;
+
+/**
+ * Represents the button used for the digit "4" in the vending machine.
+ */
+private JButton jButtonCreate4;
+
+/**
+ * Represents the button used for the digit "5" in the vending machine.
+ */
+private JButton jButtonCreate5;
+
+/**
+ * Represents the button used for the digit "6" in the vending machine.
+ */
+private JButton jButtonCreate6;
+
+/**
+ * Represents the button used for the digit "7" in the vending machine.
+ */
+private JButton jButtonCreate7;
+
+/**
+ * Represents the button used for the digit "8" in the vending machine.
+ */
+private JButton jButtonCreate8;
+
+/**
+ * Represents the button used for the digit "9" in the vending machine.
+ */
+private JButton jButtonCreate9;
+
+/**
+ * Represents the label displaying the stock of milk tea flavors in the vending machine.
+ */
+private JLabel MilkteaFlavorStockLabel;
+
+/**
+ * Represents the label for sugar level selection in the vending machine.
+ */
+private JLabel SugarLevelStockLabel;
+
+/**
+ * Represents the label displaying the stock of sinkers in the vending machine.
+ */
+private JLabel SinkerStockLabel;
+
+/**
+ * Represents the panel used for handling the first set of buttons in the vending machine.
+ */
+private JPanel jPanel1;
+
+/**
+ * Represents the panel used for handling the second set of buttons in the vending machine.
+ */
+private JPanel jPanel2;
+
+/**
+ * Represents the panel used for handling the third set of buttons in the vending machine.
+ */
+private JPanel jPanel3;
+
+/**
+ * Represents the panel used for handling the fourth set of buttons in the vending machine.
+ */
+private JPanel jPanel4;
+
+/**
+ * Represents the panel used for handling the fifth set of buttons in the vending machine.
+ */
+private JPanel jPanel5;
+
+/**
+ * Represents the first radio button in the vending machine.
+ */
+private JRadioButton jRadioButton1;
+
+/**
+ * Represents the tenth radio button in the vending machine.
+ */
+private JRadioButton jRadioButton10;
+
+/**
+ * Represents the eleventh radio button in the vending machine.
+ */
+private JRadioButton jRadioButton11;
+
+    /**
+ * Represents a specific radio button used in the user interface.
+ * This radio button is used for a specific purpose, but its purpose is not described in the Javadoc comment.
+ */
+private JRadioButton jRadioButton12;
+
+/**
+ * Represents a specific radio button used in the user interface.
+ * This radio button is used for a specific purpose, but its purpose is not described in the Javadoc comment.
+ */
+private JRadioButton jRadioButton13;
+
+/**
+ * Represents a specific radio button used in the user interface.
+ * This radio button is used for a specific purpose, but its purpose is not described in the Javadoc comment.
+ */
+private JRadioButton jRadioButton14;
+
+/**
+ * Represents a specific radio button used in the user interface.
+ * This radio button is used for a specific purpose, but its purpose is not described in the Javadoc comment.
+ */
+private JRadioButton jRadioButton15;
+
+/**
+ * Represents a specific radio button used in the user interface.
+ * This radio button is used for a specific purpose, but its purpose is not described in the Javadoc comment.
+ */
+private JRadioButton jRadioButton16;
+
+/**
+ * Represents a specific radio button used in the user interface.
+ * This radio button is used for a specific purpose, but its purpose is not described in the Javadoc comment.
+ */
+private JRadioButton jRadioButton17;
+
+/**
+ * Represents a specific radio button used in the user interface.
+ * This radio button is used for a specific purpose, but its purpose is not described in the Javadoc comment.
+ */
+private JRadioButton jRadioButton18;
+
+/**
+ * Represents a specific radio button used in the user interface.
+ * This radio button is used for a specific purpose, but its purpose is not described in the Javadoc comment.
+ */
+private JRadioButton jRadioButton19;
+
+/**
+ * Represents a specific radio button used in the user interface.
+ * This radio button is used for a specific purpose, but its purpose is not described in the Javadoc comment.
+ */
+private JRadioButton jRadioButton2;
+
+/**
+ * Represents a specific radio button used in the user interface.
+ * This radio button is used for a specific purpose, but its purpose is not described in the Javadoc comment.
+ */
+private JRadioButton jRadioButton20;
+
+/**
+ * Represents a specific radio button used in the user interface.
+ * This radio button is used for a specific purpose, but its purpose is not described in the Javadoc comment.
+ */
+private JRadioButton jRadioButton21;
+
+/**
+ * Represents a specific radio button used in the user interface.
+ * This radio button is used for a specific purpose, but its purpose is not described in the Javadoc comment.
+ */
+private JRadioButton jRadioButton22;
+
+/**
+ * Represents a specific radio button used in the user interface.
+ * This radio button is used for a specific purpose, but its purpose is not described in the Javadoc comment.
+ */
+private JRadioButton jRadioButton23;
+
+/**
+ * Represents a specific radio button used in the user interface.
+ * This radio button is used for a specific purpose, but its purpose is not described in the Javadoc comment.
+ */
+private JRadioButton jRadioButton24;
+
+    /**
+ * Represents a JRadioButton for Cookies and Cream flavor.
+ */
+private JRadioButton CookiesCream;
+
+/**
+ * Represents a JRadioButton for Winter Melon flavor.
+ */
+private JRadioButton WinterMelon;
+
+/**
+ * Represents a JRadioButton for Classic Flavor.
+ */
+private JRadioButton ClassicFlavor;
+
+/**
+ * Represents a JRadioButton for 100% Sugar level.
+ */
+private JRadioButton Sugar100;
+
+/**
+ * Represents a JRadioButton for 75% Sugar level.
+ */
+private JRadioButton Sugar75;
+
+/**
+ * Represents a JRadioButton for some option 3 (Please provide a descriptive name).
+ */
+private JRadioButton jRadioButton3;
+
+/**
+ * Represents a JRadioButton for 50% Sugar level.
+ */
+private JRadioButton Sugar50;
+
+/**
+ * Represents a JRadioButton for 25% Sugar level.
+ */
+private JRadioButton Sugar25;
+
+/**
+ * Represents a JRadioButton for 0% Sugar level.
+ */
+private JRadioButton Sugar0;
+
+/**
+ * Represents a JRadioButton for Nata De Coco topping.
+ */
+private JRadioButton NataDeCoco;
+
+/**
+ * Represents a JRadioButton for Tapioca Pearl topping.
+ */
+private JRadioButton TapiocaPearl;
+
+/**
+ * Represents a JRadioButton for some option 4 (Please provide a descriptive name).
+ */
+private JRadioButton jRadioButton4;
+
+/**
+ * Represents a JRadioButton for some option 5 (Please provide a descriptive name).
+ */
+private JRadioButton jRadioButton5;
+
+/**
+ * Represents a JRadioButton for some option 6 (Please provide a descriptive name).
+ */
+private JRadioButton jRadioButton6;
+
+/**
+ * Represents a JRadioButton for some option 7 (Please provide a descriptive name).
+ */
+private JRadioButton jRadioButton7;
+
+/**
+ * Represents a JRadioButton for some option 8 (Please provide a descriptive name).
+ */
+private JRadioButton jRadioButton8;
+
+/**
+ * Represents a JRadioButton for some option 9 (Please provide a descriptive name).
+ */
+private JRadioButton jRadioButton9;
+
+/**
+ * Represents a JScrollPane for some content 2 (Please provide a descriptive name).
+ */
+private JScrollPane jScrollPane2;
+
+/**
+ * Represents a JScrollPane for some content 3 (Please provide a descriptive name).
+ */
+private JScrollPane jScrollPane3;
+
+/**
+ * Represents a JScrollPane for some content 4 (Please provide a descriptive name).
+ */
+private JScrollPane jScrollPane4;
+
+/**
+ * Represents a JScrollPane for some content 5 (Please provide a descriptive name).
+ */
+private JScrollPane jScrollPane5;
+
+/**
+ * Creates a new instance of the Registration Machine View.
+ * This constructor initializes the components of the view.
+ */          
     public RegMachineView() {
         //Initializes components
         initComponents();
@@ -208,30 +745,30 @@ public class RegMachineView extends JFrame {
         MilkteaFlavor1 = new javax.swing.JLabel();
         MilkteaFlavor2 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jRadioButton25 = new javax.swing.JRadioButton();
-        jRadioButton26 = new javax.swing.JRadioButton();
-        jRadioButton27 = new javax.swing.JRadioButton();
+        CookiesCream = new javax.swing.JRadioButton();
+        WinterMelon = new javax.swing.JRadioButton();
+        ClassicFlavor = new javax.swing.JRadioButton();
         MilkteaFlavorStockLabel = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        jRadioButton28 = new javax.swing.JRadioButton();
-        jRadioButton29 = new javax.swing.JRadioButton();
-        jRadioButton30 = new javax.swing.JRadioButton();
-        jRadioButton31 = new javax.swing.JRadioButton();
-        jRadioButton32 = new javax.swing.JRadioButton();
-        SugarLevelLabel = new javax.swing.JLabel();
+        Sugar100 = new javax.swing.JRadioButton();
+        Sugar75 = new javax.swing.JRadioButton();
+        Sugar50 = new javax.swing.JRadioButton();
+        Sugar25 = new javax.swing.JRadioButton();
+        Sugar0 = new javax.swing.JRadioButton();
+        SugarLevelStockLabel = new javax.swing.JLabel();
         CustomItemMenuExitButton = new javax.swing.JButton();
         CreateMilkteaButton = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
-        jRadioButton33 = new javax.swing.JRadioButton();
-        jRadioButton34 = new javax.swing.JRadioButton();
+        NataDeCoco = new javax.swing.JRadioButton();
+        TapiocaPearl = new javax.swing.JRadioButton();
         SinkerStockLabel = new javax.swing.JLabel();
         MilkTeaQuantity = new javax.swing.JSpinner();
         MilkTeaQuantityLabel = new javax.swing.JLabel();
-        buttonGroup1 = new javax.swing.ButtonGroup();
-        buttonGroup2 = new javax.swing.ButtonGroup();
-        buttonGroup3 = new javax.swing.ButtonGroup();
-        buttonGroup4 = new javax.swing.ButtonGroup();
-        buttonGroup5 = new javax.swing.ButtonGroup();
+        ItemButtonGroup = new javax.swing.ButtonGroup();
+        MoneyButtonGroup = new javax.swing.ButtonGroup();
+        MilkTeaFlavorGroup = new javax.swing.ButtonGroup();
+        SugarLevelButtonGroup = new javax.swing.ButtonGroup();
+        SinkerButtonGroup = new javax.swing.ButtonGroup();
         BigMachinePanel = new javax.swing.JPanel();
         VendingMachineName = new javax.swing.JLabel();
         InputPanel = new javax.swing.JPanel();
@@ -288,9 +825,9 @@ public class RegMachineView extends JFrame {
         SpinnerQuantity = new javax.swing.JSpinner();
 
         AdminFrame.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        AdminFrame.setPreferredSize(new java.awt.Dimension(1066, 703));
+        AdminFrame.setPreferredSize(new java.awt.Dimension(1072, 750));
         AdminFrame.setResizable(false);
-        AdminFrame.setSize(new java.awt.Dimension(1066, 703));
+        AdminFrame.setSize(new java.awt.Dimension(1072, 750));
 
         AdminPanel.setBackground(new java.awt.Color(204, 204, 204));
         AdminPanel.setPreferredSize(new java.awt.Dimension(1020, 660));
@@ -323,64 +860,64 @@ public class RegMachineView extends JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 204));
         jPanel1.setLayout(new java.awt.GridLayout(15, 1));
 
-        buttonGroup1.add(jRadioButton1);
+        ItemButtonGroup.add(jRadioButton1);
         jRadioButton1.setText("Item 1");
         jRadioButton1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jPanel1.add(jRadioButton1);
 
-        buttonGroup1.add(jRadioButton2);
+        ItemButtonGroup.add(jRadioButton2);
         jRadioButton2.setText("Item 2");
         jPanel1.add(jRadioButton2);
 
-        buttonGroup1.add(jRadioButton3);
+        ItemButtonGroup.add(jRadioButton3);
         jRadioButton3.setText("Item 3");
         jPanel1.add(jRadioButton3);
 
-        buttonGroup1.add(jRadioButton4);
+        ItemButtonGroup.add(jRadioButton4);
         jRadioButton4.setText("Item 4");
         jPanel1.add(jRadioButton4);
 
-        buttonGroup1.add(jRadioButton5);
+        ItemButtonGroup.add(jRadioButton5);
         jRadioButton5.setText("Item 5");
         jPanel1.add(jRadioButton5);
 
-        buttonGroup1.add(jRadioButton6);
+        ItemButtonGroup.add(jRadioButton6);
         jRadioButton6.setText("Item 6");
         jPanel1.add(jRadioButton6);
 
-        buttonGroup1.add(jRadioButton7);
+        ItemButtonGroup.add(jRadioButton7);
         jRadioButton7.setText("Item 7");
         jPanel1.add(jRadioButton7);
 
-        buttonGroup1.add(jRadioButton8);
+        ItemButtonGroup.add(jRadioButton8);
         jRadioButton8.setText("Item 8");
         jPanel1.add(jRadioButton8);
 
-        buttonGroup1.add(jRadioButton9);
+        ItemButtonGroup.add(jRadioButton9);
         jRadioButton9.setText("Item 9");
         jPanel1.add(jRadioButton9);
 
-        buttonGroup1.add(jRadioButton10);
+        ItemButtonGroup.add(jRadioButton10);
         jRadioButton10.setText("Item 10");
         jPanel1.add(jRadioButton10);
 
-        buttonGroup1.add(jRadioButton11);
+        ItemButtonGroup.add(jRadioButton11);
         jRadioButton11.setText("Item 11");
         jPanel1.add(jRadioButton11);
 
-        buttonGroup1.add(jRadioButton12);
+        ItemButtonGroup.add(jRadioButton12);
         jRadioButton12.setText("Item 12");
         jPanel1.add(jRadioButton12);
 
-        buttonGroup1.add(jRadioButton13);
+        ItemButtonGroup.add(jRadioButton13);
         jRadioButton13.setText("Item 13");
         jPanel1.add(jRadioButton13);
 
-        buttonGroup1.add(jRadioButton14);
+        ItemButtonGroup.add(jRadioButton14);
         jRadioButton14.setText("Item 14");
         jPanel1.add(jRadioButton14);
 
-        buttonGroup1.add(jRadioButton15);
+        ItemButtonGroup.add(jRadioButton15);
         jRadioButton15.setText("Item 15");
         jPanel1.add(jRadioButton15);
 
@@ -409,39 +946,39 @@ public class RegMachineView extends JFrame {
 
         MoneyPanel.setLayout(new java.awt.GridLayout(4, 3, 5, 5));
 
-        buttonGroup2.add(jRadioButton16);
+        MoneyButtonGroup.add(jRadioButton16);
         jRadioButton16.setText("Money 1");
         MoneyPanel.add(jRadioButton16);
 
-        buttonGroup2.add(jRadioButton17);
+        MoneyButtonGroup.add(jRadioButton17);
         jRadioButton17.setText("Money 2");
         MoneyPanel.add(jRadioButton17);
 
-        buttonGroup2.add(jRadioButton18);
+        MoneyButtonGroup.add(jRadioButton18);
         jRadioButton18.setText("Money 3");
         MoneyPanel.add(jRadioButton18);
 
-        buttonGroup2.add(jRadioButton19);
+        MoneyButtonGroup.add(jRadioButton19);
         jRadioButton19.setText("Money 4");
         MoneyPanel.add(jRadioButton19);
 
-        buttonGroup2.add(jRadioButton20);
+        MoneyButtonGroup.add(jRadioButton20);
         jRadioButton20.setText("Money 5");
         MoneyPanel.add(jRadioButton20);
 
-        buttonGroup2.add(jRadioButton21);
+        MoneyButtonGroup.add(jRadioButton21);
         jRadioButton21.setText("Money 6");
         MoneyPanel.add(jRadioButton21);
 
-        buttonGroup2.add(jRadioButton22);
+        MoneyButtonGroup.add(jRadioButton22);
         jRadioButton22.setText("Money 7");
         MoneyPanel.add(jRadioButton22);
 
-        buttonGroup2.add(jRadioButton23);
+        MoneyButtonGroup.add(jRadioButton23);
         jRadioButton23.setText("Money 8");
         MoneyPanel.add(jRadioButton23);
 
-        buttonGroup2.add(jRadioButton24);
+        MoneyButtonGroup.add(jRadioButton24);
         jRadioButton24.setText("Money 9");
         MoneyPanel.add(jRadioButton24);
 
@@ -562,14 +1099,14 @@ public class RegMachineView extends JFrame {
             .addGroup(AdminFrameLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(AdminPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
         AdminFrameLayout.setVerticalGroup(
             AdminFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AdminFrameLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(AdminPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
 
         CustomItemMenu.setPreferredSize(new java.awt.Dimension(680, 620));
@@ -615,20 +1152,20 @@ public class RegMachineView extends JFrame {
 
         jPanel3.setLayout(new java.awt.GridLayout(4, 1, 0, 5));
 
-        jRadioButton25.setBackground(new java.awt.Color(204, 255, 255));
-        buttonGroup3.add(jRadioButton25);
-        jRadioButton25.setText("Cookies and Cream");
-        jPanel3.add(jRadioButton25);
+        CookiesCream.setBackground(new java.awt.Color(204, 255, 255));
+        MilkTeaFlavorGroup.add(CookiesCream);
+        CookiesCream.setText("Cookies and Cream");
+        jPanel3.add(CookiesCream);
 
-        jRadioButton26.setBackground(new java.awt.Color(204, 255, 255));
-        buttonGroup3.add(jRadioButton26);
-        jRadioButton26.setText("Wintermelon");
-        jPanel3.add(jRadioButton26);
+        WinterMelon.setBackground(new java.awt.Color(204, 255, 255));
+        MilkTeaFlavorGroup.add(WinterMelon);
+        WinterMelon.setText("Wintermelon");
+        jPanel3.add(WinterMelon);
 
-        jRadioButton27.setBackground(new java.awt.Color(204, 255, 255));
-        buttonGroup3.add(jRadioButton27);
-        jRadioButton27.setText("Classic Flavor");
-        jPanel3.add(jRadioButton27);
+        ClassicFlavor.setBackground(new java.awt.Color(204, 255, 255));
+        MilkTeaFlavorGroup.add(ClassicFlavor);
+        ClassicFlavor.setText("Classic Flavor");
+        jPanel3.add(ClassicFlavor);
 
         MilkteaFlavorStockLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         MilkteaFlavorStockLabel.setText("IN STOCK: ");
@@ -636,34 +1173,34 @@ public class RegMachineView extends JFrame {
 
         jPanel4.setLayout(new java.awt.GridLayout(6, 1, 0, 5));
 
-        jRadioButton28.setBackground(new java.awt.Color(204, 255, 255));
-        buttonGroup4.add(jRadioButton28);
-        jRadioButton28.setText("100%");
-        jPanel4.add(jRadioButton28);
+        Sugar100.setBackground(new java.awt.Color(204, 255, 255));
+        SugarLevelButtonGroup.add(Sugar100);
+        Sugar100.setText("100%");
+        jPanel4.add(Sugar100);
 
-        jRadioButton29.setBackground(new java.awt.Color(204, 255, 255));
-        buttonGroup4.add(jRadioButton29);
-        jRadioButton29.setText("75%");
-        jPanel4.add(jRadioButton29);
+        Sugar75.setBackground(new java.awt.Color(204, 255, 255));
+        SugarLevelButtonGroup.add(Sugar75);
+        Sugar75.setText("75%");
+        jPanel4.add(Sugar75);
 
-        jRadioButton30.setBackground(new java.awt.Color(204, 255, 255));
-        buttonGroup4.add(jRadioButton30);
-        jRadioButton30.setText("50%");
-        jPanel4.add(jRadioButton30);
+        Sugar50.setBackground(new java.awt.Color(204, 255, 255));
+        SugarLevelButtonGroup.add(Sugar50);
+        Sugar50.setText("50%");
+        jPanel4.add(Sugar50);
 
-        jRadioButton31.setBackground(new java.awt.Color(204, 255, 255));
-        buttonGroup4.add(jRadioButton31);
-        jRadioButton31.setText("25%");
-        jPanel4.add(jRadioButton31);
+        Sugar25.setBackground(new java.awt.Color(204, 255, 255));
+        SugarLevelButtonGroup.add(Sugar25);
+        Sugar25.setText("25%");
+        jPanel4.add(Sugar25);
 
-        jRadioButton32.setBackground(new java.awt.Color(204, 255, 255));
-        buttonGroup4.add(jRadioButton32);
-        jRadioButton32.setText("0%");
-        jPanel4.add(jRadioButton32);
+        Sugar0.setBackground(new java.awt.Color(204, 255, 255));
+        SugarLevelButtonGroup.add(Sugar0);
+        Sugar0.setText("0%");
+        jPanel4.add(Sugar0);
 
-        SugarLevelLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        SugarLevelLabel.setText("IN STOCK: ");
-        jPanel4.add(SugarLevelLabel);
+        SugarLevelStockLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        SugarLevelStockLabel.setText("IN STOCK: ");
+        jPanel4.add(SugarLevelStockLabel);
 
         CustomItemMenuExitButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         CustomItemMenuExitButton.setText("Exit Menu");
@@ -673,15 +1210,15 @@ public class RegMachineView extends JFrame {
 
         jPanel5.setLayout(new java.awt.GridLayout(3, 1, 0, 5));
 
-        jRadioButton33.setBackground(new java.awt.Color(204, 255, 255));
-        buttonGroup5.add(jRadioButton33);
-        jRadioButton33.setText("Nata De Coco");
-        jPanel5.add(jRadioButton33);
+        NataDeCoco.setBackground(new java.awt.Color(204, 255, 255));
+        SinkerButtonGroup.add(NataDeCoco);
+        NataDeCoco.setText("Nata De Coco");
+        jPanel5.add(NataDeCoco);
 
-        jRadioButton34.setBackground(new java.awt.Color(204, 255, 255));
-        buttonGroup5.add(jRadioButton34);
-        jRadioButton34.setText("Tapioca Pearl");
-        jPanel5.add(jRadioButton34);
+        TapiocaPearl.setBackground(new java.awt.Color(204, 255, 255));
+        SinkerButtonGroup.add(TapiocaPearl);
+        TapiocaPearl.setText("Tapioca Pearl");
+        jPanel5.add(TapiocaPearl);
 
         SinkerStockLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         SinkerStockLabel.setText("IN STOCK:");
@@ -690,7 +1227,7 @@ public class RegMachineView extends JFrame {
         MilkTeaQuantity.setModel(new javax.swing.SpinnerNumberModel(1, 1, 10, 1));
         MilkTeaQuantity.setAlignmentX(0.0F);
         MilkTeaQuantity.setAlignmentY(0.0F);
-        MilkTeaQuantity.setEditor(new JSpinner.DefaultEditor(SpinnerQuantity));
+        MilkTeaQuantity.setEditor(new JSpinner.DefaultEditor(MilkTeaQuantity));
         MilkTeaQuantity.setMaximumSize(new java.awt.Dimension(64, 22));
 
         MilkTeaQuantityLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -1233,478 +1770,1285 @@ public class RegMachineView extends JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
-    public void setjRadioButton1Listener (ActionListener actionlistener) {
-        this.jRadioButton1.addActionListener(actionlistener);
-    }
-    
-    public void setjRadioButton2Listener (ActionListener actionlistener) {
-        this.jRadioButton2.addActionListener(actionlistener);
-    }
-    
-    public void setjRadioButton3Listener (ActionListener actionlistener) {
-        this.jRadioButton3.addActionListener(actionlistener);
-    }
-    
-    public void setjRadioButton4Listener (ActionListener actionlistener) {
-        this.jRadioButton4.addActionListener(actionlistener);
-    }
-    
-    public void setjRadioButton5Listener (ActionListener actionlistener) {
-        this.jRadioButton5.addActionListener(actionlistener);
-    }
-    
-    public void setjRadioButton6Listener (ActionListener actionlistener) {
-        this.jRadioButton6.addActionListener(actionlistener);
-    }
-    
-    public void setjRadioButton7Listener (ActionListener actionlistener) {
-        this.jRadioButton7.addActionListener(actionlistener);
-    }
-    
-    public void setjRadioButton8Listener (ActionListener actionlistener) {
-        this.jRadioButton8.addActionListener(actionlistener);
-    }
-    
-    public void setjRadioButton9Listener (ActionListener actionlistener) {
-        this.jRadioButton9.addActionListener(actionlistener);
-    }
-    
-    public void setjRadioButton10Listener (ActionListener actionlistener) {
-        this.jRadioButton10.addActionListener(actionlistener);
-    }
-    
-    public void setjRadioButton11Listener (ActionListener actionlistener) {
-        this.jRadioButton11.addActionListener(actionlistener);
-    }
-    
-    public void setjRadioButton12Listener (ActionListener actionlistener) {
-        this.jRadioButton12.addActionListener(actionlistener);
-    }
-    
-    public void setjRadioButton13Listener (ActionListener actionlistener) {
-        this.jRadioButton13.addActionListener(actionlistener);
-    }
-    
-    public void setjRadioButton14Listener (ActionListener actionlistener) {
-        this.jRadioButton14.addActionListener(actionlistener);
-    }
-    
-    public void setjRadioButton15Listener (ActionListener actionlistener) {
-        this.jRadioButton15.addActionListener(actionlistener);
-    }
-    
-    public void setjRadioButton16Listener (ActionListener actionlistener) {
-        this.jRadioButton16.addActionListener(actionlistener);
-    }
-    
-    public void setjRadioButton17Listener (ActionListener actionlistener) {
-        this.jRadioButton7.addActionListener(actionlistener);
-    }
-    
-    public void setjRadioButton18Listener (ActionListener actionlistener) {
-        this.jRadioButton8.addActionListener(actionlistener);
-    }
-    
-    public void setjRadioButton19Listener (ActionListener actionlistener) {
-        this.jRadioButton9.addActionListener(actionlistener);
-    }
-    
-    public void setjRadioButton20Listener (ActionListener actionlistener) {
-        this.jRadioButton10.addActionListener(actionlistener);
-    }
-    
-    public void setjRadioButton21Listener (ActionListener actionlistener) {
-        this.jRadioButton11.addActionListener(actionlistener);
-    }
-    
-    public void setjRadioButton22Listener (ActionListener actionlistener) {
-        this.jRadioButton12.addActionListener(actionlistener);
-    }
-    
-    public void setjRadioButton23Listener (ActionListener actionlistener) {
-        this.jRadioButton13.addActionListener(actionlistener);
-    }
-    
-    public void setjRadioButton24Listener (ActionListener actionlistener) {
-        this.jRadioButton14.addActionListener(actionlistener);
-    }
-    
-    public JRadioButton getjRadioButton1 () {
-        return this.jRadioButton1;
-    }
-    
-    public JRadioButton getjRadioButton2 () {
-        return this.jRadioButton2;
-    }
-    
-    public JRadioButton getjRadioButton3 () {
-        return this.jRadioButton3;
-    }
-    
-    public JRadioButton getjRadioButton4 () {
-        return this.jRadioButton4;
-    }
-    
-    public JRadioButton getjRadioButton5 () {
-        return this.jRadioButton5;
-    }
-    
-    public JRadioButton getjRadioButton6 () {
-        return this.jRadioButton6;
-    }
-    
-    public JRadioButton getjRadioButton7 () {
-        return this.jRadioButton7;
-    }
-    
-    public JRadioButton getjRadioButton8 () {
-        return this.jRadioButton8;
-    }
-    
-    public JRadioButton getjRadioButton9 () {
-        return this.jRadioButton9;
-    }
-    
-    public JRadioButton getjRadioButton10 () {
-        return this.jRadioButton10;
-    }
-    
-    public JRadioButton getjRadioButton11 () {
-        return this.jRadioButton11;
-    }
-    
-    public JRadioButton getjRadioButton12 () {
-        return this.jRadioButton12;
-    }
-    
-    public JRadioButton getjRadioButton13 () {
-        return this.jRadioButton13;
-    }
-    
-    public JRadioButton getjRadioButton14 () {
-        return this.jRadioButton14;
-    }
-    
-    public JRadioButton getjRadioButton15 () {
-        return this.jRadioButton15;
-    }
-    
-    public JRadioButton getjRadioButton16 () {
-        return this.jRadioButton5;
-    }
-    
-    public JRadioButton getjRadioButton17 () {
-        return this.jRadioButton6;
-    }
-    
-    public JRadioButton getjRadioButton18 () {
-        return this.jRadioButton7;
-    }
-    
-    public JRadioButton getjRadioButton19 () {
-        return this.jRadioButton8;
-    }
-    
-    public JRadioButton getjRadioButton20 () {
-        return this.jRadioButton9;
-    }
-    
-    public JRadioButton getjRadioButton21 () {
-        return this.jRadioButton10;
-    }
-    
-    public JRadioButton getjRadioButton22 () {
-        return this.jRadioButton11;
-    }
-    
-    public JRadioButton getjRadioButton23 () {
-        return this.jRadioButton12;
-    }
-    
-    public JRadioButton getjRadioButton24 () {
-        return this.jRadioButton13;
-    }
-    
-    public void setAdminFrameVisibility(boolean value) {
-        this.AdminFrame.setVisible(value);
-    }
-    
-    public void disposeAdminFrame() {
-        this.AdminFrame.dispose();
-    }
-    
-    public void setMachinePrintDisplayText(String text) {
-        this.MachinePrintDisplay.setText(text);
-    }
-    
-    public String getMachinePrintDisplayText() {
-        return this.MachinePrintDisplay.getText();
-    }
-    
-    public void setPersonBalLabelText(String text) {
-        this.PersonBalLabel.setText(text);
-    }
-    public void setmachineLabel(String text){
-        this.VendingMachineName.setText(text);
-    }
-    
-    public void setcustomItemLabelStatus (boolean value) {
-        CustomItemLabel.setEnabled(value);
-    }
-    
-    public void setcustomItemBuyStatus (boolean value) {
-        CustomItemBuy.setEnabled(value);
-    }
-    
-    public void setIng1LabelStatus (boolean value) {
-        Ing1Label.setEnabled(value);
-    }
-    
-     public void setIng1BuyStatus (boolean value) {
-        Ing1Buy.setEnabled(value);
-    }
-    
-    public void setIng2LabelStatus (boolean value) {
-        Ing2Label.setEnabled(value);
-    }
-    
-    public void setIng2BuyStatus (boolean value) {
-        Ing2Buy.setEnabled(value);
-    }
-    
-    public void setIng3LabelStatus (boolean value) {
-        Ing3Label.setEnabled(value);
-    }
-    
-     public void setIng3BuyStatus (boolean value) {
-        Ing3Buy.setEnabled(value);
-    }
-    public void setNumPadDisplayText (String text) {
-        NumPadDisplay.setText(text);
-    }
-    
-    public String getNumPadDisplayText() {
-        return this.NumPadDisplay.getText();
-    }
-    
-    public int getSpinnerQuantity() {
-       return( (Integer) this.SpinnerQuantity.getValue() );
-    }
-    
-    public void setSpinnerQuantity(int quantity) {
-      this.SpinnerQuantity.setValue(quantity);
-    }
-    
-    public void setItem1BuyActionListener (ActionListener actionlistener) {
-        this.Item1Buy.addActionListener(actionlistener);
-    }
-    
-    public void setItem2BuyActionListener (ActionListener actionlistener) {
-        this.Item2Buy.addActionListener(actionlistener);
-    }
-    
-    public void setItem3BuyActionListener (ActionListener actionlistener) {
-        this.Item3Buy.addActionListener(actionlistener);
-    }
-    
-    public void setItem4BuyActionListener (ActionListener actionlistener) {
-        this.Item4Buy.addActionListener(actionlistener);
-    }
-    
-    public void setItem5BuyActionListener (ActionListener actionlistener) {
-        this.Item5Buy.addActionListener(actionlistener);
-    }
-    
-    public void setItem6BuyActionListener (ActionListener actionlistener) {
-        this.Item6Buy.addActionListener(actionlistener);
-    }
-    
-    public void setItem7BuyActionListener (ActionListener actionlistener) {
-        this.Item7Buy.addActionListener(actionlistener);
-    }
-    
-    public void setItem8BuyActionListener (ActionListener actionlistener) {
-        this.Item8Buy.addActionListener(actionlistener);
-    }
-    
-    public void setCustomItemBuyActionListener (ActionListener actionlistener) {
-        this.CustomItemBuy.addActionListener(actionlistener);
-    }
-    
-    public void setIng1BuyActionListener (ActionListener actionlistener) {
-        this.Ing1Buy.addActionListener(actionlistener);
-    }
-    
-    public void setIng2BuyActionListener (ActionListener actionlistener) {
-        this.Ing2Buy.addActionListener(actionlistener);
-    }
-    
-    public void setIng3BuyActionListener (ActionListener actionlistener) {
-        this.Ing3Buy.addActionListener(actionlistener);
-    }
-    
-    public void setItem1Label (String text) {
-        this.Item1Label.setText(text);
-    }
-    
-    public void setItem2Label (String text) {
-        this.Item2Label.setText(text);
-    }
-     
-    public void setItem3Label (String text) {
-        this.Item3Label.setText(text);
-    }
-      
-    public void setItem4Label (String text) {
-        this.Item4Label.setText(text);
-    }
-       
-    public void setItem5Label (String text) {
-        this.Item5Label.setText(text);
-    }
-        
-    public void setItem6Label (String text) {
-        this.Item6Label.setText(text);
-    }
-         
-    public void setItem7Label (String text) {
-        this.Item7Label.setText(text);
-    }
-          
-    public void setItem8Label (String text) {
-        this.Item8Label.setText(text);
-    }
-    
-    public void setCustomItemLabel (String text) {
-        this.CustomItemLabel.setText(text);
-    }
-    
-    public void setIng1Label (String text) {
-        this.Ing1Label.setText(text);
-    }
-    
-    public void setIng2Label (String text) {
-        this.Ing2Label.setText(text);
-    }
-    
-    public void setIng3Label (String text) {
-        this.Ing3Label.setText(text);
-    }
-    
-    public void setButtonCreate0ActionListener (ActionListener actionlistener) {
-        this.jButtonCreate0.addActionListener(actionlistener);
-    }
-    
-    public void setButtonCreate1ActionListener (ActionListener actionlistener) {
-        this.jButtonCreate1.addActionListener(actionlistener);
-    }
-    
-    public void setButtonCreate2ActionListener (ActionListener actionlistener) {
-        this.jButtonCreate2.addActionListener(actionlistener);
-    }
-    
-    public void setButtonCreate3ActionListener (ActionListener actionlistener) {
-        this.jButtonCreate3.addActionListener(actionlistener);
-    }
-    
-    public void setButtonCreate4ActionListener (ActionListener actionlistener) {
-        this.jButtonCreate4.addActionListener(actionlistener);
-    }
-    
-     public void setButtonCreate5ActionListener (ActionListener actionlistener) {
-        this.jButtonCreate5.addActionListener(actionlistener);
-    }
-    
-    public void setButtonCreate6ActionListener (ActionListener actionlistener) {
-        this.jButtonCreate6.addActionListener(actionlistener);
-    }
-    
-    public void setButtonCreate7ActionListener (ActionListener actionlistener) {
-        this.jButtonCreate7.addActionListener(actionlistener);
-    }
-    
-    public void setButtonCreate8ActionListener (ActionListener actionlistener) {
-        this.jButtonCreate8.addActionListener(actionlistener);
-    }
-    
-    public void setButtonCreate9ActionListener (ActionListener actionlistener) {
-        this.jButtonCreate9.addActionListener(actionlistener);
-    }
-    
-    public void setClearButtonListener(ActionListener actionlistener) {
-        this.ClearButton.addActionListener(actionlistener);
-    }
-    
-    public void setAdminSettingsButtonListener (ActionListener actionlistener) {
-        this.AdminSettingsButton.addActionListener(actionlistener);
-    }
-    
-    public void setMachineBalance(String text) {
-        MachineBalLabel.setText(text);
-    }
-    public void setExitButtonActionListener(ActionListener listener) {
-        this.ExitButton.addActionListener(listener);
-    }
-    
-    public void setRestockButtonListener (ActionListener actionlistener) {
-        this.RestockButton.addActionListener(actionlistener);
-    }
-    
-    public void setSetPriceButtonListener (ActionListener actionlistener) {
-        this.SetPriceButton.addActionListener(actionlistener);
-    }
-    
-    public void setAdminBackButtonListener (ActionListener actionlistener) {
-        this.AdminBackButton.addActionListener(actionlistener);
-    }    
-    
-    public void setCollectPaymentButtonListener (ActionListener actionlistener) {
-        this.CollectPaymentButton.addActionListener(actionlistener);
-    }
-    
-    public void setSummaryTransactionButtonListener (ActionListener actionlistener) {
-        this.SummaryTransactionButton.addActionListener(actionlistener);
-    }
-    
-    public void setInputQuantityButtonListener (ActionListener actionlistener) {
-        this.InputQuantityButton.addActionListener(actionlistener);
-    }
-    
-    public void setInsertMoneyButtonListener (ActionListener actionlistener) {
-        this.InsertMoneyButton.addActionListener(actionlistener);
-    }
-    
-    public void setDispenseButtonActionListener(ActionListener actionlistener) {
-        this.DispenseButton.addActionListener(actionlistener);
-    }
-    
-    public void setCustomItemMenuExitButtonListener (ActionListener actionlistener) {
-        this.CustomItemMenuExitButton.addActionListener(actionlistener);
-    }
-    
-    public void setCreateMilkteaButtonListener (ActionListener actionlistener) {
-        this.CreateMilkteaButton.addActionListener(actionlistener);
-    }
-    
-    public JFrame getAdminFrame () {
-        return this.AdminFrame;
-    }
-    
-    public JFrame getCustomItemMenu () {
-        return this.CustomItemMenu;
-    }
-    
-    public JTextArea getAdminOtherDisplayArea() {
-        return this.AdminOtherDisplay;
-    }
-    
-    public String getAdminDisplayAreaText() {
-        return this.AdminDisplayArea.getText();
-    }
-    
-    public void setAdminDisplayAreaText(String text) {
-        this.AdminDisplayArea.setText(text);
-    }
+    /**
+ * Gets the ButtonGroup for selecting items.
+ *
+ * @return The ButtonGroup representing item selection.
+ */
+public ButtonGroup getItemButtonGroup() {
+    return this.ItemButtonGroup;
+}
+
+/**
+ * Gets the ButtonGroup for selecting money options.
+ *
+ * @return The ButtonGroup representing money selection.
+ */
+public ButtonGroup getMoneyButtonGroup() {
+    return this.MoneyButtonGroup;
+}
+
+/**
+ * Gets the ButtonGroup for selecting milk tea flavors.
+ *
+ * @return The ButtonGroup representing milk tea flavor selection.
+ */
+public ButtonGroup getMilkTeaFlavorGroup() {
+    return this.MilkTeaFlavorGroup;
+}
+
+/**
+ * Gets the ButtonGroup for selecting sugar levels.
+ *
+ * @return The ButtonGroup representing sugar level selection.
+ */
+public ButtonGroup getSugarLevelButtonGroup() {
+    return this.SugarLevelButtonGroup;
+}
+
+/**
+ * Gets the ButtonGroup for selecting sinker options.
+ *
+ * @return The ButtonGroup representing sinker selection.
+ */
+public ButtonGroup getSinkerButtonGroup() {
+    return this.SinkerButtonGroup;
+}
+    
+    /**
+ * Sets an ActionListener for jRadioButton1.
+ *
+ * @param actionlistener The ActionListener to be set for jRadioButton1.
+ */
+public void setjRadioButton1Listener(ActionListener actionlistener) {
+    this.jRadioButton1.addActionListener(actionlistener);
+}
+
+/**
+ * Sets an ActionListener for jRadioButton2.
+ *
+ * @param actionlistener The ActionListener to be set for jRadioButton2.
+ */
+public void setjRadioButton2Listener(ActionListener actionlistener) {
+    this.jRadioButton2.addActionListener(actionlistener);
+}
+
+/**
+ * Sets an ActionListener for jRadioButton3.
+ *
+ * @param actionlistener The ActionListener to be set for jRadioButton3.
+ */
+public void setjRadioButton3Listener(ActionListener actionlistener) {
+    this.jRadioButton3.addActionListener(actionlistener);
+}
+    
+    /**
+ * Sets an ActionListener for jRadioButton4.
+ *
+ * @param actionlistener The ActionListener to be set for jRadioButton4.
+ */
+public void setjRadioButton4Listener(ActionListener actionlistener) {
+    this.jRadioButton4.addActionListener(actionlistener);
+}
+
+/**
+ * Sets an ActionListener for jRadioButton5.
+ *
+ * @param actionlistener The ActionListener to be set for jRadioButton5.
+ */
+public void setjRadioButton5Listener(ActionListener actionlistener) {
+    this.jRadioButton5.addActionListener(actionlistener);
+}
+
+/**
+ * Sets an ActionListener for jRadioButton6.
+ *
+ * @param actionlistener The ActionListener to be set for jRadioButton6.
+ */
+public void setjRadioButton6Listener(ActionListener actionlistener) {
+    this.jRadioButton6.addActionListener(actionlistener);
+}
+
+/**
+ * Sets an ActionListener for jRadioButton7.
+ *
+ * @param actionlistener The ActionListener to be set for jRadioButton7.
+ */
+public void setjRadioButton7Listener(ActionListener actionlistener) {
+    this.jRadioButton7.addActionListener(actionlistener);
+}
+
+/**
+ * Sets an ActionListener for jRadioButton8.
+ *
+ * @param actionlistener The ActionListener to be set for jRadioButton8.
+ */
+public void setjRadioButton8Listener(ActionListener actionlistener) {
+    this.jRadioButton8.addActionListener(actionlistener);
+}
+
+/**
+ * Sets an ActionListener for jRadioButton9.
+ *
+ * @param actionlistener The ActionListener to be set for jRadioButton9.
+ */
+public void setjRadioButton9Listener(ActionListener actionlistener) {
+    this.jRadioButton9.addActionListener(actionlistener);
+}
+
+/**
+ * Sets an ActionListener for jRadioButton10.
+ *
+ * @param actionlistener The ActionListener to be set for jRadioButton10.
+ */
+public void setjRadioButton10Listener(ActionListener actionlistener) {
+    this.jRadioButton10.addActionListener(actionlistener);
+}
+
+/**
+ * Sets an ActionListener for jRadioButton11.
+ *
+ * @param actionlistener The ActionListener to be set for jRadioButton11.
+ */
+public void setjRadioButton11Listener(ActionListener actionlistener) {
+    this.jRadioButton11.addActionListener(actionlistener);
+}
+
+/**
+ * Sets an ActionListener for jRadioButton12.
+ *
+ * @param actionlistener The ActionListener to be set for jRadioButton12.
+ */
+public void setjRadioButton12Listener(ActionListener actionlistener) {
+    this.jRadioButton12.addActionListener(actionlistener);
+}
+
+/**
+ * Sets an ActionListener for jRadioButton13.
+ *
+ * @param actionlistener The ActionListener to be set for jRadioButton13.
+ */
+public void setjRadioButton13Listener(ActionListener actionlistener) {
+    this.jRadioButton13.addActionListener(actionlistener);
+}
+
+/**
+ * Sets an ActionListener for jRadioButton14.
+ *
+ * @param actionlistener The ActionListener to be set for jRadioButton14.
+ */
+public void setjRadioButton14Listener(ActionListener actionlistener) {
+    this.jRadioButton14.addActionListener(actionlistener);
+}
+
+/**
+ * Sets an ActionListener for jRadioButton15.
+ *
+ * @param actionlistener The ActionListener to be set for jRadioButton15.
+ */
+public void setjRadioButton15Listener(ActionListener actionlistener) {
+    this.jRadioButton15.addActionListener(actionlistener);
+}
+
+/**
+ * Sets an ActionListener for jRadioButton16.
+ *
+ * @param actionlistener The ActionListener to be set for jRadioButton16.
+ */
+public void setjRadioButton16Listener(ActionListener actionlistener) {
+    this.jRadioButton16.addActionListener(actionlistener);
+}
+
+    
+    /**
+ * Sets an ActionListener for jRadioButton17.
+ *
+ * @param actionlistener The ActionListener to be set for jRadioButton17.
+ */
+public void setjRadioButton17Listener(ActionListener actionlistener) {
+    this.jRadioButton7.addActionListener(actionlistener);
+}
+
+/**
+ * Sets an ActionListener for jRadioButton18.
+ *
+ * @param actionlistener The ActionListener to be set for jRadioButton18.
+ */
+public void setjRadioButton18Listener(ActionListener actionlistener) {
+    this.jRadioButton8.addActionListener(actionlistener);
+}
+
+/**
+ * Sets an ActionListener for jRadioButton19.
+ *
+ * @param actionlistener The ActionListener to be set for jRadioButton19.
+ */
+public void setjRadioButton19Listener(ActionListener actionlistener) {
+    this.jRadioButton9.addActionListener(actionlistener);
+}
+
+/**
+ * Sets an ActionListener for jRadioButton20.
+ *
+ * @param actionlistener The ActionListener to be set for jRadioButton20.
+ */
+public void setjRadioButton20Listener(ActionListener actionlistener) {
+    this.jRadioButton10.addActionListener(actionlistener);
+}
+
+/**
+ * Sets an ActionListener for jRadioButton21.
+ *
+ * @param actionlistener The ActionListener to be set for jRadioButton21.
+ */
+public void setjRadioButton21Listener(ActionListener actionlistener) {
+    this.jRadioButton11.addActionListener(actionlistener);
+}
+
+/**
+ * Sets an ActionListener for jRadioButton22.
+ *
+ * @param actionlistener The ActionListener to be set for jRadioButton22.
+ */
+public void setjRadioButton22Listener(ActionListener actionlistener) {
+    this.jRadioButton12.addActionListener(actionlistener);
+}
+
+/**
+ * Sets an ActionListener for jRadioButton23.
+ *
+ * @param actionlistener The ActionListener to be set for jRadioButton23.
+ */
+public void setjRadioButton23Listener(ActionListener actionlistener) {
+    this.jRadioButton13.addActionListener(actionlistener);
+}
+
+/**
+ * Sets an ActionListener for jRadioButton24.
+ *
+ * @param actionlistener The ActionListener to be set for jRadioButton24.
+ */
+public void setjRadioButton24Listener(ActionListener actionlistener) {
+    this.jRadioButton14.addActionListener(actionlistener);
+}
+
+    
+    /**
+ * Gets the JRadioButton jRadioButton1.
+ *
+ * @return The JRadioButton jRadioButton1.
+ */
+public JRadioButton getjRadioButton1() {
+    return this.jRadioButton1;
+}
+
+/**
+ * Gets the JRadioButton jRadioButton2.
+ *
+ * @return The JRadioButton jRadioButton2.
+ */
+public JRadioButton getjRadioButton2() {
+    return this.jRadioButton2;
+}
+
+/**
+ * Gets the JRadioButton jRadioButton3.
+ *
+ * @return The JRadioButton jRadioButton3.
+ */
+public JRadioButton getjRadioButton3() {
+    return this.jRadioButton3;
+}
+
+/**
+ * Gets the JRadioButton jRadioButton4.
+ *
+ * @return The JRadioButton jRadioButton4.
+ */
+public JRadioButton getjRadioButton4() {
+    return this.jRadioButton4;
+}
+
+/**
+ * Gets the JRadioButton jRadioButton5.
+ *
+ * @return The JRadioButton jRadioButton5.
+ */
+public JRadioButton getjRadioButton5() {
+    return this.jRadioButton5;
+}
+
+/**
+ * Gets the JRadioButton jRadioButton6.
+ *
+ * @return The JRadioButton jRadioButton6.
+ */
+public JRadioButton getjRadioButton6() {
+    return this.jRadioButton6;
+}
+
+/**
+ * Gets the JRadioButton jRadioButton7.
+ *
+ * @return The JRadioButton jRadioButton7.
+ */
+public JRadioButton getjRadioButton7() {
+    return this.jRadioButton7;
+}
+
+/**
+ * Gets the JRadioButton jRadioButton8.
+ *
+ * @return The JRadioButton jRadioButton8.
+ */
+public JRadioButton getjRadioButton8() {
+    return this.jRadioButton8;
+}
+
+/**
+ * Gets the JRadioButton jRadioButton9.
+ *
+ * @return The JRadioButton jRadioButton9.
+ */
+public JRadioButton getjRadioButton9() {
+    return this.jRadioButton9;
+}
+
+/**
+ * Gets the JRadioButton jRadioButton10.
+ *
+ * @return The JRadioButton jRadioButton10.
+ */
+public JRadioButton getjRadioButton10() {
+    return this.jRadioButton10;
+}
+
+/**
+ * Gets the JRadioButton jRadioButton11.
+ *
+ * @return The JRadioButton jRadioButton11.
+ */
+public JRadioButton getjRadioButton11() {
+    return this.jRadioButton11;
+}
+
+/**
+ * Gets the JRadioButton jRadioButton12.
+ *
+ * @return The JRadioButton jRadioButton12.
+ */
+public JRadioButton getjRadioButton12() {
+    return this.jRadioButton12;
+}
+
+/**
+ * Gets the JRadioButton jRadioButton13.
+ *
+ * @return The JRadioButton jRadioButton13.
+ */
+public JRadioButton getjRadioButton13() {
+    return this.jRadioButton13;
+}
+
+/**
+ * Gets the JRadioButton jRadioButton14.
+ *
+ * @return The JRadioButton jRadioButton14.
+ */
+public JRadioButton getjRadioButton14() {
+    return this.jRadioButton14;
+}
+
+/**
+ * Gets the JRadioButton jRadioButton15.
+ *
+ * @return The JRadioButton jRadioButton15.
+ */
+public JRadioButton getjRadioButton15() {
+    return this.jRadioButton15;
+}
+
+/**
+ * Gets the JRadioButton jRadioButton16.
+ *
+ * @return The JRadioButton jRadioButton16.
+ */
+public JRadioButton getjRadioButton16() {
+    return this.jRadioButton16;
+}
+
+/**
+ * Gets the JRadioButton jRadioButton17.
+ *
+ * @return The JRadioButton jRadioButton17.
+ */
+public JRadioButton getjRadioButton17() {
+    return this.jRadioButton17;
+}
+
+/**
+ * Gets the JRadioButton jRadioButton18.
+ *
+ * @return The JRadioButton jRadioButton18.
+ */
+public JRadioButton getjRadioButton18() {
+    return this.jRadioButton18;
+}
+
+/**
+ * Gets the JRadioButton jRadioButton19.
+ *
+ * @return The JRadioButton jRadioButton19.
+ */
+public JRadioButton getjRadioButton19() {
+    return this.jRadioButton19;
+}
+
+/**
+ * Gets the JRadioButton jRadioButton20.
+ *
+ * @return The JRadioButton jRadioButton20.
+ */
+public JRadioButton getjRadioButton20() {
+    return this.jRadioButton20;
+}
+
+/**
+ * Gets the JRadioButton jRadioButton21.
+ *
+ * @return The JRadioButton jRadioButton21.
+ */
+public JRadioButton getjRadioButton21() {
+    return this.jRadioButton21;
+}
+
+/**
+ * Gets the JRadioButton jRadioButton22.
+ *
+ * @return The JRadioButton jRadioButton22.
+ */
+public JRadioButton getjRadioButton22() {
+    return this.jRadioButton22;
+}
+
+/**
+ * Gets the JRadioButton jRadioButton23.
+ *
+ * @return The JRadioButton jRadioButton23.
+ */
+public JRadioButton getjRadioButton23() {
+    return this.jRadioButton23;
+}
+
+/**
+ * Gets the JRadioButton jRadioButton24.
+ *
+ * @return The JRadioButton jRadioButton24.
+ */
+public JRadioButton getjRadioButton24() {
+    return this.jRadioButton24;
+}
+
+    
+    /**
+ * Gets the JTextField MoneyQuantityField used for inputting money quantity.
+ *
+ * @return The MoneyQuantityField for money input.
+ */
+public JTextField getMoneyQuantityField() {
+    return this.MoneyQuantityField;
+}
+
+/**
+ * Sets the visibility of the AdminFrame.
+ *
+ * @param value True to make the AdminFrame visible, false to hide it.
+ */
+public void setAdminFrameVisibility(boolean value) {
+    this.AdminFrame.setVisible(value);
+}
+
+/**
+ * Gets the JFrame CustomItemMenu used for custom item display.
+ *
+ * @return The CustomItemMenu JFrame.
+ */
+public JFrame getCustomItemMenu() {
+    return this.CustomItemMenu;
+}
+
+/**
+ * Gets the JTextArea MachinePrintDisplay used for displaying machine print.
+ *
+ * @return The MachinePrintDisplay JTextArea.
+ */
+public JTextArea getMachinePrintDisplay() {
+    return this.MachinePrintDisplay;
+}
+
+/**
+ * Disposes the AdminFrame, closing it.
+ */
+public void disposeAdminFrame() {
+    this.AdminFrame.dispose();
+}
+
+/**
+ * Sets the text of the MachinePrintDisplay.
+ *
+ * @param text The text to set in the MachinePrintDisplay.
+ */
+public void setMachinePrintDisplayText(String text) {
+    this.MachinePrintDisplay.setText(text);
+}
+
+/**
+ * Gets the text from the MachinePrintDisplay.
+ *
+ * @return The text currently displayed in the MachinePrintDisplay.
+ */
+public String getMachinePrintDisplayText() {
+    return this.MachinePrintDisplay.getText();
+}
+
+/**
+ * Sets the text of the PersonBalLabel.
+ *
+ * @param text The text to set in the PersonBalLabel.
+ */
+public void setPersonBalLabelText(String text) {
+    this.PersonBalLabel.setText(text);
+}
+
+/**
+ * Sets the text of the VendingMachineName label.
+ *
+ * @param text The text to set in the VendingMachineName label.
+ */
+public void setmachineLabel(String text) {
+    this.VendingMachineName.setText(text);
+}
+
+/**
+ * Sets the status (enabled or disabled) of the CustomItemLabel.
+ *
+ * @param value True to enable the CustomItemLabel, false to disable it.
+ */
+public void setcustomItemLabelStatus(boolean value) {
+    CustomItemLabel.setEnabled(value);
+}
+    
+    /**
+ * Sets the status (enabled or disabled) of the CustomItemBuy button.
+ *
+ * @param value True to enable the CustomItemBuy button, false to disable it.
+ */
+public void setcustomItemBuyStatus(boolean value) {
+    CustomItemBuy.setEnabled(value);
+}
+
+/**
+ * Sets the status (enabled or disabled) of the Ing1Label.
+ *
+ * @param value True to enable the Ing1Label, false to disable it.
+ */
+public void setIng1LabelStatus(boolean value) {
+    Ing1Label.setEnabled(value);
+}
+
+/**
+ * Sets the status (enabled or disabled) of the Ing1Buy button.
+ *
+ * @param value True to enable the Ing1Buy button, false to disable it.
+ */
+public void setIng1BuyStatus(boolean value) {
+    Ing1Buy.setEnabled(value);
+}
+
+/**
+ * Sets the status (enabled or disabled) of the Ing2Label.
+ *
+ * @param value True to enable the Ing2Label, false to disable it.
+ */
+public void setIng2LabelStatus(boolean value) {
+    Ing2Label.setEnabled(value);
+}
+
+/**
+ * Sets the status (enabled or disabled) of the Ing2Buy button.
+ *
+ * @param value True to enable the Ing2Buy button, false to disable it.
+ */
+public void setIng2BuyStatus(boolean value) {
+    Ing2Buy.setEnabled(value);
+}
+
+/**
+ * Sets the status (enabled or disabled) of the Ing3Label.
+ *
+ * @param value True to enable the Ing3Label, false to disable it.
+ */
+public void setIng3LabelStatus(boolean value) {
+    Ing3Label.setEnabled(value);
+}
+
+/**
+ * Sets the status (enabled or disabled) of the Ing3Buy button.
+ *
+ * @param value True to enable the Ing3Buy button, false to disable it.
+ */
+public void setIng3BuyStatus(boolean value) {
+    Ing3Buy.setEnabled(value);
+}
+
+/**
+ * Sets the text of the NumPadDisplay.
+ *
+ * @param text The text to set in the NumPadDisplay.
+ */
+public void setNumPadDisplayText(String text) {
+    NumPadDisplay.setText(text);
+}
+
+/**
+ * Gets the text from the NumPadDisplay.
+ *
+ * @return The text currently displayed in the NumPadDisplay.
+ */
+public String getNumPadDisplayText() {
+    return this.NumPadDisplay.getText();
+}
+
+/**
+ * Gets the selected quantity from the SpinnerQuantity.
+ *
+ * @return The selected quantity from the SpinnerQuantity.
+ */
+public int getSpinnerQuantity() {
+    return ((Integer) this.SpinnerQuantity.getValue());
+}
+
+/**
+ * Sets the quantity value of the SpinnerQuantity.
+ *
+ * @param quantity The quantity value to set in the SpinnerQuantity.
+ */
+public void setSpinnerQuantity(int quantity) {
+    this.SpinnerQuantity.setValue(quantity);
+}
+
+    
+   /**
+ * Sets the ActionListener for Item1Buy button.
+ *
+ * @param actionlistener The ActionListener to be set for Item1Buy button.
+ */
+public void setItem1BuyActionListener(ActionListener actionlistener) {
+    this.Item1Buy.addActionListener(actionlistener);
+}
+
+/**
+ * Sets the ActionListener for Item2Buy button.
+ *
+ * @param actionlistener The ActionListener to be set for Item2Buy button.
+ */
+public void setItem2BuyActionListener(ActionListener actionlistener) {
+    this.Item2Buy.addActionListener(actionlistener);
+}
+
+/**
+ * Sets the ActionListener for Item3Buy button.
+ *
+ * @param actionlistener The ActionListener to be set for Item3Buy button.
+ */
+public void setItem3BuyActionListener(ActionListener actionlistener) {
+    this.Item3Buy.addActionListener(actionlistener);
+}
+
+/**
+ * Sets the ActionListener for Item4Buy button.
+ *
+ * @param actionlistener The ActionListener to be set for Item4Buy button.
+ */
+public void setItem4BuyActionListener(ActionListener actionlistener) {
+    this.Item4Buy.addActionListener(actionlistener);
+}
+
+/**
+ * Sets the ActionListener for Item5Buy button.
+ *
+ * @param actionlistener The ActionListener to be set for Item5Buy button.
+ */
+public void setItem5BuyActionListener(ActionListener actionlistener) {
+    this.Item5Buy.addActionListener(actionlistener);
+}
+
+/**
+ * Sets the ActionListener for Item6Buy button.
+ *
+ * @param actionlistener The ActionListener to be set for Item6Buy button.
+ */
+public void setItem6BuyActionListener(ActionListener actionlistener) {
+    this.Item6Buy.addActionListener(actionlistener);
+}
+
+/**
+ * Sets the ActionListener for Item7Buy button.
+ *
+ * @param actionlistener The ActionListener to be set for Item7Buy button.
+ */
+public void setItem7BuyActionListener(ActionListener actionlistener) {
+    this.Item7Buy.addActionListener(actionlistener);
+}
+
+/**
+ * Sets the ActionListener for Item8Buy button.
+ *
+ * @param actionlistener The ActionListener to be set for Item8Buy button.
+ */
+public void setItem8BuyActionListener(ActionListener actionlistener) {
+    this.Item8Buy.addActionListener(actionlistener);
+}
+
+/**
+ * Sets the ActionListener for CustomItemBuy button.
+ *
+ * @param actionlistener The ActionListener to be set for CustomItemBuy button.
+ */
+public void setCustomItemBuyActionListener(ActionListener actionlistener) {
+    this.CustomItemBuy.addActionListener(actionlistener);
+}
+
+/**
+ * Sets the ActionListener for Ing1Buy button.
+ *
+ * @param actionlistener The ActionListener to be set for Ing1Buy button.
+ */
+public void setIng1BuyActionListener(ActionListener actionlistener) {
+    this.Ing1Buy.addActionListener(actionlistener);
+}
+
+/**
+ * Sets the ActionListener for Ing2Buy button.
+ *
+ * @param actionlistener The ActionListener to be set for Ing2Buy button.
+ */
+public void setIng2BuyActionListener(ActionListener actionlistener) {
+    this.Ing2Buy.addActionListener(actionlistener);
+}
+
+/**
+ * Sets the ActionListener for Ing3Buy button.
+ *
+ * @param actionlistener The ActionListener to be set for Ing3Buy button.
+ */
+public void setIng3BuyActionListener(ActionListener actionlistener) {
+    this.Ing3Buy.addActionListener(actionlistener);
+}
+
+/**
+ * Sets the text of Item1Label.
+ *
+ * @param text The text to set in Item1Label.
+ */
+public void setItem1Label(String text) {
+    this.Item1Label.setText(text);
+}
+
+/**
+ * Sets the text of Item2Label.
+ *
+ * @param text The text to set in Item2Label.
+ */
+public void setItem2Label(String text) {
+    this.Item2Label.setText(text);
+}
+
+/**
+ * Sets the text of Item3Label.
+ *
+ * @param text The text to set in Item3Label.
+ */
+public void setItem3Label(String text) {
+    this.Item3Label.setText(text);
+}
+
+/**
+ * Sets the text of Item4Label.
+ *
+ * @param text The text to set in Item4Label.
+ */
+public void setItem4Label(String text) {
+    this.Item4Label.setText(text);
+}
+
+/**
+ * Sets the text of Item5Label.
+ *
+ * @param text The text to set in Item5Label.
+ */
+public void setItem5Label(String text) {
+    this.Item5Label.setText(text);
+}
+
+/**
+ * Sets the text of Item6Label.
+ *
+ * @param text The text to set in Item6Label.
+ */
+public void setItem6Label(String text) {
+    this.Item6Label.setText(text);
+}
+
+/**
+ * Sets the text of Item7Label.
+ *
+ * @param text The text to set in Item7Label.
+ */
+public void setItem7Label(String text) {
+    this.Item7Label.setText(text);
+}
+
+/**
+ * Sets the text of Item8Label.
+ *
+ * @param text The text to set in Item8Label.
+ */
+public void setItem8Label(String text) {
+    this.Item8Label.setText(text);
+}  
+    /**
+ * Sets the text of the CustomItemLabel.
+ *
+ * @param text The text to set in the CustomItemLabel.
+ */
+public void setCustomItemLabel(String text) {
+    this.CustomItemLabel.setText(text);
+}
+
+/**
+ * Sets the text of the Ing1Label.
+ *
+ * @param text The text to set in the Ing1Label.
+ */
+public void setIng1Label(String text) {
+    this.Ing1Label.setText(text);
+}
+
+/**
+ * Sets the text of the Ing2Label.
+ *
+ * @param text The text to set in the Ing2Label.
+ */
+public void setIng2Label(String text) {
+    this.Ing2Label.setText(text);
+}
+
+/**
+ * Sets the text of the Ing3Label.
+ *
+ * @param text The text to set in the Ing3Label.
+ */
+public void setIng3Label(String text) {
+    this.Ing3Label.setText(text);
+}
+
+/**
+ * Sets the ActionListener for the ButtonCreate0 button.
+ *
+ * @param actionlistener The ActionListener to be set for ButtonCreate0 button.
+ */
+public void setButtonCreate0ActionListener(ActionListener actionlistener) {
+    this.jButtonCreate0.addActionListener(actionlistener);
+}
+
+/**
+ * Sets the ActionListener for the ButtonCreate1 button.
+ *
+ * @param actionlistener The ActionListener to be set for ButtonCreate1 button.
+ */
+public void setButtonCreate1ActionListener(ActionListener actionlistener) {
+    this.jButtonCreate1.addActionListener(actionlistener);
+}
+
+/**
+ * Sets the ActionListener for the ButtonCreate2 button.
+ *
+ * @param actionlistener The ActionListener to be set for ButtonCreate2 button.
+ */
+public void setButtonCreate2ActionListener(ActionListener actionlistener) {
+    this.jButtonCreate2.addActionListener(actionlistener);
+}
+
+/**
+ * Sets the ActionListener for the ButtonCreate3 button.
+ *
+ * @param actionlistener The ActionListener to be set for ButtonCreate3 button.
+ */
+public void setButtonCreate3ActionListener(ActionListener actionlistener) {
+    this.jButtonCreate3.addActionListener(actionlistener);
+}
+
+/**
+ * Sets the ActionListener for the ButtonCreate4 button.
+ *
+ * @param actionlistener The ActionListener to be set for ButtonCreate4 button.
+ */
+public void setButtonCreate4ActionListener(ActionListener actionlistener) {
+    this.jButtonCreate4.addActionListener(actionlistener);
+}
+
+/**
+ * Sets the ActionListener for the ButtonCreate5 button.
+ *
+ * @param actionlistener The ActionListener to be set for ButtonCreate5 button.
+ */
+public void setButtonCreate5ActionListener(ActionListener actionlistener) {
+    this.jButtonCreate5.addActionListener(actionlistener);
+}
+
+/**
+ * Sets the ActionListener for the ButtonCreate6 button.
+ *
+ * @param actionlistener The ActionListener to be set for ButtonCreate6 button.
+ */
+public void setButtonCreate6ActionListener(ActionListener actionlistener) {
+    this.jButtonCreate6.addActionListener(actionlistener);
+}
+
+/**
+ * Sets the ActionListener for the ButtonCreate7 button.
+ *
+ * @param actionlistener The ActionListener to be set for ButtonCreate7 button.
+ */
+public void setButtonCreate7ActionListener(ActionListener actionlistener) {
+    this.jButtonCreate7.addActionListener(actionlistener);
+}
+
+/**
+ * Sets the ActionListener for the ButtonCreate8 button.
+ *
+ * @param actionlistener The ActionListener to be set for ButtonCreate8 button.
+ */
+public void setButtonCreate8ActionListener(ActionListener actionlistener) {
+    this.jButtonCreate8.addActionListener(actionlistener);
+}
+
+/**
+ * Sets the ActionListener for the ButtonCreate9 button.
+ *
+ * @param actionlistener The ActionListener to be set for ButtonCreate9 button.
+ */
+public void setButtonCreate9ActionListener(ActionListener actionlistener) {
+    this.jButtonCreate9.addActionListener(actionlistener);
+}
+    
+    /**
+ * Sets the ActionListener for the ClearButton.
+ *
+ * @param actionlistener The ActionListener to be set for the ClearButton.
+ */
+public void setClearButtonListener(ActionListener actionlistener) {
+    this.ClearButton.addActionListener(actionlistener);
+}
+
+/**
+ * Sets the ActionListener for the AdminSettingsButton.
+ *
+ * @param actionlistener The ActionListener to be set for the AdminSettingsButton.
+ */
+public void setAdminSettingsButtonListener(ActionListener actionlistener) {
+    this.AdminSettingsButton.addActionListener(actionlistener);
+}
+
+/**
+ * Sets the text of MachineBalLabel to display the machine balance.
+ *
+ * @param text The text to set in MachineBalLabel to display the machine balance.
+ */
+public void setMachineBalance(String text) {
+    MachineBalLabel.setText(text);
+}
+
+/**
+ * Sets the ActionListener for the ExitButton.
+ *
+ * @param listener The ActionListener to be set for the ExitButton.
+ */
+public void setExitButtonActionListener(ActionListener listener) {
+    this.ExitButton.addActionListener(listener);
+}
+
+/**
+ * Sets the ActionListener for the RestockButton.
+ *
+ * @param actionlistener The ActionListener to be set for the RestockButton.
+ */
+public void setRestockButtonListener(ActionListener actionlistener) {
+    this.RestockButton.addActionListener(actionlistener);
+}
+
+/**
+ * Sets the ActionListener for the SetPriceButton.
+ *
+ * @param actionlistener The ActionListener to be set for the SetPriceButton.
+ */
+public void setSetPriceButtonListener(ActionListener actionlistener) {
+    this.SetPriceButton.addActionListener(actionlistener);
+}
+
+/**
+ * Sets the ActionListener for the AdminBackButton.
+ *
+ * @param actionlistener The ActionListener to be set for the AdminBackButton.
+ */
+public void setAdminBackButtonListener(ActionListener actionlistener) {
+    this.AdminBackButton.addActionListener(actionlistener);
+}
+
+/**
+ * Sets the ActionListener for the CollectPaymentButton.
+ *
+ * @param actionlistener The ActionListener to be set for the CollectPaymentButton.
+ */
+public void setCollectPaymentButtonListener(ActionListener actionlistener) {
+    this.CollectPaymentButton.addActionListener(actionlistener);
+}
+
+/**
+ * Sets the ActionListener for the SummaryTransactionButton.
+ *
+ * @param actionlistener The ActionListener to be set for the SummaryTransactionButton.
+ */
+public void setSummaryTransactionButtonListener(ActionListener actionlistener) {
+    this.SummaryTransactionButton.addActionListener(actionlistener);
+}
+
+/**
+ * Sets the ActionListener for the InputQuantityButton.
+ *
+ * @param actionlistener The ActionListener to be set for the InputQuantityButton.
+ */
+public void setInputQuantityButtonListener(ActionListener actionlistener) {
+    this.InputQuantityButton.addActionListener(actionlistener);
+}
+
+/**
+ * Sets the ActionListener for the InsertMoneyButton.
+ *
+ * @param actionlistener The ActionListener to be set for the InsertMoneyButton.
+ */
+public void setInsertMoneyButtonListener(ActionListener actionlistener) {
+    this.InsertMoneyButton.addActionListener(actionlistener);
+}
+
+/**
+ * Sets the ActionListener for the DispenseButton.
+ *
+ * @param actionlistener The ActionListener to be set for the DispenseButton.
+ */
+public void setDispenseButtonActionListener(ActionListener actionlistener) {
+    this.DispenseButton.addActionListener(actionlistener);
+}
+
+/**
+ * Sets the ActionListener for the CustomItemMenuExitButton.
+ *
+ * @param actionlistener The ActionListener to be set for the CustomItemMenuExitButton.
+ */
+public void setCustomItemMenuExitButtonListener(ActionListener actionlistener) {
+    this.CustomItemMenuExitButton.addActionListener(actionlistener);
+}
+
+/**
+ * Sets the ActionListener for the CreateMilkteaButton.
+ *
+ * @param actionlistener The ActionListener to be set for the CreateMilkteaButton.
+ */
+public void setCreateMilkteaButtonListener(ActionListener actionlistener) {
+    this.CreateMilkteaButton.addActionListener(actionlistener);
+}
+    
+    /**
+ * Returns the JTextField for setting the price of an item.
+ *
+ * @return The SetPriceField, a JTextField for setting item price.
+ */
+public JTextField getSetPriceField() {
+    return this.SetPriceField;
+}
+
+/**
+ * Returns the JTextField for restocking an item's quantity.
+ *
+ * @return The RestockField, a JTextField for restocking item quantity.
+ */
+public JTextField getRestockField() {
+    return this.RestockField;
+}
+
+/**
+ * Returns the JFrame object representing the admin frame.
+ *
+ * @return The AdminFrame, a JFrame object representing the admin interface.
+ */
+public JFrame getAdminFrame() {
+    return this.AdminFrame;
+}
+
+/**
+ * Returns the JTextArea for displaying additional admin information.
+ *
+ * @return The AdminOtherDisplay, a JTextArea for showing admin information.
+ */
+public JTextArea getAdminOtherDisplayArea() {
+    return this.AdminOtherDisplay;
+}
+
+/**
+ * Returns the text content of the AdminDisplayArea, an area for displaying admin information.
+ *
+ * @return The text content of the AdminDisplayArea as a String.
+ */
+public String getAdminDisplayAreaText() {
+    return this.AdminDisplayArea.getText();
+}
+
+/**
+ * Sets the text content of the AdminDisplayArea, an area for displaying admin information.
+ *
+ * @param text The text to be set in the AdminDisplayArea.
+ */
+public void setAdminDisplayAreaText(String text) {
+    this.AdminDisplayArea.setText(text);
+}
+
+/**
+ * Returns the JRadioButton representing the "Cookies and Cream" option.
+ *
+ * @return The CookiesCream JRadioButton.
+ */
+public JRadioButton getCookiesCream() {
+    return this.CookiesCream;
+}
+
+/**
+ * Returns the JLabel displaying the stock of milk tea flavors.
+ *
+ * @return The MilkTeaFlavorStockLabel, a JLabel showing the stock of milk tea flavors.
+ */
+public JLabel getMilkTeaFlavorStockLabel() {
+    return this.MilkteaFlavorStockLabel;
+}
+
+/**
+ * Returns the JLabel displaying the stock of sugar levels.
+ *
+ * @return The SugarLevelStockLabel, a JLabel showing the stock of sugar levels.
+ */
+public JLabel getSugarLevelStockStockLabel() {
+    return this.SugarLevelStockLabel;
+}
+
+/**
+ * Returns the JLabel displaying the stock of sinkers.
+ *
+ * @return The SinkerStockLabel, a JLabel showing the stock of sinkers.
+ */
+public JLabel getSinkerStockLabel() {
+    return this.SinkerStockLabel;
+}
+
+/**
+ * Returns the JRadioButton representing the "100% Sugar" option.
+ *
+ * @return The Sugar100 JRadioButton.
+ */
+public JRadioButton getSugar100() {
+    return this.Sugar100;
+}
+
+/**
+ * Returns the JRadioButton representing the "75% Sugar" option.
+ *
+ * @return The Sugar75 JRadioButton.
+ */
+public JRadioButton getSugar75() {
+    return this.Sugar75;
+}
+
+/**
+ * Returns the JRadioButton representing the "50% Sugar" option.
+ *
+ * @return The Sugar50 JRadioButton.
+ */
+public JRadioButton getSugar50() {
+    return this.Sugar50;
+}
+
+/**
+ * Returns the JRadioButton representing the "25% Sugar" option.
+ *
+ * @return The Sugar25 JRadioButton.
+ */
+public JRadioButton getSugar25() {
+    return this.Sugar25;
+}
+
+/**
+ * Returns the JRadioButton representing the "0% Sugar" option.
+ *
+ * @return The Sugar0 JRadioButton.
+ */
+public JRadioButton getSugar0() {
+    return this.Sugar0;
+}
+
+/**
+ * Returns the JRadioButton representing the "Nata de Coco" option.
+ *
+ * @return The NataDeCoco JRadioButton.
+ */
+public JRadioButton getNataDeCoco() {
+    return this.NataDeCoco;
+}
+
+/**
+ * Returns the JRadioButton representing the "Tapioca Pearl" option.
+ *
+ * @return The TapiocaPearl JRadioButton.
+ */
+public JRadioButton getTapiocaPearl() {
+    return this.TapiocaPearl;
+}
+
+/**
+ * Returns the JRadioButton representing the "Classic Flavor" option.
+ *
+ * @return The ClassicFlavor JRadioButton.
+ */
+public JRadioButton getClassicFlavor() {
+    return this.ClassicFlavor;
+}
+
+/**
+ * Returns the JRadioButton representing the "Winter Melon" option.
+ *
+ * @return The WinterMelon JRadioButton.
+ */
+public JRadioButton getWinterMelon() {
+    return this.WinterMelon;
+}
+
+/**
+ * Returns the JSpinner for selecting the quantity of milk tea.
+ *
+ * @return The MilkTeaQuantity JSpinner for selecting milk tea quantity.
+ */
+public JSpinner getMilkTeaQuantity() {
+    return this.MilkTeaQuantity;
+}
+
 }
 
  
@@ -1718,8 +3062,10 @@ public class RegMachineView extends JFrame {
     private javax.swing.JButton AdminSettingsButton;
     private javax.swing.JPanel BigMachinePanel;
     private javax.swing.JPanel BuyItemPanel;
+    private javax.swing.JRadioButton ClassicFlavor;
     private javax.swing.JButton ClearButton;
     private javax.swing.JButton CollectPaymentButton;
+    private javax.swing.JRadioButton CookiesCream;
     private javax.swing.JButton CreateMilkteaButton;
     private javax.swing.JButton CustomItemBuy;
     private javax.swing.JLabel CustomItemLabel;
@@ -1754,20 +3100,24 @@ public class RegMachineView extends JFrame {
     private javax.swing.JLabel Item7Label;
     private javax.swing.JButton Item8Buy;
     private javax.swing.JLabel Item8Label;
+    private javax.swing.ButtonGroup ItemButtonGroup;
     private javax.swing.JPanel LayoutPanel;
     private javax.swing.JLabel MachineBalLabel;
     private javax.swing.JPanel MachineButtonPanel;
     private javax.swing.JTextArea MachinePrintDisplay;
     private javax.swing.JLabel MaintenanceLabel;
     private javax.swing.JLabel MaintenanceLabel1;
+    private javax.swing.ButtonGroup MilkTeaFlavorGroup;
     private javax.swing.JSpinner MilkTeaQuantity;
     private javax.swing.JLabel MilkTeaQuantityLabel;
     private javax.swing.JLabel MilkteaFlavor;
     private javax.swing.JLabel MilkteaFlavor1;
     private javax.swing.JLabel MilkteaFlavor2;
     private javax.swing.JLabel MilkteaFlavorStockLabel;
+    private javax.swing.ButtonGroup MoneyButtonGroup;
     private javax.swing.JPanel MoneyPanel;
     private javax.swing.JTextField MoneyQuantityField;
+    private javax.swing.JRadioButton NataDeCoco;
     private javax.swing.JTextArea NumPadDisplay;
     private javax.swing.JLabel PersonBalLabel;
     private javax.swing.JLabel QuantityLabel;
@@ -1777,16 +3127,20 @@ public class RegMachineView extends JFrame {
     private javax.swing.JButton SetPriceButton;
     private javax.swing.JTextField SetPriceField;
     private javax.swing.JLabel SetPriceLabel;
+    private javax.swing.ButtonGroup SinkerButtonGroup;
     private javax.swing.JLabel SinkerStockLabel;
     private javax.swing.JSpinner SpinnerQuantity;
-    private javax.swing.JLabel SugarLevelLabel;
+    private javax.swing.JRadioButton Sugar0;
+    private javax.swing.JRadioButton Sugar100;
+    private javax.swing.JRadioButton Sugar25;
+    private javax.swing.JRadioButton Sugar50;
+    private javax.swing.JRadioButton Sugar75;
+    private javax.swing.ButtonGroup SugarLevelButtonGroup;
+    private javax.swing.JLabel SugarLevelStockLabel;
     private javax.swing.JButton SummaryTransactionButton;
+    private javax.swing.JRadioButton TapiocaPearl;
     private javax.swing.JLabel VendingMachineName;
-    private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.ButtonGroup buttonGroup2;
-    private javax.swing.ButtonGroup buttonGroup3;
-    private javax.swing.ButtonGroup buttonGroup4;
-    private javax.swing.ButtonGroup buttonGroup5;
+    private javax.swing.JRadioButton WinterMelon;
     private javax.swing.JButton jButtonCreate0;
     private javax.swing.JButton jButtonCreate1;
     private javax.swing.JButton jButtonCreate2;
@@ -1819,17 +3173,7 @@ public class RegMachineView extends JFrame {
     private javax.swing.JRadioButton jRadioButton22;
     private javax.swing.JRadioButton jRadioButton23;
     private javax.swing.JRadioButton jRadioButton24;
-    private javax.swing.JRadioButton jRadioButton25;
-    private javax.swing.JRadioButton jRadioButton26;
-    private javax.swing.JRadioButton jRadioButton27;
-    private javax.swing.JRadioButton jRadioButton28;
-    private javax.swing.JRadioButton jRadioButton29;
     private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton30;
-    private javax.swing.JRadioButton jRadioButton31;
-    private javax.swing.JRadioButton jRadioButton32;
-    private javax.swing.JRadioButton jRadioButton33;
-    private javax.swing.JRadioButton jRadioButton34;
     private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JRadioButton jRadioButton5;
     private javax.swing.JRadioButton jRadioButton6;

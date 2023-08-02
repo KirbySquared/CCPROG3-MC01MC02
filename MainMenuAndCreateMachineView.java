@@ -7,32 +7,111 @@ package GUIINTERFACE;
 import javax.swing.*;
 import java.awt.event.*;
 /*
- * @author kurvy morales & emmanuel ting
+ * @author kurvy morales and emmanuel ting
+ */
+
+/**
+ * The MainMenuAndCreateMachineView class represents the graphical user interface (GUI) 
+ * for the main menu and vending machine creation view of the vending machine application.
+ * It extends the javax.swing.JFrame class to create a window with various GUI components
+ * for user interaction. The class includes buttons, labels, radio buttons, text fields, and
+ * a text area for displaying the list of items in the vending machine.
  */
 public class MainMenuAndCreateMachineView extends javax.swing.JFrame {
     /**
-     * Creates new form BaseFrame
+     * Creates the main frame for the vending machine GUI.
      */
-    //private RegMachineView Machine; //REMOVE ONCE CONTROLLER CODE IS IMPLEMENTED
     private JFrame CreateMachine;
+    
+    /**
+     * A group of radio buttons to select the type of vending machine to create.
+     */
     private ButtonGroup buttonGroup;
+    
+    /**
+     * A button to exit the vending machine GUI application.
+     */
     private JButton ExitButton;
+    
+    /**
+     * A button to create a new vending machine.
+     */
     private JButton CreateVendingMachine;
+    
+    /**
+     * A button to test the existing vending machine.
+     */
     private JButton TestVendingMachine;
+    
+    /**
+     * A button to confirm and create the vending machine.
+     */
     private JButton CreateMachineButton;
+    
+    /**
+     * A label to display information or messages in the GUI.
+     */
     private JLabel jLabel1;
+    
+    /**
+     * A label to display information or messages in the GUI.
+     */
     private JLabel jLabel2;
+    
+    /**
+     * A label to display information about the selected item in the vending machine.
+     */
     private JLabel ItemDisplayLabel;
+    
+    /**
+     * A label to display information or messages in the GUI.
+     */
     private JLabel jLabel4;
+    
+    /**
+     * A panel to group and organize GUI components.
+     */
     private JPanel jPanel1;
+    
+    /**
+     * A panel to group and organize GUI components.
+     */
     private JPanel jPanel2;
+    
+    /**
+     * A panel to group and organize GUI components.
+     */
     private JPanel jPanel3;
+    
+    /**
+     * A radio button to select a regular vending machine.
+     */
     private JRadioButton RegMachineButton;
+    
+    /**
+     * A radio button to select a special vending machine.
+     */
     private JRadioButton SpecialMachineButton;
+    
+    /**
+     * A scrollable pane to display the list of items in the vending machine.
+     */
     private JScrollPane jScrollPane1;
+    
+    /**
+     * A text area to display the list of items in the vending machine.
+     */
     private JTextArea ItemListDisplay;
+    
+    /**
+     * A text field to enter input or display information in the GUI.
+     */
     private JTextField jTextField1;
     
+    /**
+     * Constructs the main menu and vending machine creation view.
+     * This constructor initializes and sets up the graphical components of the view.
+     */
     public MainMenuAndCreateMachineView() {
         initComponents();
     }
@@ -256,61 +335,163 @@ public class MainMenuAndCreateMachineView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    public void setItemListDisplayText (String text) {
+    
+    /**
+     * Gets the button group that contains the radio buttons for selecting the type of vending machine.
+     *
+     * @return The button group containing the radio buttons.
+     */
+    public ButtonGroup getButtonGroup() {
+        return this.buttonGroup;
+    }
+
+    /**
+     * Gets the radio button for selecting a regular vending machine.
+     *
+     * @return The radio button for selecting a regular vending machine.
+     */
+    public JRadioButton getRegMachineButton() {
+        return this.RegMachineButton;
+    }
+
+    /**
+     * Gets the radio button for selecting a special vending machine.
+     *
+     * @return The radio button for selecting a special vending machine.
+     */
+    public JRadioButton getSpecialMachineButton() {
+        return this.SpecialMachineButton;
+    }
+    
+    /**
+     * Sets the text displayed in the item list display area.
+     *
+     * @param text The text to be displayed in the item list display area.
+     */
+    public void setItemListDisplayText(String text) {
         ItemListDisplay.setText(text);
     }
-    
-    public void setTestVendingMachineEnabled (boolean value) {
+
+    /**
+     * Enables or disables the "Test Vending Machine" button.
+     *
+     * @param value {@code true} to enable the button, {@code false} to disable it.
+     */
+    public void setTestVendingMachineEnabled(boolean value) {
         TestVendingMachine.setEnabled(value);
     }
-    
-    public void disposecreateMachine() {
+
+    /**
+     * Disposes of the "Create Machine" frame, closing the vending machine creation view.
+     */
+    public void disposeCreateMachine() {
         this.CreateMachine.dispose();
     }
-    
-    public boolean isRegMachineButtonSelected () {
+
+    /**
+     * Checks if the radio button for selecting a regular vending machine is currently selected.
+     *
+     * @return {@code true} if the regular vending machine radio button is selected, otherwise {@code false}.
+     */
+    public boolean isRegMachineButtonSelected() {
         return this.RegMachineButton.isSelected();
     }
-    
-    public boolean isSpecialMachineButtonSelected () {
+
+    /**
+     * Checks if the radio button for selecting a special vending machine is currently selected.
+     *
+     * @return {@code true} if the special vending machine radio button is selected, otherwise {@code false}.
+     */
+    public boolean isSpecialMachineButtonSelected() {
         return this.SpecialMachineButton.isSelected();
     }
-    
-    public void setmachineNameTextField (String text) {
+
+    /**
+     * Sets the text in the machine name text field.
+     *
+     * @param text The text to be set in the machine name text field.
+     */
+    public void setMachineNameTextField(String text) {
         this.jTextField1.setText(text);
     }
-    
-    public String getmachineNameTextField () {
+
+    /**
+     * Gets the text from the machine name text field.
+     *
+     * @return The text from the machine name text field.
+     */
+    public String getMachineNameTextField() {
         return this.jTextField1.getText();
     }
     
+     /**
+     * Sets the visibility of the "Create Machine" frame.
+     *
+     * @param value {@code true} to make the "Create Machine" frame visible, {@code false} to hide it.
+     */
     public void setCreateMachineVisible(boolean value) {
         this.CreateMachine.setVisible(value);
     }
-    
-    public void setCreateMachineButtonEnabled (boolean value) {
+
+    /**
+     * Enables or disables the "Create Machine" button.
+     *
+     * @param value {@code true} to enable the button, {@code false} to disable it.
+     */
+    public void setCreateMachineButtonEnabled(boolean value) {
         this.CreateMachineButton.setEnabled(value);
     }
+
+    /**
+     * Sets an action listener to the "Exit Button".
+     *
+     * @param actionlistener The action listener to be attached to the "Exit Button".
+     */
     public void setExitButtonListener(ActionListener actionlistener) {
         this.ExitButton.addActionListener(actionlistener);
     }
 
-    public void setBtnTestVendingMachineListener (ActionListener actionlistener) {
+    /**
+     * Sets an action listener to the "Test Vending Machine" button.
+     *
+     * @param actionlistener The action listener to be attached to the "Test Vending Machine" button.
+     */
+    public void setBtnTestVendingMachineListener(ActionListener actionlistener) {
         this.TestVendingMachine.addActionListener(actionlistener);
     }
-    
+
+    /**
+     * Sets an action listener to the "Create Vending Machine" button.
+     *
+     * @param actionlistener The action listener to be attached to the "Create Vending Machine" button.
+     */
     public void setCreateVendingBtnListener(ActionListener actionlistener) {
         this.CreateVendingMachine.addActionListener(actionlistener);
     }
-    
-    public void setRegMachineButtonListener (ActionListener actionlistener) {
+
+    /**
+     * Sets an action listener to the "Regular Vending Machine" radio button.
+     *
+     * @param actionlistener The action listener to be attached to the "Regular Vending Machine" radio button.
+     */
+    public void setRegMachineButtonListener(ActionListener actionlistener) {
         this.RegMachineButton.addActionListener(actionlistener);
-    }    
-    
-    public void setSpecialMachineButtonListener (ActionListener actionlistener) {
+    }
+
+    /**
+     * Sets an action listener to the "Special Vending Machine" radio button.
+     *
+     * @param actionlistener The action listener to be attached to the "Special Vending Machine" radio button.
+     */
+    public void setSpecialMachineButtonListener(ActionListener actionlistener) {
         this.SpecialMachineButton.addActionListener(actionlistener);
     }
-    
+
+    /**
+     * Sets an action listener to the "Create Machine" button.
+     *
+     * @param actionlistener The action listener to be attached to the "Create Machine" button.
+     */
     public void setCreateMachineButtonListener(ActionListener actionlistener) {
         this.CreateMachineButton.addActionListener(actionlistener);
     }

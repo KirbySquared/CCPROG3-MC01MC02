@@ -26,6 +26,12 @@ public class Cash extends Coin{
         super(value, quantity);
     }
     
+    /**
+     * Returns a string representation of the cash denomination. The string contains
+     * the value and quantity of the cash denomination separated by a new line.
+     *
+     * @return A string representation of the cash denomination.
+     */
     public String toString() {
         return "Value: " + this.getValue() + "\nQuantity: " + this.getQuantity();
     }

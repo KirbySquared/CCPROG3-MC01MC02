@@ -1,8 +1,10 @@
 package GUIINTERFACE;
-import java.util.*;
+
+import java.util.ArrayList;
 
 /**
  * Represents a transaction log that keeps track of sales and total sales.
+ * The TransactionLog class maintains a list of sales and the total sales amount.
  */
 public class TransactionLog {
 
@@ -18,13 +20,14 @@ public class TransactionLog {
 
     /**
      * Constructs an empty transaction log.
+     * Initializes the TransactionLog object with an empty list of sales and total sales amount as 0.
      */
     public TransactionLog () {
         this.sales = new ArrayList<>(8);
         totalSales = 0;
     }
 
-     /**
+    /**
      * Adds a sale to the transaction log and updates the total sales amount.
      *
      * @param sale the sale to be added
@@ -47,6 +50,7 @@ public class TransactionLog {
 
     /**
      * Updates the total sales amount based on the sales in the transaction log.
+     * Calculates the total sales amount by summing up the prices of all items in the sales list.
      */
     public void updateTotalSales()
     {

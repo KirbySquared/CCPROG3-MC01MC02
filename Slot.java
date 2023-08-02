@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 /**
  * Represents a slot in the vending machine that holds multiple items and their quantity.
+ * Each Slot object maintains a list of items stored in the slot.
  */
 public class Slot {
 
@@ -15,7 +16,7 @@ public class Slot {
     /**
      * Constructs a slot with the specified list of items and their quantity.
      *
-     * @param items    the list of items stored in the slot
+     * @param items the list of items stored in the slot
      */
     public Slot(ArrayList<Item> items) {
         this.items = items;
@@ -47,22 +48,17 @@ public class Slot {
      */
     public int getQuantity() {
         int value = 0;
-        Item dummyItem = new Item("Dummy Item", 0,0); // Create a dummy item with zero price
-        
-        if (items.isEmpty() ) 
-        {
+        Item dummyItem = new Item("Dummy Item", 0, 0); // Create a dummy item with zero price
+
+        if (items.isEmpty()) {
             // If the slot is empty, add a dummy item and return its quantity as 0
             items.add(dummyItem);
             return value;
-        } 
-        else if ( items.get(0).getName().equals("Dummy Item") )
-        {
+        } else if (items.get(0).getName().equals("Dummy Item")) {
             return value;
-        }
-       else
-       {
+        } else {
             return this.items.size();
-       } 
+        }
     }
 
     /**
@@ -73,17 +69,14 @@ public class Slot {
      */
     public boolean decreaseQuantity(int quantity) {
         boolean value = true;
-        if (this.items.size() >= quantity) 
-        {
+        if (this.items.size() >= quantity) {
             for (int i = 0; i < quantity; i++) {
                 this.items.remove(0); // Remove items from the front of the list
             }
-            if (this.items.isEmpty() )
-            {
-               this.items.add(new Item("Dummy Item", 0,0));
+            if (this.items.isEmpty()) {
+                this.items.add(new Item("Dummy Item", 0, 0));
             }
-        } 
-        else {
+        } else {
             value = false;
         }
         return value;
@@ -101,6 +94,12 @@ public class Slot {
         }
     }
 
+    /**
+     * Returns the item at the specified index in the slot's list of items.
+     *
+     * @param index the index of the item to retrieve
+     * @return the item at the specified index, or null if the index is out of bounds
+     */
     public Item getItemAtIndex(int index) {
         if (index >= 0 && index < items.size()) {
             return items.get(index);
