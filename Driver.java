@@ -1,3 +1,4 @@
+package GUIINTERFACE;
 /*
  * We/I, Morales,Kurvy & Ting, Emmanuel of section S26, declare that the code, resources, and documents that we
 submitted for the [1st/2nd] phase of the major course output (MCO) for CCPROG3 are our own work and

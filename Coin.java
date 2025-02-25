@@ -1,3 +1,4 @@
+package GUIINTERFACE;
 /**
  * Represents a coin with a specific value and quantity.
  */
@@ -85,11 +86,20 @@ public class Coin {
     {   
         boolean value = true;
 
-        if (this.quantity > newquantity)
+        if (this.quantity >= newquantity)
         this.quantity -= newquantity;
         else
         value = false;
 
         return value;
+    }
+    
+    /**
+ * Returns a string representation of this object.
+ *
+ * @return A string containing the value and quantity of the object.
+ */
+    public String toString() {
+        return "Value: " + this.getValue() + "\nQuantity: " + this.getQuantity();
     }
 }

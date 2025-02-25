@@ -1,7 +1,9 @@
+package GUIINTERFACE;
 import java.util.*;
 
 /**
  * Represents a vending machine that sells items and provides change.
+ * The VendingMachine class manages slots containing items, cash inventory, item inventory, and transaction log.
  */
 public class VendingMachine {
 
@@ -63,20 +65,25 @@ public class VendingMachine {
      * @param slot     the slot index to restock
      * @param quantity the quantity of items to add to the slot
      */
-   public void restockItem(int slot, int quantity)
-    {
-        slots.get(slot).addQuantity(quantity);
+    public void restockItem(int slot, int quantity) {
+        Slot selectedSlot = slots.get(slot);
+        Item selecteditem = selectedSlot.getItems().get(0); // Get the first item in the slot
+        selectedSlot.addItems(selecteditem, quantity);
     }
-
     /**
      * Sets the price of the item in the specified slot.
      *
      * @param slot  the slot index to set the item price
      * @param price the price to set for the item
      */
-    public void setItemPrice(int slot, int price)
-    {
-        slots.get(slot).getItem().setPrice(price);
+    public void setItemPrice(int slot, int price) {
+        Slot selectedSlot = slots.get(slot);
+        Item selecteditem = selectedSlot.getItemAtIndex(0); // Get the first item in the slot
+        if (selecteditem != null) {
+            selecteditem.setPrice(price);
+        } else {
+            System.out.println("Slot is empty. Cannot set item price.");
+        }
     }
 
     /**
@@ -89,35 +96,30 @@ public class VendingMachine {
     public void selectItem(int slot, int money, int quantity) //For buying in vending machine
     {
         Slot selectedSlot = slots.get(slot);
-        Item selecteditem = selectedSlot.getItem();
-
-        if (selectedSlot.getQuantity() > 0 && selectedSlot.getQuantity() >= quantity) {
+        int itemsAvailable = selectedSlot.getQuantity();
+    
+        if (itemsAvailable > 0 && itemsAvailable >= quantity) { 
+            Item selecteditem = selectedSlot.getItemAtIndex(0); // Get the first item in the slot
             int price = selecteditem.getPrice() * quantity;
             double availableCash = cashInventory.getTotalCash();
-
-            if (availableCash >= price && money >= price && (money - price) < availableCash) 
-            {
+    
+            if (availableCash >= price && money >= price && (money - price) < availableCash) {
                 selectedSlot.decreaseQuantity(quantity);
                 produceChange(price, money, selecteditem, quantity);
-                Sale sale = new Sale(selecteditem,quantity);
+                Sale sale = new Sale(selecteditem, quantity);
                 transactionLog.addSale(sale);
-            }
-            else if (availableCash <= price && money >= price && (money - price) > availableCash)
-            {
+            } else if (availableCash <= price && money >= price && (money - price) > availableCash) {
                 System.out.println("Vending Machine is out of change. Please contact the maintenance manager.");
-            }
-             else {
+            } else {
                 System.out.println("Insufficient funds. Please insert more coins.");
             }
-        }
-        else if (selectedSlot.getQuantity() > 0 && selectedSlot.getQuantity() < quantity)
-        {
+        } else if (itemsAvailable > 0 && itemsAvailable < quantity) {
             System.out.println("The quantity you have entered is invalid.");
-        }
-        else {
+        } else {
             System.out.println("Item is out of stock.");
         }
     }
+    
 
     /**
      * Calculates and dispenses the change to the user after a successful transaction.
@@ -142,7 +144,7 @@ public class VendingMachine {
                   if (cash.getQuantity() == 0 )
                     {
                         valuechecker = false;
-                        break;
+                        continue;
                     }
                 }
                
@@ -156,7 +158,7 @@ public class VendingMachine {
                   if (coin.getQuantity() == 0 )
                     {
                         valuechecker = false;
-                        break;
+                        continue;
                     }
                 }
                 

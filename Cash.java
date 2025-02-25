@@ -1,3 +1,4 @@
+package GUIINTERFACE;
 /**
  * Represents a cash denomination, which is a specific type of coin.
  */
@@ -23,6 +24,16 @@ public class Cash extends Coin{
     public Cash (int value, int quantity)
     {
         super(value, quantity);
+    }
+    
+    /**
+     * Returns a string representation of the cash denomination. The string contains
+     * the value and quantity of the cash denomination separated by a new line.
+     *
+     * @return A string representation of the cash denomination.
+     */
+    public String toString() {
+        return "Value: " + this.getValue() + "\nQuantity: " + this.getQuantity();
     }
     
 }

@@ -1,5 +1,8 @@
+package GUIINTERFACE;
+
 /**
  * Represents a sale of an item in the vending machine.
+ * Each Sale object keeps track of the item being sold and its quantity.
  */
 public class Sale {
 
@@ -43,7 +46,7 @@ public class Sale {
         return item;
     }
 
-     /**
+    /**
      * Returns the quantity of the item being sold.
      *
      * @return the quantity of the item being sold
@@ -52,40 +55,37 @@ public class Sale {
         return quantity;
     }
 
-     /**
+    /**
      * Adds the specified quantity to the current quantity of the item being sold.
      *
      * @param quantity the quantity to be added
      * @return true if the quantity was successfully added, false otherwise
      */
     public boolean addQuantity(int quantity) {
-
         boolean value = true;
 
         if (quantity > 0)
-        this.quantity += quantity;
+            this.quantity += quantity;
         else
-        value = false;
+            value = false;
 
         return value;
     }
 
-     /**
+    /**
      * Decreases the quantity of the item being sold by the specified amount.
      *
      * @param quantity the quantity to be decreased
      * @return true if the quantity was successfully decreased, false otherwise
      */
     public boolean decreaseQuantity(int quantity) {
-
         boolean value = true;
 
         if (quantity > 0 && this.quantity >= quantity)
-        this.quantity -= quantity;
+            this.quantity -= quantity;
         else
-        value = false;
+            value = false;
 
         return value;
     }
 }
-
